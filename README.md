@@ -20,6 +20,4 @@ The system should:
 5. Return to the main page in the event that an action on other pages fails.
 6. Have secure protocols to improve data security.
 
----
-
 ## System Design
