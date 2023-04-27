@@ -7,12 +7,16 @@ This project focuses on developing a web-based drug dispensing tool that allows 
 ### Requirements:
 #### Functional Requirements
 The system should:
-1. Allow the management of medicines via various database operations
-2. Manage the details of patients with the medicines that they require or have taken
-3. Allow patients to login and view their details, or select medicines that they require
+1. Allow the management of medicines via various database operations.
+2. Manage the details of patients with the medicines that they require or have taken.
+3. Allow patients to login and view their details, or select medicines that they require.
 
 #### Non-functional Requirements
 The system should:
-1. Be easily accessible from both a desktop and mobile device
-2. Have a GUI which easy to navigate
+1.Have an interactive user interface.
+2.Have a sign-in interface for administrative access and access .
+3.Be accessible to the public, both members and non-members.
+4.Have fast access to all users.
+5.Return to the main page in the event that an action on other pages fails.
+6.Have secure protocols to improve data security.
 
