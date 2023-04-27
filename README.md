@@ -14,4 +14,5 @@ The system should:
 #### Non-functional Requirements
 The system should:
 1. Be easily accessible from both a desktop and mobile device
+2. Have a GUI which easy to navigate
 
