@@ -1,6 +1,6 @@
 # Project: Drug Dispensing tool
 ## Purpose of the project
-This project focuses on developing a web-based drug dispensing tool that allows the management of drugs, as well as the dispensing of drugs to patients
+This project focuses on developing a web-based drug dispensing tool that allows the management of drugs, as well as the dispensing of drugs to patients.
 
 ---
 
