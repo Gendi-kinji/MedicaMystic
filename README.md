@@ -11,6 +11,7 @@ The system should:
 2. Manage the details of patients with the medicines that they require or have taken.
 3. Allow patients to register into the system.
 4. Allow patients to login and view their details, or select medicines that they require.
+5. Print an invoice or receipt containing details of medicines selected.
 
 #### Non-functional Requirements
 The system should:
