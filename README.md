@@ -14,7 +14,7 @@ The system should:
 
 #### Non-functional Requirements
 The system should:
-1. Have an interactive GUI
+1. Have an interactive GUI.
 2. Have a sign-in interface for both administrative access and user access.
 3. Be accessible to the public, both members and non-members, as well as on desktop and mobile platforms.
 4. Have fast access to all users.
