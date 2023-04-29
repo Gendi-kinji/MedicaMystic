@@ -13,11 +13,10 @@ The system should:
 
 #### Non-functional Requirements
 The system should:
-1. Have an interactive user interface.
-2. Have a sign-in interface for administrative access and access .
+1. Have an interactive GUI.
+2. Have a sign-in interface for both administrative access and user access .
 3. Be accessible to the public, both members and non-members, as well as on desktop and mobile platforms.
 4. Have fast access to all users.
 5. Return to the main page in the event that an action on other pages fails.
-6. Have secure protocols to improve data security.
 
 ## System Design
