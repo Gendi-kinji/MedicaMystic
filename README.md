@@ -4,14 +4,13 @@ This project focuses on developing a web-based drug dispensing tool that allows 
 
 ---
 
-### Requirements:
+### Additional Requirements:
 #### Functional Requirements
 The system should:
-1. Allow the management of medicines and patient details via various database operations.
-2. Manage the details of patients with the medicines that they require or have taken.
-3. Allow patients to register into the system.
-4. Allow patients to login and view their details, or select medicines that they require.
-5. Print an invoice or receipt containing details of medicines selected.
+1. Allow the management of pharmaceutical companies, pharmacies, doctors, and patients via various database operations.
+2. Allow pharmaceutical companies, patients, doctors, and pharmacies to register into the system.
+3. Allow patients to login and view their details, or select medicines that they require.
+4. Print an invoice or receipt containing details of medicines selected by the patient.
 
 #### Non-functional Requirements
 The system should:
@@ -22,7 +21,9 @@ The system should:
 5. Return to the main page in the event that an action on other pages fails.
 
 ## System Design
-### Database Entity Relationship Diagram
-![Database ERD](img/Database_ERD.png)
+### Entity Relationship Diagram
+![ERD](img/ERD.png)
 
-https://lucid.app/lucidchart/78e09859-dddd-40e4-8b38-e7b9a6561c1f/edit?viewport_loc=-164%2C-669%2C1890%2C777%2C0_0&invitationId=inv_fa2467f5-669d-4ad0-afac-fb06568ee479
+## Project Collaborators:
+[151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
+[150909 - Kithinji, George Fundi](https://github.com/Gendi-kinji)
