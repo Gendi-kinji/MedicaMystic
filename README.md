@@ -23,4 +23,3 @@ The system should:
 
 ## System Design
 ### Database Entity Relationship Diagram
-
