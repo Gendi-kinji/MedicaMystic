@@ -23,4 +23,4 @@ The system should:
 
 ## System Design
 ### Database Entity Relationship Diagram
-
+![Database ERD](img/Database_ERD.png)
