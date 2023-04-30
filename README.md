@@ -7,11 +7,10 @@ This project focuses on developing a web-based drug dispensing tool that allows 
 ### Additional Requirements:
 #### Functional Requirements
 The system should:
-1. Allow the management of medicines and patient details via various database operations.
-2. Manage the details of patients with the medicines that they require or have taken.
-3. Allow patients to register into the system.
-4. Allow patients to login and view their details, or select medicines that they require.
-5. Print an invoice or receipt containing details of medicines selected.
+1. Allow the management of pharmaceutical companies, pharmacies, doctors, and patients via various database operations.
+2. Allow pharmaceutical companies, patients, doctors, and pharmacies to register into the system.
+3. Allow patients to login and view their details, or select medicines that they require.
+4. Print an invoice or receipt containing details of medicines selected by the patient.
 
 #### Non-functional Requirements
 The system should:
