@@ -21,5 +21,8 @@ The system should:
 5. Return to the main page in the event that an action on other pages fails.
 
 ## System Design
-### Database Entity Relationship Diagram
-![Database ERD](img/Database_ERD.png)
+### Entity Relationship Diagram
+![ERD](img/ERD.png)
+
+## Project Collaborators:
+[151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke)
