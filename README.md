@@ -25,5 +25,5 @@ The system should:
 ![ERD](img/ERD.png)
 
 ## Project Collaborators:
-[151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke)
+[151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
 [150909 - Kithinji, George Fundi](https://github.com/Fidelisaboke)
