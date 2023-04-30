@@ -4,7 +4,7 @@ This project focuses on developing a web-based drug dispensing tool that allows 
 
 ---
 
-### Requirements:
+### Additional Requirements:
 #### Functional Requirements
 The system should:
 1. Allow the management of medicines and patient details via various database operations.
@@ -24,5 +24,3 @@ The system should:
 ## System Design
 ### Database Entity Relationship Diagram
 ![Database ERD](img/Database_ERD.png)
-
-![System UML](https://lucid.app/lucidchart/78e09859-dddd-40e4-8b38-e7b9a6561c1f/edit?viewport_loc=-164%2C-669%2C1890%2C777%2C0_0&invitationId=inv_fa2467f5-669d-4ad0-afac-fb06568ee479)
