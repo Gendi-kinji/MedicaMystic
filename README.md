@@ -22,7 +22,6 @@ The system should:
 
 ## System Design
 ### Entity Relationship Diagram
----
 ![ERD](img/ERD.png)
 ---
 ### Use Case Diagrams
