@@ -24,6 +24,9 @@ The system should:
 ### Entity Relationship Diagram
 ![ERD](img/ERD.png)
 
+### Use Case Diagrams
+The diagram below shows how the different actors (users) will be interacting with the system:
+
 ## Project Collaborators:
 [151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
 [150909 - Kithinji, George Fundi](https://github.com/Gendi-kinji)
