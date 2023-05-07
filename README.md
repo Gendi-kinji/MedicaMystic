@@ -27,6 +27,7 @@ The system should:
 ### Use Case Diagram
 The diagram below shows how the different actors (users) will be interacting with the system:
 ![Use Case Diagram](img/use_case.jpg)
+---
 
 ## Project Collaborators:
 [151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
