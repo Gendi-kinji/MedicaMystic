@@ -25,7 +25,6 @@ The system should:
 ![ERD](img/ERD.png)
 ---
 ### Use Case Diagram
-The diagram below shows how the different actors (users) will be interacting with the system:
 ![Use Case Diagram](img/use_case.jpg)
 ---
 
