@@ -23,6 +23,9 @@ The system should:
 ## System Design
 ### Entity Relationship Diagram
 ![ERD](img/ERD.png)
+---
+### Use Case Diagrams
+The diagram below shows how the different actors (users) will be interacting with the system:
 
 ## Project Collaborators:
 [151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
