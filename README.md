@@ -28,7 +28,7 @@ The system should:
 ![Use Case Diagram](img/use_case.jpg)
 ---
 ### Class Diagram
-![Class Diagram](img/class_diagram)
+![Class Diagram](img/class_diagram.jpg)
 ---
 ## Project Collaborators:
 [151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
