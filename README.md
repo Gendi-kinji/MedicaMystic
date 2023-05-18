@@ -30,6 +30,8 @@ The system should:
 ### Class Diagram
 ![Class Diagram](img/class_diagram.jpg)
 ---
+
+### Wireframe Diagram (GUI)
 ## Project Collaborators:
 [151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
 [150909 - Kithinji, George Fundi](https://github.com/Gendi-kinji)
