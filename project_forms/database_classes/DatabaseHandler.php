@@ -3,10 +3,11 @@ class DatabaseHandler{
     private $conn;
     private $hostname = "localhost";
     private $username = "root";
-    private  $password = "";
+    private $password = "";
+    private $dbname = "";
 
     private function establishConnection(){
-        $this->conn = new mysqli($this->hostname, $this->username, $this->password);
+        $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
         if($this->conn->connect_error){
             die("Connection error: ".$this->conn->connect_error);
         }else{
@@ -16,7 +17,7 @@ class DatabaseHandler{
     }
 
     private function terminateConnection(){
-        if($this->conn!==null){
+        if($this->conn!=null){
             $this->conn->close();
             echo "Connection closed";
         }else{
@@ -30,27 +31,23 @@ class DatabaseHandler{
             echo "Insert success!"; 
             $this->terminateConnection();          
         }else{
-            echo "Insert failed!".$this->conn->error();
+            echo "Insert failed!".$this->conn->error;
             $this->terminateConnection();  
         }
     }
 
     public function readTable($sql){
         $this->establishConnection();
-        if($this->conn->query)
+        $result = $this->conn->query($sql);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                foreach($row as $key=>$value){
+                    echo $key.": ".$value."<br>";
+                }
+            }
+        }
     }
 
 }
-
-$trade_name = 'Panadol Xtra';
-$drug_formula = 'Bisomethingsomething';
-$administration_method = 'Via the eyes';
-$drug_price = 99999.99;
-$expiry_date = '2025-04-25';
-
-$db=new DatabaseHandler();
-$sql = "INSERT INTO db_drug_dispense.tbl_drugs (trade_name, drug_formula, administration_method, drug_price, expiry_date) 
-VALUES('$trade_name' , '$drug_formula', '$administration_method', $drug_price, '$expiry_date');";
-$db->insertData($sql);
 
 ?>
