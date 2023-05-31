@@ -69,7 +69,7 @@
             $statement = $conn->prepare($sql); // prepare the sql statement
 
             // Bind values to parameters:
-            $statement->bind_param("ssssss", $trade_name, $drug_formula, $administration_method, $drug_price, $expiry_date, $drugs_phone);
+            $statement->bind_param("sssds", $trade_name, $drug_formula, $administration_method, $drug_price, $expiry_date);
 
             // Obtain values from the input fields of the form using $_POST[]:
             //$drugs_ssn = $_POST['drugs_ssn'];

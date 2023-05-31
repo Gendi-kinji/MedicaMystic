@@ -50,4 +50,24 @@ class DatabaseHandler{
 
 }
 
+class Patient extends DatabaseHandler{
+
+}
+
+class Doctor extends DatabaseHandler{
+    
+}
+
+class Drug extends DatabaseHandler{
+
+}
+
+class Pharmacy extends DatabaseHandler{
+
+}
+
+class Pharmaceutical extends DatabaseHandler{
+
+}
+
 ?>
