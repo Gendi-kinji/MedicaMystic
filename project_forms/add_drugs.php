@@ -117,7 +117,7 @@
         <label for="drug_price">Drug price</label>
         <input type="number" min="0" step="0.01" id="drug_price" name="drug_price" placeholder="Enter price..." required>
         <label for="expiry_date">Expiry date</label>
-        <input type="date" id="expiry_date" name="expiry_date">
+        <input type="date" id="expiry_date" name="expiry_date"><br>
         <input type="submit" value="Submit"><br>
     </form>  
 </body>
