@@ -4,18 +4,28 @@ class DatabaseHandler{
     private $hostname = "localhost";
     private $username = "root";
     private $password = "";
-    private $dbname = "";
+    private $dbname = "db_drug_dispense";
+    private static $instance = null;
 
-    private function establishConnection(){
+    private function __construct(){
         $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
         if($this->conn->connect_error){
             die("Connection error: ".$this->conn->connect_error);
         }else{
-            echo "Database connected.";
+            echo "Connected to ".$this->dbname."<br>";
         }
-
     }
 
+    public static function getInstance(){
+        if (self::$instance == null){
+            self::$instance = new DatabaseHandler();
+        }
+        return self::$instance;
+    }
+
+    public function establishConnection(){
+        $this->__construct();
+    }
     private function terminateConnection(){
         if($this->conn!=null){
             $this->conn->close();
@@ -45,7 +55,10 @@ class DatabaseHandler{
                     echo $key.": ".$value."<br>";
                 }
             }
+        } else{
+            echo "No records found.<br>";
         }
+        $this->terminateConnection();
     }
 
 }
@@ -69,5 +82,5 @@ class Pharmacy extends DatabaseHandler{
 class Pharmaceutical extends DatabaseHandler{
 
 }
-
+$db = DatabaseHandler::getInstance();
 ?>
