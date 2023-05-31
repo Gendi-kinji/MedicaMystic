@@ -23,7 +23,7 @@ class DatabaseHandler{
         return self::$instance;
     }
 
-    public function establishConnection(){
+    protected function establishConnection(){
         $this->__construct();
     }
     private function terminateConnection(){
@@ -64,6 +64,20 @@ class DatabaseHandler{
 }
 
 class Patient extends DatabaseHandler{
+    private $patient_ssn;
+    private $patient_firstname;
+    private $patient_surname;
+    private $patient_dob;
+    private $patient_address;
+    private $patient_email;
+    private $patient_phone;
+    private $reg_date;
+
+    public function addPatient($patient_firstname, $patient_surname, $patient_dob, $patient_address, $patient_email, $patient_phone){
+        $sql = "INSERT INTO tbl_patients(patient_firstname, patient_surname, patient_dob, patient_address, patient_email, patient_phone)
+        VALUES ('$patient_firstname', '$patient_surname', '$patient_dob', '$patient_address', '$patient_email', '$patient_phone')";
+        parent::insertData($sql);
+    }
 
 }
 
