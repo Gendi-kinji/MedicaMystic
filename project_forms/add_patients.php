@@ -112,8 +112,5 @@
         </datalist><br>
         <input type="submit" value="Submit"><br>
     </form>
-    <form action="/patients_table.php" method="GET">
-        <input type="submit" value="View Patients Table">
-    </form>
 </body>
 </html>

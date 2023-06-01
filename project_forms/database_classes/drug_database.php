@@ -8,12 +8,8 @@ class DatabaseHandler{
     private static $instance = null;
 
     private function __construct(){
-        $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
-        if($this->conn->connect_error){
-            die("Connection error: ".$this->conn->connect_error);
-        }else{
-            echo "Connected to ".$this->dbname."<br>";
-        }
+        // Private constructor
+        self::establishConnection();
     }
 
     public static function getInstance(){
@@ -23,8 +19,15 @@ class DatabaseHandler{
         return self::$instance;
     }
 
-    protected function establishConnection(){
-        $this->__construct();
+    public function establishConnection(){
+        if($this->conn == null){
+            $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
+            if($this->conn->connect_error){
+                die("Connection error: ".$this->conn->connect_error);
+            }else{
+                echo "Connected to ".$this->dbname."<br>";
+            }
+        }
     }
     private function terminateConnection(){
         if($this->conn!=null){
@@ -38,10 +41,10 @@ class DatabaseHandler{
     public function insertData($sql){
         $this->establishConnection();
         if($this->conn->query($sql)===TRUE){
-            echo "Insert success!"; 
+            echo "Insert success!<br>"; 
             $this->terminateConnection();          
         }else{
-            echo "Insert failed!".$this->conn->error;
+            echo "Insert failed!".$this->conn->error."<br>";
             $this->terminateConnection();  
         }
     }
@@ -73,9 +76,14 @@ class Patient extends DatabaseHandler{
     private $patient_phone;
     private $reg_date;
 
-    public function addPatient($patient_firstname, $patient_surname, $patient_dob, $patient_address, $patient_email, $patient_phone){
-        $sql = "INSERT INTO tbl_patients(patient_firstname, patient_surname, patient_dob, patient_address, patient_email, patient_phone)
-        VALUES ('$patient_firstname', '$patient_surname', '$patient_dob', '$patient_address', '$patient_email', '$patient_phone')";
+    public function __construct(){
+
+    }
+
+    public function addPatient($patientData) {
+        $columns = implode(", ", array_keys($patientData));
+        $values = implode("', '", array_values($patientData));
+        $sql = "INSERT INTO tbl_patients ($columns) VALUES ('$values')";
         parent::insertData($sql);
     }
 
@@ -97,4 +105,5 @@ class Pharmaceutical extends DatabaseHandler{
 
 }
 $db = DatabaseHandler::getInstance();
+$patient = new Patient();
 ?>
