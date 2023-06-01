@@ -54,10 +54,16 @@ class DatabaseHandler{
         $result = $this->conn->query($sql);
         if($result->num_rows > 0){
             echo "<table>";
+            $keys = $result->fetch_fields();
+            echo "<tr>";
+            for($i=0; $i<sizeof($keys); $i++){
+                echo "<th scope='col'>".$keys[$i]->name."</th>";
+            }
+            echo "</tr>";
             while($row = $result->fetch_assoc()){
                 echo "<tr>";
-                foreach($row as $key=>$value){
-                    echo "<td>".$key."</td><td>".$value."</td>";
+                foreach($row as $value){
+                    echo "<td>".$value."</td>";
                 }
                 echo "</tr>";
             }

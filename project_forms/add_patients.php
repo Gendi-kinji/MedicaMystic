@@ -11,7 +11,7 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             background: aliceblue;
         }
-        form {
+        form.patient-form {
             margin: 0% auto;
             display: flex;
             flex-direction: column;
@@ -36,7 +36,10 @@
     </style>
 </head>
 <body>
-    <form id="patient-form" action="process_patients.php" method="POST">
+    <form action="/view_patients.php" method="GET">
+        <input type="submit" value="View Patients Table">
+    </form>
+    <form class="patient-form" action="process_patients.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="patient-form-header">
