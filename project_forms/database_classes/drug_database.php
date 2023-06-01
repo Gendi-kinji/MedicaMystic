@@ -23,7 +23,7 @@ class DatabaseHandler{
         if($this->conn == null){
             $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
             if($this->conn->connect_error){
-                die("Connection error: ".$this->conn->connect_error);
+                die("Connection error: ".$this->conn->connect_error)."<br>";
             }else{
                 echo "Connected to ".$this->dbname."<br>";
             }
@@ -32,9 +32,9 @@ class DatabaseHandler{
     private function terminateConnection(){
         if($this->conn!=null){
             $this->conn->close();
-            echo "Connection closed";
+            echo "Connection closed.<br>";
         }else{
-            echo "Failed to close connection.";
+            echo "Failed to close connection.<br>";
         }
     }
 
@@ -53,17 +53,20 @@ class DatabaseHandler{
         $this->establishConnection();
         $result = $this->conn->query($sql);
         if($result->num_rows > 0){
+            echo "<table>";
             while($row = $result->fetch_assoc()){
+                echo "<tr>";
                 foreach($row as $key=>$value){
-                    echo $key.": ".$value."<br>";
+                    echo "<td>".$key."</td><td>".$value."</td>";
                 }
+                echo "</tr>";
             }
+            echo "</table>";
         } else{
             echo "No records found.<br>";
         }
         $this->terminateConnection();
     }
-
 }
 
 class Patient extends DatabaseHandler{
@@ -104,6 +107,9 @@ class Pharmacy extends DatabaseHandler{
 class Pharmaceutical extends DatabaseHandler{
 
 }
+
+// creating objects from the classes:
+
 $db = DatabaseHandler::getInstance();
 $patient = new Patient();
 ?>
