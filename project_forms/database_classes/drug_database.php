@@ -51,25 +51,25 @@ class DatabaseHandler{
 
     public function readTable($sql){
         $this->establishConnection();
-        $result = $this->conn->query($sql);
+        $result = $this->conn->query($sql); // fetch the result set (entire table) of the MySQL query
         if($result->num_rows > 0){
             echo "<table>";
-            $keys = $result->fetch_fields();
+            $keys = $result->fetch_fields(); // fetch the attributes of the MySQL table
             echo "<tr>";
             for($i=0; $i<sizeof($keys); $i++){
-                echo "<th scope='col'>".$keys[$i]->name."</th>";
+                echo "<th scope='col'>".$keys[$i]->name."</th>"; // display the attributes as headers for the table
             }
             echo "</tr>";
-            while($row = $result->fetch_assoc()){
+            while($row = $result->fetch_assoc()){ // fetch the records of the database as associative arrays
                 echo "<tr>";
                 foreach($row as $value){
-                    echo "<td>".$value."</td>";
+                    echo "<td>".$value."</td>"; // display the records (values) in the HTML table
                 }
                 echo "</tr>";
             }
             echo "</table>";
         } else{
-            echo "No records found.<br>";
+            echo "No records found.<br>"; // returns 'No records found' if there are no rows in the MySQL database
         }
         $this->terminateConnection();
     }
