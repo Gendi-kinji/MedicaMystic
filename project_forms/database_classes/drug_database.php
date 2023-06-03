@@ -38,6 +38,15 @@ class DatabaseHandler{
         }
     }
 
+    // Obtain the keys and attributes from the array
+    public function extractDetails($array){
+        // Joining array elements with a string using implode()
+        $columns = implode(", ", array_keys($array));
+        $values = implode("', '", array_values($array));
+        return array($columns, $values);
+    }
+
+
     public function insertData($sql){
         $this->establishConnection();
         if($this->conn->query($sql)===TRUE){
@@ -90,15 +99,17 @@ class Patient extends DatabaseHandler{
     }
 
     public function addPatient($patientData) {
-        $columns = implode(", ", array_keys($patientData));
-        $values = implode("', '", array_values($patientData));
-        $sql = "INSERT INTO tbl_patients ($columns) VALUES ('$values')";
-        parent::insertData($sql);
+
+        // Joining array elements with a string using extractDetails()
+        list($columns, $values) = self::extractDetails($patientData);
+        parent::insertData("INSERT INTO tbl_patients ($columns) VALUES ('$values')");
     }
 
 }
 
 class Doctor extends DatabaseHandler{
+
+
     
 }
 
