@@ -39,7 +39,7 @@ class DatabaseHandler{
     }
 
     // Obtain the keys and attributes from the array
-    public function extractDetails($array){
+    protected function extractDetails($array){
         // Joining array elements with a string using implode()
         $columns = implode(", ", array_keys($array));
         $values = implode("', '", array_values($array));
