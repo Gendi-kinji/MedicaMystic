@@ -98,8 +98,11 @@
 
 
         ?>
-    </center>  
-    <form id="drugs-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+    </center>
+    <form action="/view_drugs.php" method="GET">
+        <input type="submit" value="View Patients Table">
+    </form>
+    <form id="drugs-form" action="process/process_drugs.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="drugs-form-header">
