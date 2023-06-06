@@ -109,6 +109,15 @@ class Patient extends DatabaseHandler{
 
 class Doctor extends DatabaseHandler{
 
+    public function __construct(){
+
+    }
+
+    public function addDoctor($doctorData){
+        list($columns , $values) = self::extractDetails($doctorData);
+        parent::insertData("INSERT INTO tbl_doctors ($columns) VALUES ('$values')");
+    }
+
 }
 
 class Drug extends DatabaseHandler{
@@ -126,6 +135,14 @@ class Drug extends DatabaseHandler{
 }
 
 class Pharmacy extends DatabaseHandler{
+    public function __construct(){
+
+    }
+
+    public function addPharmacy($pharmacyData){
+        list($columns, $values) = self::extractDetails($pharmacyData);
+        parent::insertData("INSERT INTO tbl_pharmacy ($columns) VALUES ('$values')");
+    }
 
 }
 

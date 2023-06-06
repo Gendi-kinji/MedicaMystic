@@ -2,13 +2,12 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname = "db_drug_dispense";
 
-$conn = new mysqli($hostname, $username, $password, $dbname);
+$conn = new mysqli($hostname, $username, $password);
 if($conn->connect_error){
     die("Connection failed: ".$conn->connect_error);
 }else{
-    echo "Connected successfully to ".$dbname;
+    echo "Connected successfully to MySQL";
 }
 
 ?>
