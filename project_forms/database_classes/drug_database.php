@@ -147,7 +147,14 @@ class Pharmacy extends DatabaseHandler{
 }
 
 class Pharmaceutical extends DatabaseHandler{
+    public function __construct(){
 
+    }
+
+    public function addPharmaceutical($pharmaceuticalData){
+        list($columns, $values) = self::extractDetails($pharmaceuticalData);
+        parent::insertData("INSERT INTO tbl_pharmaceutical ($columns) VALUES ('$values')");
+    }
 }
 
 // creating objects from the classes:
