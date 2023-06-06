@@ -1,4 +1,6 @@
 <?php
+
+// Dummy connection code - OOP Connection MySQLi
 $hostname = "localhost";
 $username = "root";
 $password = "";
