@@ -47,9 +47,10 @@ class DatabaseHandler{
     }
 
 
-    public function insertData($sql){
+    public function insertData($table, $data){
         $this->establishConnection();
-        if($this->conn->query($sql)===TRUE){
+        list($columns, $values) = self::extractDetails($data);
+        if($this->conn->query("INSERT INTO $table ($columns) VALUES ('$values')")===TRUE){
             echo "Insert success!<br>"; 
             $this->terminateConnection();          
         }else{
@@ -100,10 +101,7 @@ class Patient extends DatabaseHandler{
     }
 
     public function addPatient($patientData) {
-
-        // Joining array elements with a string using extractDetails()
-        list($columns, $values) = self::extractDetails($patientData);
-        parent::insertData("INSERT INTO tbl_patients ($columns) VALUES ('$values')");
+        parent::insertData('tbl_patients', $patientData);
     }
 
 }
@@ -115,8 +113,7 @@ class Doctor extends DatabaseHandler{
     }
 
     public function addDoctor($doctorData){
-        list($columns , $values) = self::extractDetails($doctorData);
-        parent::insertData("INSERT INTO tbl_doctors ($columns) VALUES ('$values')");
+        parent::insertData('tbl_doctors', $doctorData);;
     }
 
 }
@@ -129,8 +126,7 @@ class Drug extends DatabaseHandler{
 
     public function addDrug($drugData){
 
-        list($columns, $values) = self::extractDetails($drugData);
-        parent::insertData("INSERT INTO tbl_drugs ($columns) VALUES ('$values')");
+        parent::insertData('tbl_drugs', $drugData);
     }
 
 }
@@ -141,8 +137,7 @@ class Pharmacy extends DatabaseHandler{
     }
 
     public function addPharmacy($pharmacyData){
-        list($columns, $values) = self::extractDetails($pharmacyData);
-        parent::insertData("INSERT INTO tbl_pharmacy ($columns) VALUES ('$values')");
+        parent::insertData('tbl_pharmacy', $pharmacyData);
     }
 
 }
@@ -153,8 +148,7 @@ class Pharmaceutical extends DatabaseHandler{
     }
 
     public function addPharmaceutical($pharmaceuticalData){
-        list($columns, $values) = self::extractDetails($pharmaceuticalData);
-        parent::insertData("INSERT INTO tbl_pharmaceutical ($columns) VALUES ('$values')");
+        parent::insertData('tbl_pharmaceutical', $pharmaceuticalData);
     }
 }
 
