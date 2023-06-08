@@ -77,6 +77,7 @@ class DatabaseHandler{
                 echo "</tr>";
             }
             echo "</table>";
+            echo "<script>alert('Table retrieved successfully')</script>";
         } else{
             echo "No records found.<br>"; // returns 'No records found' if there are no rows in the MySQL database
         }

@@ -58,6 +58,6 @@
         <label for="expiry_date">Expiry date</label>
         <input type="date" id="expiry_date" name="expiry_date"><br>
         <input type="submit" value="Submit"><br>
-    </form>  
+    </form> 
 </body>
 </html>
