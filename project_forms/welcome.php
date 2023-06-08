@@ -17,7 +17,7 @@
             height: 420px;
             margin: 0% auto;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             text-align: center;
             justify-content: center;
             align-items: center;
@@ -27,11 +27,25 @@
             height: 120px;
         }
         
+        .welcome-header {
+            width: 50%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            margin: 0%;
+            align-items: center;
+        }
+        #welcome-options{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <div id="main-container">
-        <div id="welcome-header">
+        <div class="welcome-header">
             <h2>DRUG DISPENSARY NAME</h2>
             <img class="dispensary-logo" alt="Dispensary Logo" src="/form_icons/laboratory.jpg">
         </div>
