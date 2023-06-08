@@ -77,6 +77,7 @@ class DatabaseHandler{
                 echo "</tr>";
             }
             echo "</table>";
+            echo "<script>alert('Table retrieved successfully')</script>";
         } else{
             echo "No records found.<br>"; // returns 'No records found' if there are no rows in the MySQL database
         }
@@ -147,7 +148,14 @@ class Pharmacy extends DatabaseHandler{
 }
 
 class Pharmaceutical extends DatabaseHandler{
+    public function __construct(){
 
+    }
+
+    public function addPharmaceutical($pharmaceuticalData){
+        list($columns, $values) = self::extractDetails($pharmaceuticalData);
+        parent::insertData("INSERT INTO tbl_pharmaceutical ($columns) VALUES ('$values')");
+    }
 }
 
 // creating objects from the classes:
