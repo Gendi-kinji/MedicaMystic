@@ -49,7 +49,7 @@ class DatabaseHandler{
 
     public function insertData($table, $data){
         $this->establishConnection();
-        list($columns, $values) = self::extractDetails($data);
+        list($columns, $values) = self::extractDetails($data); // extracting the details from the array
         if($this->conn->query("INSERT INTO $table ($columns) VALUES ('$values')")===TRUE){
             echo "Insert success!<br>"; 
             $this->terminateConnection();          
