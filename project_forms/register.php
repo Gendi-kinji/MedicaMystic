@@ -3,22 +3,7 @@
         <title>Registration page</title>
     </head>
     <style>
-        body{
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        background: aliceblue;
-        }
-        form{
-            background: white;
-            display: flex;
-            flex-direction:column;
-            border: 1px solid black;
-            width: 576px;
-            height: 576px;
-            margin: 0% auto;
-            border-radius: 25px;
-            align-items: center;
-            justify-content: center;
-        }
+        
     </style>
     <body>
         <h>DRUG DISPENSARY NAME</h>

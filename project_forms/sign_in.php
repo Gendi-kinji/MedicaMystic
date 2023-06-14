@@ -1,19 +1,7 @@
 <html>
     <head>
         <title> Sign in page </title>
-        <style>
-            body{
-                background: aliceblue;
-            }
-            form{
-                display: flex;
-                flex-direction: column;
-                border: 1px solid black;
-                border-radius: 20px;
-                background: white;
-                align-items: center;
-            }
-        </style>
+        
     </head>
 
 <h1>DRUG DISPENSARY NAME</h1>
