@@ -14,13 +14,11 @@
             </div>
             <div class="form-content">
                 <h2>SIGN IN</h2>
-                <input type="text" placeholder="username"><br>
-                <input type="password" placeholder="password"><br>
+                <input type="text" placeholder="username" id="user_name" name="user_name"><br>
+                <input type="password" placeholder="Enter password..." id="user_pass" name="user_pass"><br>
                 <div class="form-buttons">
-                    <button>Clear</button>
-                    <input type="submit" value="Submit"><br>
+                    <button type="submit">Submit</button><br>
                 </div>                
-                
                 <a href="./register.php">New user?</a>
                 <a href="">Forgot password</a>
                 <br>
