@@ -143,6 +143,16 @@ class Pharmaceutical extends DatabaseHandler{
     }
 }
 
+class User extends DatabaseHandler{
+    public function __construct(){
+
+    }
+
+    public function addUser($userData){
+        parent::insertData('tbl_users', $userData);
+    }
+}
+
 // creating objects from the classes:
 
 $db = DatabaseHandler::getInstance(); // DatabaseHandler
