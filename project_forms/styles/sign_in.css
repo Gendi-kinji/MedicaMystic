@@ -9,6 +9,7 @@ form {
     align-items: center;
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
 }
 .form-header {
     margin: 0%;
@@ -25,12 +26,9 @@ form {
     align-items: center;
 }
 
-.password-container, .form-buttons {
+.form-buttons {
     display: flex;
     flex-direction: row;
-}
-#forgot-password{
-    margin: 0% 0% 0% 25%;
 }
 a{
     color: rgb(101, 5, 127);
