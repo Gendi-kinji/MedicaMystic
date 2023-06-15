@@ -4,6 +4,6 @@
         'user_type'=>$_POST['user_type'],
         'user_pass'=>$_POST['user_pass']
     ];
-    $user->addUser($userData);
+    $user->registerUser($userData);
 
 ?>
