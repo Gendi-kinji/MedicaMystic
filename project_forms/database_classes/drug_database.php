@@ -158,4 +158,6 @@ class User extends DatabaseHandler{
 $db = DatabaseHandler::getInstance(); // DatabaseHandler
 $patient = new Patient(); // patient object
 $drug = new Drug(); // drug object
+
+$user = new User(); // user object
 ?>
