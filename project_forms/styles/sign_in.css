@@ -1,5 +1,6 @@
 body{
     background: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 form {
     border: 1px solid black;
@@ -17,11 +18,25 @@ form {
     align-items: center;
 }
 .form-content {
-    background: blue;
+    background: linear-gradient(120deg, cyan, rgb(82, 82, 227));
     display: flex;
     flex-direction: column;
     width: 50%;
     align-items: center;
+}
+
+.password-container, .form-buttons {
+    display: flex;
+    flex-direction: row;
+}
+#forgot-password{
+    margin: 0% 0% 0% 25%;
+}
+a{
+    color: rgb(101, 5, 127);
+}
+a:hover{
+    color: rgb(168, 6, 212)
 }
 @media (max-width:600px){
     form{
