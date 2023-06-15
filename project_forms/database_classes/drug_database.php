@@ -29,7 +29,17 @@ class DatabaseHandler{
             }
         }
     }
-    private function terminateConnection(){
+
+    protected function getConnection(){
+        if($this->conn != null){
+            return $this->conn;
+        }
+        else{
+            echo "No database connection found.";
+            return null;
+        }
+    }
+    protected function terminateConnection(){
         if($this->conn!=null){
             $this->conn->close();
             echo "Connection closed.<br>";
@@ -151,6 +161,35 @@ class User extends DatabaseHandler{
     public function registerUser($userData){
         echo "<script>alert('Registering user...')</script>";
         parent::insertData('tbl_users', $userData);
+    }
+
+    public function verifyUserDetails($user_name, $user_pass){
+        parent::establishConnection();
+        $conn = parent::getConnection();
+        $statement = $conn->prepare("SELECT * FROM tbl_users WHERE user_name=? AND user_pass=?");
+        $statement->bind_param("ss", $user_name, $user_pass);
+
+        if($statement->execute() === TRUE){
+            $result = $statement->get_result();
+            if ($result->num_rows>0){
+                echo "<script>
+                    alert('Details verified successfully');
+                    window.location.href='../user_menu/patient_menu.php';
+                </script>";
+                parent::terminateConnection();
+            }else{
+                echo "<script>
+                alert('Invalid username or password');
+                window.location.href='../sign_in.php';
+                </script>";
+                parent::terminateConnection();
+            }    
+        }else{
+            echo "Error validating user details: ".$conn->error;
+            
+            parent::terminateConnection();
+        }
+
     }
 }
 
