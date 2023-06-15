@@ -159,7 +159,10 @@ class User extends DatabaseHandler{
     }
 
     public function registerUser($userData){
-        echo "<script>alert('Registering user...')</script>";
+        echo "<script>
+        alert('Registering user...');
+        window.location.href='../welcome.php';
+        </script>";
         parent::insertData('tbl_users', $userData);
     }
 
