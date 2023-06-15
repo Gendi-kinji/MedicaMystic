@@ -15,11 +15,11 @@
         </div>
         <br>
         <div id="welcome-options">
-            <form action="/register.php" method="GET">
+            <form action="./register.php" method="GET">
                 <input type="submit" value="Register">
             </form>
             <br>
-            <form action="/sign_in.php" method="GET">
+            <form action="./sign_in.php" method="GET">
                 <input type="submit" value="Sign In">
             </form>
         </div>

@@ -87,15 +87,6 @@ class DatabaseHandler{
 }
 
 class Patient extends DatabaseHandler{
-    private $patient_ssn;
-    private $patient_firstname;
-    private $patient_surname;
-    private $patient_dob;
-    private $patient_address;
-    private $patient_email;
-    private $patient_phone;
-    private $reg_date;
-
     public function __construct(){
 
     }
