@@ -61,11 +61,13 @@ class DatabaseHandler{
         $this->establishConnection();
         list($columns, $values) = self::extractDetails($data); // extracting the details from the array
         if($this->conn->query("INSERT INTO $table ($columns) VALUES ('$values')")===TRUE){
-            echo "Insert success!<br>"; 
-            $this->terminateConnection();          
+            echo "Insert success!"; 
+            $this->terminateConnection(); 
+            return 1;         
         }else{
             echo "Insert failed!".$this->conn->error."<br>";
-            $this->terminateConnection();  
+            $this->terminateConnection();
+            return 0;  
         }
     }
 
@@ -161,9 +163,15 @@ class User extends DatabaseHandler{
     public function registerUser($userData){
         echo "<script>
         alert('Registering user...');
+        </script>";
+       if(parent::insertData('tbl_users', $userData)){
+        echo "<script>
+        alert('Registration successful!);
         window.location.href='../welcome.php';
         </script>";
-        parent::insertData('tbl_users', $userData);
+       }else{
+        echo "<script>alert('Registration failed. Try again.)</script>";
+       }
     }
 
     public function verifyUserDetails($user_name, $user_pass){
@@ -175,6 +183,12 @@ class User extends DatabaseHandler{
         if($statement->execute() === TRUE){
             $result = $statement->get_result();
             if ($result->num_rows>0){
+
+                // Start a session and store the user_name in a session variable:
+                session_start();
+                $_SESSION['user_name'] = $user_name;
+
+                // Display successful confirmation message:
                 echo "<script>
                     alert('Details verified successfully');
                     window.location.href='../user_menu/patient_menu.php';
