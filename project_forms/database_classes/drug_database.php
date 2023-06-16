@@ -24,8 +24,6 @@ class DatabaseHandler{
             $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
             if($this->conn->connect_error){
                 die("Connection error: ".$this->conn->connect_error)."<br>";
-            }else{
-                echo "Connected to ".$this->dbname."<br>";
             }
         }
     }
@@ -39,12 +37,12 @@ class DatabaseHandler{
             return null;
         }
     }
-    protected function terminateConnection(){
+    public function terminateConnection(){
         if($this->conn!=null){
             $this->conn->close();
             echo "Connection closed.<br>";
         }else{
-            echo "Failed to close connection.<br>";
+            echo "Failed to close database connection.<br>";
         }
     }
 
@@ -61,11 +59,11 @@ class DatabaseHandler{
         $this->establishConnection();
         list($columns, $values) = self::extractDetails($data); // extracting the details from the array
         if($this->conn->query("INSERT INTO $table ($columns) VALUES ('$values')")===TRUE){
-            echo "Insert success!"; 
+            echo "Insert success!<br>"; 
             $this->terminateConnection(); 
             return 1;         
         }else{
-            echo "Insert failed!".$this->conn->error."<br>";
+            echo "Insert failed: ".$this->conn->error."<br>";
             $this->terminateConnection();
             return 0;  
         }
@@ -165,15 +163,39 @@ class User extends DatabaseHandler{
         alert('Registering user...');
         </script>";
        if(parent::insertData('tbl_users', $userData)){
-        echo "<script>
-        alert('Registration successful!);
-        window.location.href='../welcome.php';
-        </script>";
+        echo "You have been registered successfully. Return to Sign In Page to sign in.";
        }else{
-        echo "<script>alert('Registration failed. Try again.)</script>";
+        echo "An error when submitting details. Please try again.";
        }
     }
 
+    // Open the user page depending on user type.
+    private function openUserMenu($user_type){
+        $redirect_page = "";
+        // switch-case block that sets the redirect page depending on the user type:
+        switch ($user_type) {
+            case "pharmacist":
+                $redirect_page = "../user_menu/pharmacy_menu.php";
+                break;
+            case "patient":
+                $redirect_page = "../user_menu/patient_menu.php";
+                break;
+            case "doctor":
+                $redirect_page = "../user_menu/doctor_menu.php";
+                break;
+            case "supervisor":
+                $redirect_page = "../user_menu/supervisor_menu.php";
+                break;
+            case "pharmaceutical_company":
+                $redirect_page = "../user_menu/pharmaceutical_company_menu.php";
+            default:
+                $redirect_page= "../welcome.php";
+        }
+        echo "<script>
+        alert('Details verified successfully');
+        window.location.href='$redirect_page';
+        </script>";
+    }
     public function verifyUserDetails($user_name, $user_pass){
         parent::establishConnection();
         $conn = parent::getConnection();
@@ -188,11 +210,13 @@ class User extends DatabaseHandler{
                 session_start();
                 $_SESSION['user_name'] = $user_name;
 
-                // Display successful confirmation message:
-                echo "<script>
-                    alert('Details verified successfully');
-                    window.location.href='../user_menu/patient_menu.php';
-                </script>";
+                // Get the user type from the result
+                $row = $result->fetch_assoc();
+                $user_type = $row['user_type'];
+
+                // Check user type first then switch to relevant user page:
+                self::openUserMenu($user_type);
+                
                 parent::terminateConnection();
             }else{
                 echo "<script>
