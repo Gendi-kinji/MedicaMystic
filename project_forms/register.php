@@ -9,7 +9,7 @@
         <img alt="image of logo">
         <form action="./process/process_register_details.php" method="POST">
             <h3>REGISTER</h3>
-            <input type="text" placeholder="username" name="user_name" id="user_name" required><br>
+            <input type="text" placeholder="Username..." name="user_name" id="user_name" required><br>
             <label for="user_type">Select type</label>
             <select name="user_type" id="user_type">
                 <option value="patient">Patient</option>
@@ -19,7 +19,7 @@
                 <option value="supervisor">Supervisor</option>
             </select>
             <input type="password" placeholder="password" id="user_pass" name="user_pass" required>
-            <input type="submit" value="Submit" required><br>
+            <input type="submit" value="Submit"><br>
             <a href="sign_in.php" target="_self">Already have an account?</a>
         </form>
     </body>
