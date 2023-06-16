@@ -20,7 +20,7 @@
             </select>
             <input type="password" placeholder="password" id="user_pass" name="user_pass" required>
             <input type="submit" value="Submit" required><br>
-            <a href="sign_in.php" target="_blank">Already have an account?</a>
+            <a href="sign_in.php" target="_self">Already have an account?</a>
         </form>
     </body>
     </html>
