@@ -40,7 +40,7 @@ class DatabaseHandler{
     public function terminateConnection(){
         if($this->conn!=null){
             $this->conn->close();
-            echo "Connection closed.<br>";
+            echo "Database connection closed.<br>";
         }else{
             echo "Failed to close database connection.<br>";
         }
@@ -48,6 +48,10 @@ class DatabaseHandler{
 
     // Obtain the keys and attributes from the array
     protected function extractDetails($array){
+        // Printing the value of the array:
+        foreach($array as $key=>$value){
+            echo $key.": ".$value."<br>";
+        }
         // Joining array elements with a string using implode()
         $columns = implode(", ", array_keys($array));
         $values = implode("', '", array_values($array));
@@ -153,6 +157,16 @@ class Pharmaceutical extends DatabaseHandler{
     }
 }
 
+class Supervisor extends DatabaseHandler{
+    public function __construct(){
+
+    }
+
+    public function addSupervisor($supervisorData){
+        parent::insertData('tbl_supervisors', $supervisorData);
+    }
+}
+
 class User extends DatabaseHandler{
     public function __construct(){
 
@@ -237,8 +251,13 @@ class User extends DatabaseHandler{
 // creating objects from the classes:
 
 $db = DatabaseHandler::getInstance(); // DatabaseHandler
+
+// Database Tables:
 $patient = new Patient(); // patient object
 $drug = new Drug(); // drug object
-
+$doctor = new Doctor(); // doctor object
+$pharmacy = new Pharmacy(); // pharmacy object
+$pharmaceutical = new Pharmaceutical(); // pharmaceutical object
+$supervisor = new Supervisor(); // supervisor object
 $user = new User(); // user object
 ?>

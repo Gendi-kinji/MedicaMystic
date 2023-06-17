@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Supervisor Details</title>
+        <title>Pharmacy Details</title>
         <style>
             body{
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -16,11 +16,11 @@
         </style>
     </head>
     <body>
-        <h1>Supervisors Table</h1>
+        <h1>Pharmacy Table</h1>
         <center>
             <?php
                 require_once("../database_classes/drug_database.php");
-                $db->readTable("SELECT * FROM tbl_supervisors");
+                $db->readTable("SELECT * FROM tbl_pharmacy");
             ?>
         </center>
     </body>
