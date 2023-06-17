@@ -153,7 +153,17 @@ class Pharmaceutical extends DatabaseHandler{
     }
 
     public function addPharmaceutical($pharmaceuticalData){
-        parent::insertData('tbl_pharmaceuticals', $pharmaceuticalData);
+        parent::insertData('tbl_pharmaceutical', $pharmaceuticalData);
+    }
+}
+
+class Supervisor extends DatabaseHandler{
+    public function __construct(){
+
+    }
+
+    public function addSupervisor($supervisorData){
+        parent::insertData('tbl_supervisors', $supervisorData);
     }
 }
 
@@ -241,8 +251,13 @@ class User extends DatabaseHandler{
 // creating objects from the classes:
 
 $db = DatabaseHandler::getInstance(); // DatabaseHandler
+
+// Database Tables:
 $patient = new Patient(); // patient object
 $drug = new Drug(); // drug object
 $doctor = new Doctor(); // doctor object
+$pharmacy = new Pharmacy(); // pharmacy object
+$pharmaceutical = new Pharmaceutical(); // pharmaceutical object
+$supervisor = new Supervisor(); // supervisor object
 $user = new User(); // user object
 ?>
