@@ -202,8 +202,6 @@ class User extends DatabaseHandler{
                 break;
             case "pharmaceutical_company":
                 $redirect_page = "../user_menu/pharmaceutical_company_menu.php";
-            default:
-                $redirect_page= "../welcome.php";
         }
         echo "<script>
         alert('Details verified successfully');
