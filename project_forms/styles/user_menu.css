@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+    background:aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.page-header{
+    display: flex;
+    flex-direction: column;
+}
+#welcome-username{
+    margin: 0% 0% 0% 50%;
+    text-align: right;
+}

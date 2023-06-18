@@ -8,6 +8,7 @@
             body{
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
                 background: aliceblue;
+                text-align: center;
             }
             table, th, td{
                 border: 1px solid black;
@@ -15,11 +16,11 @@
         </style>
     </head>
     <body>
+        <h1>Patients Table</h1>
         <center>
             <?php
-                require_once("database_classes/drug_database.php");
-                $sql = "SELECT * FROM tbl_patients";
-                $db->readTable($sql);
+                require_once("../database_classes/drug_database.php");
+                $db->readTable("SELECT * FROM tbl_patients");
             ?>
         </center>
     </body>

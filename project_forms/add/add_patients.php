@@ -36,10 +36,10 @@
     </style>
 </head>
 <body>
-    <form action="/view_patients.php" method="GET">
+    <form action="../view/view_patients.php" method="GET">
         <input type="submit" value="View Patients Table">
     </form>
-    <form class="patient-form" action="process_patients.php" method="POST">
+    <form class="patient-form" action="../process/process_patients.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="patient-form-header">
