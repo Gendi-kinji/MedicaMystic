@@ -98,6 +98,30 @@ class DatabaseHandler{
         }
         $this->terminateConnection();
     }
+    public function deleteData($table,$data){
+        $this->establishConnection();
+        list($columns,$values)=self::extractDetails($data);
+        if($this->conn->query("DELETE FROM $table($columns) VALUES ('$values')")===TRUE){
+            echo "Data deleted from table";
+        }
+        else{
+            echo "Deletion failed";
+        }
+        
+        
+       
+}
+   public function updateData($table,$data){
+    $this->establishConnection();
+    list($columns,$values)=self::extractDetails($data);
+    if($this->conn->query("UPDATE $table SET $columns='$values'")){
+        echo "Data updated to table";
+
+    }
+    else{
+        echo "Update failed";
+    }
+   }
 }
 
 class Patient extends DatabaseHandler{
