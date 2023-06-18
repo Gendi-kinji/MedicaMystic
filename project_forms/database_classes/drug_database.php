@@ -1,6 +1,6 @@
 <?php
 class DatabaseHandler{
-    private $conn;
+    public  $conn;
     private $hostname = "localhost";
     private $username = "root";
     private $password = "";
