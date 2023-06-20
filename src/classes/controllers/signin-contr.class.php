@@ -1,0 +1,37 @@
+<?php
+class SignInContr extends SignIn{
+	private $user_name;
+    private $user_pass;
+	
+	public function __construct($user_name, $user_pass){
+		$this->user_name = $user_name;
+        $this->user_pass = $user_pass;
+    }
+	
+	public function SignInUser(){
+		if($this->emptyInput() == false){
+			header("location: ../../signin.php?error=emptyinput");
+			exit();
+		}
+		
+		$this->getUser($this->user_name, $this->user_pass);
+	}
+
+    private function emptyInput()
+    {
+        $check = null;
+        if (empty($this->user_name)|| empty($this->user_pass))
+        {
+            $check = false;
+        } else 
+        {
+            $check = true;
+        }
+        return $check;
+    }
+
+    
+
+}
+
+?>
