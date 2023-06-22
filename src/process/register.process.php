@@ -21,7 +21,7 @@
         $register->registerUser();
 
         //Go back to welcome page after registering successfully:
-        header("location: ../welcome.html?error=none");
+        header("location: ../welcome.php?error=none");
 
     }
     
