@@ -30,7 +30,7 @@ class DatabaseHandler extends Connection{
         return $stmt->execute();
     }
 
-    protected function getData($table, $identifier){
+    protected function getData($table, $identifier, $value){
         $sql = "SELECT * FROM $table WHERE $identifier = ?";
         $conn = $this->connect();
         $stmt = $conn->prepare($sql);
@@ -43,7 +43,7 @@ class DatabaseHandler extends Connection{
         } else {
             $type = 's';
         }
-        $stmt->bind_param($type, $identifier);
+        $stmt->bind_param($type, $value);
         if(!$stmt->execute()){
             $stmt = null;
             header('Location: '.$_SERVER['PHP_SELF']);
@@ -64,31 +64,65 @@ class DatabaseHandler extends Connection{
 
     }
 
-    /*public function deleteData($table,$data){
-        $this->establishConnection();
-        list($columns,$values)=self::extractDetails($data);
-        if($this->conn->query("DELETE FROM $table($columns) VALUES ('$values')")===TRUE){
-            echo "Data deleted from table";
+    public function updateData($table, $data, $identifier, $unique_value) {
+        $columns = array_keys($data);
+        $values = array_values($data);
+        $placeholders = array_map(function ($column) {
+            return "$column=?";
+        }, $columns);
+
+        // Check for the data type before assigning type:
+            $types = '';
+        foreach ($values as $value) {
+            if (is_int($value)) {
+                $types .= 'i';
+            } elseif (is_double($value)) {
+                $types .= 'd';
+            } else {
+                $types .= 's';
+            }
+        }
+            if (is_int($unique_value)) {
+                $types .= 'i';
+            } elseif (is_double($unique_value)) {
+                $types .= 'd';
+            } else {
+                $types .= 's';
+            }
+
+        // Generating lists of columns and placeholders:
+        $placeholder_list = implode(',', $placeholders);
+
+        $sql = "UPDATE $table SET $placeholder_list WHERE $identifier = ?";
+        $conn = $this->connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param($types, ...$values, $unique_value);
+        return $stmt->execute();
+    }
+
+    public function deleteData($table, $identifier, $value){
+        $sql = "DELETE FROM $table WHERE $identifier = ?";
+        $conn = $this->connect();
+        $stmt = $conn->prepare($sql);
+        $type = '';
+        if (is_int($value)) {
+            $type = 'i';
+        } elseif (is_double($value)) {
+            $type = 'd';
+        } else {
+            $type = 's';
+        }
+        $stmt->bind_param($type, $value);
+        if(!$stmt->execute()){
+            $stmt = null;
+            header('Location: '.$_SERVER['PHP_SELF']);
+            exit();
         }
         else{
-            echo "Deletion failed";
+            header('Location: '.$_SERVER['PHP_SELF']."?error=none");
         }
 
-
-
-}
-   public function updateData($table,$data){
-    $this->establishConnection();
-    list($columns,$values)=self::extractDetails($data);
-    if($this->conn->query("UPDATE $table SET $columns='$values'")){
-        echo "Data updated to table";
-
     }
-    else{
-        echo "Update failed";
-    }
-   }*/
-
 
 }
 ?>
