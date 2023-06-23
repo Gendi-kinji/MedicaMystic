@@ -24,3 +24,6 @@ a.btn-links {
   a.btn-delete{
     background-color: rgb(211, 50, 5);
   }
+  a.btn-new{
+    background-color: darkblue;
+  }
