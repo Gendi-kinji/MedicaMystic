@@ -1,4 +1,9 @@
 <?php
+require "../classes/connection.class.php";
+require "../classes/databasehandler.class.php";
+require "../classes/models/pharmaceutical.class.php";
+
+
 $id = $_GET['id'];
 
 $pharmaceutical = new Pharmaceutical();

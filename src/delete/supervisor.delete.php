@@ -1,4 +1,8 @@
 <?php
+require "../classes/connection.class.php";
+require "../classes/databasehandler.class.php";
+require "../classes/models/supervisor.class.php";
+
 $id = $_GET['id'];
 
 $supervisor = new Supervisor();
