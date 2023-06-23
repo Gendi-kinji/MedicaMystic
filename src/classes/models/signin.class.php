@@ -25,7 +25,7 @@ class SignIn extends DatabaseHandler{
 
         if($checkPwd == false){
             $stmt = null;
-            //header("location: ../../sign_in.php?error=incorrectpassword");
+            header("location: ../../sign_in.php?error=incorrectpassword");
             exit();
         }
         elseif($checkPwd == true){

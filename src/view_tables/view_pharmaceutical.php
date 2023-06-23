@@ -2,6 +2,8 @@
     require "../classes/connection.class.php";
     require "../classes/databasehandler.class.php";
     require "../classes/models/pharmaceutical.class.php";
+    require "../classes/views/tableview.class.php";
+    
 ?>
 
 <!DOCTYPE html>
@@ -17,23 +19,7 @@
             <?php
             $pharmaceutical = new Pharmaceutical();
             $pharmaceutical_table = $pharmaceutical->getAllPharmaceuticals();
-            if(count($pharmaceutical_table)>0){
-                echo "<table>";
-                $keys = array_keys($pharmaceutical_table[0]); // get the columns of the table from the first array
-                echo "<tr>";
-                foreach($keys as $key){
-                    echo "<th scope='col'>".$key."</th>"; // display the attributes as headers for the table
-                }
-                echo "</tr>";
-                foreach($pharmaceutical_table as $row){ // loop through each row of the table (the 2d array)
-                    echo "<tr>";
-                    foreach($row as $value){
-                        echo "<td>".$value."</td>"; // display the records (values) in the HTML table
-                    }
-                    echo "</tr>";
-                }
-                echo "</table>";
-            }
+            TableView::showTable($pharmaceutical_table);
             ?>
         </center>
     </body>
