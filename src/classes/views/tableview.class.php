@@ -23,5 +23,7 @@ class TableView{
             }
             echo "</table>";
         }
+        echo "<br>";
+        echo "<a class='btn-links btn-new' href='../add/add_$item_name.php'>Add New Record</a>";
     }
 }?>
