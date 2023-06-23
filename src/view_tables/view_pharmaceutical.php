@@ -15,12 +15,10 @@
         <link rel="stylesheet" href="../styles/table_styles.css">
     <body>
         <h1>Pharmaceuticals Table</h1>
-        <center>
             <?php
             $pharmaceutical = new Pharmaceutical();
             $pharmaceutical_table = $pharmaceutical->getAllPharmaceuticals();
-            TableView::showTable($pharmaceutical_table);
+            TableView::showTable($pharmaceutical_table, 'pharmaceutical');
             ?>
-        </center>
     </body>
 </html>

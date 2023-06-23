@@ -9,4 +9,18 @@ th, td{
 
 table{
     border-collapse: collapse;
+    margin: 0% auto;
 }
+a.btn-links {
+    display: inline-block;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+  }
+  a.btn-update{
+    background-color: rgba(6, 202, 39, 0.628);
+  }
+  a.btn-delete{
+    background-color: rgb(211, 50, 5);
+  }

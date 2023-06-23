@@ -30,7 +30,7 @@ class DatabaseHandler extends Connection{
         return $stmt->execute();
     }
 
-    protected function getData($table, $identifier, $value){
+    protected function getData($table, $identifier, $search_value){
         $sql = "SELECT * FROM $table WHERE $identifier = ?";
         $conn = $this->connect();
         $stmt = $conn->prepare($sql);
@@ -43,7 +43,7 @@ class DatabaseHandler extends Connection{
         } else {
             $type = 's';
         }
-        $stmt->bind_param($type, $value);
+        $stmt->bind_param($type, $search_value);
         if(!$stmt->execute()){
             $stmt = null;
             header('Location: '.$_SERVER['PHP_SELF']);
@@ -64,15 +64,16 @@ class DatabaseHandler extends Connection{
 
     }
 
-    public function updateData($table, $data, $identifier, $unique_value) {
+    public function updateData($table, $identifier, $data, $unique_value) {
         $columns = array_keys($data);
         $values = array_values($data);
+        array_push($values, $unique_value);
         $placeholders = array_map(function ($column) {
             return "$column=?";
         }, $columns);
 
         // Check for the data type before assigning type:
-            $types = '';
+        $types = '';
         foreach ($values as $value) {
             if (is_int($value)) {
                 $types .= 'i';
@@ -82,13 +83,6 @@ class DatabaseHandler extends Connection{
                 $types .= 's';
             }
         }
-            if (is_int($unique_value)) {
-                $types .= 'i';
-            } elseif (is_double($unique_value)) {
-                $types .= 'd';
-            } else {
-                $types .= 's';
-            }
 
         // Generating lists of columns and placeholders:
         $placeholder_list = implode(',', $placeholders);
@@ -96,8 +90,18 @@ class DatabaseHandler extends Connection{
         $sql = "UPDATE $table SET $placeholder_list WHERE $identifier = ?";
         $conn = $this->connect();
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param($types, ...$values, $unique_value);
-        return $stmt->execute();
+        $stmt->bind_param($types, ...$values);
+
+        $result = null;
+        if(!$stmt->execute()){
+            $stmt = null;
+            header('Location: '.$_SERVER['PHP_SELF']."?error=stmtfailed");
+            exit();
+        }
+        else{
+            $result = $stmt->execute();
+        }
+        return $result;
     }
 
     public function deleteData($table, $identifier, $value){
