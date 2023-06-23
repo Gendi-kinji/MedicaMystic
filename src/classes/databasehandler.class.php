@@ -30,7 +30,7 @@ class DatabaseHandler extends Connection{
         return $stmt->execute();
     }
 
-    protected function getData($table, $identifier, $value){
+    protected function getData($table, $identifier){
         $sql = "SELECT * FROM $table WHERE $identifier = ?";
         $conn = $this->connect();
         $stmt = $conn->prepare($sql);
@@ -43,7 +43,7 @@ class DatabaseHandler extends Connection{
         } else {
             $type = 's';
         }
-        $stmt->bind_param($type, $value);
+        $stmt->bind_param($type, $identifier);
         if(!$stmt->execute()){
             $stmt = null;
             header('Location: '.$_SERVER['PHP_SELF']);
@@ -64,65 +64,64 @@ class DatabaseHandler extends Connection{
 
     }
 
-    public function updateData($table, $data, $identifier, $unique_value) {
-        $columns = array_keys($data);
-        $values = array_values($data);
-        $placeholders = array_map(function ($column) {
-            return "$column=?";
-        }, $columns);
-
-        // Check for the data type before assigning type:
-            $types = '';
-        foreach ($values as $value) {
-            if (is_int($value)) {
-                $types .= 'i';
-            } elseif (is_double($value)) {
-                $types .= 'd';
-            } else {
-                $types .= 's';
-            }
-        }
-            if (is_int($unique_value)) {
-                $types .= 'i';
-            } elseif (is_double($unique_value)) {
-                $types .= 'd';
-            } else {
-                $types .= 's';
-            }
-
-        // Generating lists of columns and placeholders:
-        $placeholder_list = implode(',', $placeholders);
-
-        $sql = "UPDATE $table SET $placeholder_list WHERE $identifier = ?";
-        $conn = $this->connect();
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param($types, ...$values, $unique_value);
-        return $stmt->execute();
-    }
-
-    public function deleteData($table, $identifier, $value){
-        $sql = "DELETE FROM $table WHERE $identifier = ?";
-        $conn = $this->connect();
-        $stmt = $conn->prepare($sql);
-        $type = '';
-        if (is_int($value)) {
-            $type = 'i';
-        } elseif (is_double($value)) {
-            $type = 'd';
-        } else {
-            $type = 's';
-        }
-        $stmt->bind_param($type, $value);
-        if(!$stmt->execute()){
-            $stmt = null;
-            header('Location: '.$_SERVER['PHP_SELF']);
-            exit();
+    /*public function deleteData($table,$data){
+        $this->establishConnection();
+        list($columns,$values)=self::extractDetails($data);
+        if($this->conn->query("DELETE FROM $table($columns) VALUES ('$values')")===TRUE){
+            echo "Data deleted from table";
         }
         else{
-            header('Location: '.$_SERVER['PHP_SELF']."?error=none");
+            echo "Deletion failed";
+        }
+
+
+
+}
+   public function updateData($table,$data){
+    $this->establishConnection();
+    list($columns,$values)=self::extractDetails($data);
+    if($this->conn->query("UPDATE $table SET $columns='$values'")){
+        echo "Data updated to table";
+
+    }
+    else{
+        echo "Update failed";
+    }
+   }*/
+  public function Pagination($table,$sql){
+    $conn=$this->connect();
+    if(isset($_GET['page'])){
+        $page_no=1;
+    }else{
+        $page_no=$_GET['page'];
+    }
+    $limit=3;
+    $initial=($page_no-1)*$limit;
+    $sql="SELECT * FROM $table LIMIT $limit OFFSET $initial";
+    $rows=$conn->query($sql);
+    $perpage=ceil($rows/$limit);
+    $result=$rows->fetch_all(MYSQLI_ASSOC)>0;
+    return $result;
+    
+    if ($page_no > 1) {
+    echo '<a href="?page='.($page_no- 1).'">Previous</a>';}
+    for($page=1;$page<=$perpage;$page++){
+        if($page==$page_no){
+            echo '<span id="current">'.$page."</span>";
+        }else{
+            echo '<a href="?page='.$page.'">'.$page.'</a>';
+        }
+        if($page<$perpage){
+            echo '<a href="?page='.($page+1).'">Next</a>';
         }
 
     }
+    echo '</p>';
 
-}
-?>
+
+    }}
+
+  
+
+
+
