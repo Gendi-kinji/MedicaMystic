@@ -120,7 +120,7 @@ class DatabaseHandler extends Connection{
         if(!$stmt->execute()){
             $stmt = null;
             header('Location: '.$_SERVER['PHP_SELF']);
-            exit();
+            return false;
         }else{
             return true;
         }
