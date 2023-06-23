@@ -8,12 +8,20 @@ class Patient extends DatabaseHandler{
         $this->setData('tbl_patients', $patientData);
     }
 
-    public function getPatient($identifier){
-        return $this->getData('tbl_patients', $identifier);
+    public function getPatient($search_value){
+        return $this->getData('tbl_patients', 'patient_ssn', $search_value);
     }
 
     public function getAllPatients(){
         return $this->getTable('tbl_patients');
+    }
+
+    public function updatePatient($patient_data, $unique_value){
+        $this->updateData('tbl_patients', 'patient_ssn', $patient_data, $unique_value);
+    }
+    public function deletePatient($unique_value){
+        $this->deleteData('tbl_patients','patient_ssn', $unique_value);
+
     }
 
 }

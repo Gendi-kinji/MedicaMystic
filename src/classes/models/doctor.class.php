@@ -22,7 +22,6 @@ class Doctor extends DatabaseHandler{
     }
     public function deleteDoctor($unique_value){
         $this->deleteData('tbl_doctors','doctor_ssn', $unique_value);
-
     }
 
 }
