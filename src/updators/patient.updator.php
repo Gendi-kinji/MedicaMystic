@@ -23,7 +23,7 @@ if(isset($_POST["submit"])){
      $patient = new Patient();
      $patient->updatePatient($patient_data, $id);
 
-     //Go back to  page after registering successfully:
+     //Go back to  page after updating successfully:
      header("location: ../view_tables/view_patients.php?error=none");
 
 

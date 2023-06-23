@@ -19,7 +19,7 @@ if(isset($_POST["submit"])){
      $supervisor = new Supervisor();
      $supervisor->updateSupervisor($supervisor_data, $id);
 
-     //Go back to  page after registering successfully:
+     //Go back to  page after updating successfully:
      header("location: ../view_tables/view_supervisors.php?error=none");
 
 

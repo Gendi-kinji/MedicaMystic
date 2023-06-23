@@ -20,7 +20,7 @@ if(isset($_POST["submit"])){
      $pharmaceutical = new Pharmaceutical();
      $pharmaceutical->updatePharmaceutical($pharmaceutical_data, $id);
 
-     //Go back to  page after registering successfully:
+     //Go back to  page after updating successfully:
      header("location: ../view_tables/view_pharmaceutical.php?error=none");
 
 
