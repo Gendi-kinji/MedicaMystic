@@ -30,7 +30,7 @@ class DatabaseHandler extends Connection{
         return $stmt->execute();
     }
 
-    protected function getData($table, $identifier){
+    protected function getData($table, $identifier, $search_value){
         $sql = "SELECT * FROM $table WHERE $identifier = ?";
         $conn = $this->connect();
         $stmt = $conn->prepare($sql);
@@ -43,7 +43,7 @@ class DatabaseHandler extends Connection{
         } else {
             $type = 's';
         }
-        $stmt->bind_param($type, $identifier);
+        $stmt->bind_param($type, $search_value);
         if(!$stmt->execute()){
             $stmt = null;
             header('Location: '.$_SERVER['PHP_SELF']);
@@ -64,35 +64,68 @@ class DatabaseHandler extends Connection{
 
     }
 
-    /*public function deleteData($table,$data){
-        $this->establishConnection();
-        list($columns,$values)=self::extractDetails($data);
-        if($this->conn->query("DELETE FROM $table($columns) VALUES ('$values')")===TRUE){
-            echo "Data deleted from table";
+    public function updateData($table, $identifier, $data, $unique_value) {
+        $columns = array_keys($data);
+        $values = array_values($data);
+        array_push($values, $unique_value);
+        $placeholders = array_map(function ($column) {
+            return "$column=?";
+        }, $columns);
+
+        // Check for the data type before assigning type:
+        $types = '';
+        foreach ($values as $value) {
+            if (is_int($value)) {
+                $types .= 'i';
+            } elseif (is_double($value)) {
+                $types .= 'd';
+            } else {
+                $types .= 's';
+            }
+        }
+      
+        // Generating lists of columns and placeholders:
+        $placeholder_list = implode(',', $placeholders);
+      
+        $sql = "UPDATE $table SET $placeholder_list WHERE $identifier = ?";
+        $conn = $this->connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param($types, ...$values);
+
+        $result = null;
+        if(!$stmt->execute()){
+            $stmt = null;
+            header('Location: '.$_SERVER['PHP_SELF']."?error=stmtfailed");
+            exit();
         }
         else{
-            echo "Deletion failed";
+            $result = $stmt->execute();
+        }
+        return $result;
+    }
+
+    public function deleteData($table, $identifier, $value){
+        $sql = "DELETE FROM $table WHERE $identifier = ?";
+        $conn = $this->connect();
+        $stmt = $conn->prepare($sql);
+        $type = '';
+        if (is_int($value)) {
+            $type = 'i';
+        } elseif (is_double($value)) {
+            $type = 'd';
+        } else {
+            $type = 's';
+        }
+        $stmt->bind_param($type, $value);
+        if(!$stmt->execute()){
+            $stmt = null;
+            header('Location: '.$_SERVER['PHP_SELF']);
+            return false;
+        }else{
+            return true;
         }
 
-
+    }
 
 }
-   public function updateData($table,$data){
-    $this->establishConnection();
-    list($columns,$values)=self::extractDetails($data);
-    if($this->conn->query("UPDATE $table SET $columns='$values'")){
-        echo "Data updated to table";
-
-    }
-    else{
-        echo "Update failed";
-    }
-   }*/
-   
-
-
-}
-
-
-
 ?>

@@ -8,12 +8,20 @@ class Supervisor extends DatabaseHandler{
         $this->setData('tbl_supervisors', $supervisorData);
     }
 
-    public function getSupervisor($identifier){
-        return $this->getData('tbl_supervisors', $identifier);
+    public function getSupervisor($search_value){
+        return $this->getData('tbl_supervisors', 'supervisor_id', $search_value);
     }
 
     public function getAllSupervisors(){
         return $this->getTable('tbl_supervisors');
+    }
+
+    public function updateSupervisor($supervisor_data, $unique_value){
+        $this->updateData('tbl_supervisors', 'supervisor_id', $supervisor_data, $unique_value);
+    }
+    public function deleteSupervisor($unique_value){
+        $this->deleteData('tbl_supervisors','supervisor_id', $unique_value);
+
     }
 
     

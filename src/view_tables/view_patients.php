@@ -15,12 +15,10 @@
     </head>
     <body>
         <h1>Patients Table</h1>
-        <center>
             <?php
             $patient = new Patient();
             $patient_table = $patient->getAllPatients();
-            TableView::showTable($patient_table);
+            TableView::showTable($patient_table, 'patient');
             ?>
-        </center>
     </body>
 </html>

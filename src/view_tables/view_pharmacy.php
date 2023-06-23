@@ -2,7 +2,7 @@
     require "../classes/connection.class.php";
     require "../classes/databasehandler.class.php";
     require "../classes/models/pharmacy.class.php";
-    require "../classes/views/table.class.php";
+    require "../classes/views/tableview.class.php";
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +15,10 @@
     </head>
     <body>
         <h1>Pharmacy Table</h1>
-        <center>
             <?php
             $pharmacy = new Pharmacy();
             $pharmacy_table = $pharmacy->getAllPharmacies();
-            TableView::showTable($pharmacy_table);
+            TableView::showTable($pharmacy_table, 'pharmacy');
             ?>
-        </center>
     </body>
 </html>

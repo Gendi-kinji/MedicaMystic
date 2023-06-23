@@ -15,12 +15,10 @@
     </head>
     <body>
         <h1>Drugs Table</h1>
-        <center>
             <?php
             $drug = new Drug();
             $drug_table = $drug->getAllDrugs();
-            TableView::showTable($drug_table);
+            TableView::showTable($drug_table, 'drug');
             ?>
-        </center>
     </body>
 </html>

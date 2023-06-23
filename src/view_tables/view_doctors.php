@@ -14,13 +14,14 @@
         <link rel="stylesheet" href="../styles/table_styles.css">
     </head>
     <body>
-        <h1>Doctors Table</h1>
-        <center>
+        <div class="main-container">
+            
+            <h1>Doctors Table</h1>
             <?php
             $doctor = new Doctor();
             $doctor_table = $doctor->getAllDoctors();
-            TableView::showTable($doctor_table);
+            TableView::showTable($doctor_table, 'doctor');
             ?>
-        </center>
+        </div>
     </body>
 </html>
