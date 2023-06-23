@@ -83,10 +83,10 @@ class DatabaseHandler extends Connection{
                 $types .= 's';
             }
         }
-
+      
         // Generating lists of columns and placeholders:
         $placeholder_list = implode(',', $placeholders);
-
+      
         $sql = "UPDATE $table SET $placeholder_list WHERE $identifier = ?";
         $conn = $this->connect();
         $stmt = $conn->prepare($sql);
