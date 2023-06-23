@@ -121,9 +121,8 @@ class DatabaseHandler extends Connection{
             $stmt = null;
             header('Location: '.$_SERVER['PHP_SELF']);
             exit();
-        }
-        else{
-            header('Location: '.$_SERVER['PHP_SELF']."?error=none");
+        }else{
+            return true;
         }
 
     }
