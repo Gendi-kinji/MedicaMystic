@@ -6,8 +6,8 @@ require "../classes/models/patient.class.php";
 
 $id = $_GET['id'];
 
-$patient = new patient();
-if($patient->deletepatient($id) === TRUE){
+$patient = new Patient();
+if($patient->deletePatient($id) === TRUE){
     header("Location: ..view_tables/view_patients.php?error=none");
 }
 else{
