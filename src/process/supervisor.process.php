@@ -12,6 +12,6 @@
     $supervisor->addSupervisor($supervisorData);
 
     // redirect to form page:
-    header('Location: ../add/add_supervisors.php?error=none');
+    header('Location: ../add/add_supervisor.php?error=none');
     
 ?>

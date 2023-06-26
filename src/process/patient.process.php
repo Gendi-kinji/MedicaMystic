@@ -16,6 +16,6 @@
     $patient->addPatient($patientData);
 
     // redirect to form page:
-    header('Location: ../add/add_patients.php?error=none');
+    header('Location: ../add/add_patient.php?error=none');
     
 ?>

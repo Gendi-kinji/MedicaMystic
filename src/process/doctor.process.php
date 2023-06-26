@@ -16,5 +16,5 @@
     $doctor->addDoctor($doctorData);
 
     // redirect to form page:
-    header('Location: ../add/add_doctors.php?error=none');
+    header('Location: ../add/add_doctor.php?error=none');
 ?>

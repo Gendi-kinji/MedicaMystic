@@ -15,6 +15,6 @@
     $drug->addDrug($drugData);
 
     // redirect to form page:
-    header('Location: ../add/add_drugs.php?error=none');
+    header('Location: ../add/add_drug.php?error=none');
     
 ?>
