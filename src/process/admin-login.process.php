@@ -4,7 +4,7 @@
 
         // Grab the data submitted by the user
         $admin_name = $_POST['admin_name'];
-        $user_pass = $_POST['user_pass'];
+        $admin_pass = $_POST['admin_pass'];
         
         // Include important files:
         require "../classes/connection.class.php";

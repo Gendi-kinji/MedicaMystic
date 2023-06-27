@@ -17,8 +17,9 @@
                 <div class="form-buttons">
                     <button type="submit" name="submit" value="submit">Submit</button><br>
                 </div><br>
+                <a href="admin_register.php">New admin?</a>
                 <br>
-                </div>
+            </div>
         </form>
     </body>
 </html>
