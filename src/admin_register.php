@@ -23,7 +23,7 @@
         <label for="admin_pass_confirm">Confirm password</label>
         <input type="password" placeholder="Confirm Password" id="admin_pass_confirm" name="admin_pass_confirm" required><br>
         <button type="submit" id="submit" name="submit" value="submit">Submit</button><br>
-        <a href="admin_login.php" target="_self">Already have an account?</a>
+        <a href="admin_login.php" target="_self">Already have an admin account?</a>
     </form>
 </body>
 
