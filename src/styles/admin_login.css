@@ -10,7 +10,7 @@ form {
     flex-direction: row;
     box-sizing: border-box;
     width: 70%;
-    height: 80%;
+    height: 600px;
 }
 .form-header {
     margin: 0%;
@@ -21,7 +21,7 @@ form {
 }
 .form-content {
     height: inherit;
-    background: linear-gradient(120deg, cyan, rgb(82, 82, 227));
+    background: linear-gradient(120deg, #ff00ff, rgb(40 174 220));
     display: flex;
     flex-direction: column;
     width: 50%;
