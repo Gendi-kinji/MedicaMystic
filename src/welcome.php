@@ -8,20 +8,24 @@
     <title>Welcome Page</title>
 </head>
 <body>
-    <div id="main-container">
+    <div id="welcome-container">
         <div class="welcome-header">
-            <h2>DRUG DISPENSARY NAME</h2>
-            <img class="dispensary-logo" alt="Dispensary Logo" src="./form_icons/laboratory.jpg">
-        </div>
-        <br>
-        <div id="welcome-options">
-            <form action="./register.php" method="GET">
-                <input type="submit" value="Register">
-            </form>
+            <!--the name below is just a placeholder, may be permanent or not-->
+            <h2>MedicaMystic Dispensary</h2>
+            <span id="page-headline"><b>Get your meds, with no stress!</b></span>
             <br>
-            <form action="./sign_in.php" method="GET">
-                <input type="submit" value="Sign In">
-            </form>
+            <span id="page-subheadline">Sign in or register to access the drug dispensary</span>
+            <br><br>
+            <div class="welcome-options">
+                <!--call to action-->
+                <a class="btn-links btn-register" href="register.php">Register</a>
+                <a class="btn-links btn-sign_in" href="sign_in.php">Sign In</a>
+            </div>
+        </div>
+        <br><br>
+        <div id="header-image">
+            <!--header-image-->
+            <img class="dispensary-logo" alt="Dispensary Logo" src="./form_icons/laboratory.jpg">
         </div>
     </div>
 </body>

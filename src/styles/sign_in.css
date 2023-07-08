@@ -10,7 +10,7 @@ form {
     flex-direction: row;
     box-sizing: border-box;
     width: 70%;
-    height: 600px;
+    height: 80%;
 }
 .form-header {
     margin: 0%;

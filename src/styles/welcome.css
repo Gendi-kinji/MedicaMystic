@@ -2,8 +2,8 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: aliceblue;
     }
-    #main-container{
-        border: 1px solid black;
+    #welcome-container{
+        border: 1px ridge rgb(211, 194, 229);
         border-radius: 20px;
         background: linear-gradient(180deg, rgb(223, 217, 229), rgb(242, 232, 250));
         height: 420px;
@@ -24,12 +24,66 @@ body{
         height: 50%;
         display: flex;
         flex-direction: column;
-        margin: 0%;
+        margin: 0% auto;
         align-items: center;
     }
-    #welcome-options{
+    #page-headline{
+        font-size: 28px;
+        font-style: italic;
+    }
+    .welcome-header h2{
+        font-size: 36px;
+    }
+    .welcome-options{
+        display: flex;
+        flex-direction: row;
+    }
+    .btn-links{
+        display: inline-block;
+        padding: 5px 5px;
+        text-decoration: none;
+        color: white;
+        border: 1px ridge rgba(14, 51, 138, 0.797);
+        border-radius: 4px;
+        background-color: rgba(17, 75, 212, 0.797);
+        margin-right: 10px;
+    }
+    #header-image{
         display: flex;
         flex-direction: column;
         width: 50%;
         align-items: center;
+    }
+
+    @media (max-width:750px){
+        #welcome-container{
+            display: flex;
+            flex-direction: column;
+        }
+        .welcome-header{
+            width: 100%;
+        }
+        #header-image{
+            width: 100%;
+        }
+    }
+
+    @media (max-width:450px) {
+        #page-headline{
+            font-size: 24px;
+            font-style: italic;
+        }
+        .welcome-header h2{
+            font-size: 32px;
+        }
+    }
+
+    @media (max-width:400px){
+        #page-headline{
+            font-size: 20px;
+            font-style: italic;
+        }
+        .welcome-header h2{
+            font-size: 28px;
+        }
     }
