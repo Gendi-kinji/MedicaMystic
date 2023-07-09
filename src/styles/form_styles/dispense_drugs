@@ -1,0 +1,15 @@
+h1{
+    text-transform: uppercase;
+}
+img{
+    size:15px;
+    position: absolute;
+    top:1px;
+    right:10px;
+}
+.drugID{
+    float:left;
+}
+.trade{
+    float:left;
+}
