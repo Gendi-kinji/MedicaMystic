@@ -1,10 +1,12 @@
+    /*BODY*/
     body{
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         margin: 0;
         padding: 0;
     }
-    #home-nav{
-        margin: 0% auto;
+
+    /*NAVIGATION BAR*/
+    .nav-bar{
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -13,21 +15,34 @@
         position: fixed;
         height: 35px;
     }
-    #home-nav a{
+    .nav-bar a{
         padding: 0% 5%;
         text-align: center;
         align-items: center;
-        margin: 0% auto;
-        width: 100%;
         text-decoration: none;
         height: inherit;
         line-height: 35px;
         color: white;
     }
-    #home-nav a:hover{
-        background-color: rgb(95, 95, 95);;
+    .nav-bar a:hover{
+        background-color: rgb(74, 74, 74);;
     }
-    #welcome-container{
+    .nav-bar a.active-page{
+        background: rgb(183, 18, 189);
+        color: rgb(255, 255, 255);
+    }
+    .nav-bar a.active-page:hover{
+        background: rgb(219, 19, 226);
+    }
+    #nav-login{
+        display: flex;
+        justify-content: flex-end;
+        margin-left:auto;
+        width: inherit;
+    }
+
+    /*Above the fold*/
+    .welcome-container{
         background: linear-gradient(180deg, rgb(223, 217, 229), rgb(242, 232, 250));
         height: 420px;
         margin: 0% auto;
@@ -37,11 +52,10 @@
         justify-content: center;
         align-items: center;
     }
-    .dispensary-logo{
-        width: 160px;
-        height: 120px;
+    #img-syringe{
+        width: 128px;
+        height: 128px;
     }
-    
     .welcome-header {
         box-sizing: border-box;
         width: 50%;
@@ -51,15 +65,16 @@
         margin: 0% auto;
         align-items: center;
     }
+    /*headline*/
     #page-headline{
-        font-size: 28px;
+        font-size: 26px;
         font-style: italic;
     }
     .headline-word{
         color: blue;
     }
     .welcome-header h2{
-        font-size: 36px;
+        font-size: 40px;
     }
     .welcome-options{
         display: flex;
@@ -78,13 +93,30 @@
     .btn-links:hover{
         background-color: rgba(13, 58, 163, 0.797);
     }
-    #header-image{
+    .header-image{
         display: flex;
         flex-direction: column;
         width: 50%;
         align-items: center;
     }
-    #benefits-container{
+
+    /*BENEFITS AND TESTIMONIAL STYLES*/
+    /*testimonial*/
+    .testimonials-section{
+        display: flex;
+        flex-direction: column;
+        border: 1px;
+        border-radius: 10px;
+        margin: 0 5% 0 5%;
+        padding: 16px;
+        width: 35%;
+        background: rgb(255, 255, 227);
+        box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
+    }
+    #john-doe-testimonial{
+        font-size: 16px;
+    }
+    .benefits-container{
         background: linear-gradient(180deg, rgb(191, 221, 239), rgb(157, 197, 224));
         height: 420px;
         margin: 0% auto;
@@ -94,28 +126,91 @@
         justify-content: center;
         align-items: center;
     }
+    /*benefits*/
     .benefits-section{
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: 60%;
+    }
+    .benefits-section h2{
+        font-size: 32px;
+    }
+    .benefits-section h3{
+        font-size: 24px;
+    }
+    .benefits-list span{
+        font-size: 20px;
     }
     
+
+    /*PAGE FOOTER*/
+    .footer-container{
+        background: linear-gradient(180deg, rgb(56, 56, 56), rgb(60, 60, 60));
+        color: white;
+    }
+    .footer-container a{
+        color: rgb(10, 177, 202);
+    }
+    .footer-container a{
+        color: rgb(10, 177, 202);
+    }
+    .footer-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .footer-about{
+        margin: 0% auto;
+        width: 25%;
+    }
+    .footer-contact{
+        margin: 0% auto;
+        width: 50%;
+    }
+
+
     /*media queries*/
 
-    @media (max-width:750px){
-        #welcome-container{
+    @media (max-width:700px){
+        .welcome-container{
             display: flex;
             flex-direction: column;
+            height: 480px;
         }
         .welcome-header{
             width: 100%;
         }
         #header-image{
             width: 100%;
+            margin: 0% auto;
         }
+        #img-syringe{
+            width: 96px;
+            height: 96px;
+        }
+        
+        #john-doe-testimonial{
+            font-size: 14px;
+            margin: 0;
+        }
+        .benefits-container{
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+        .benefits-section h2{
+            font-size: 28px;
+        }
+        .benefits-section h3{
+            font-size: 22px;
+        }
+        .benefits-list span{
+            font-size: 16px;
+        }
+        
     }
 
-    @media (max-width:450px) {
+    @media (max-width:480px) {
         #page-headline{
             font-size: 24px;
             font-style: italic;
@@ -123,6 +218,17 @@
         .welcome-header h2{
             font-size: 32px;
         }
+        #img-syringe{
+            width: 80px;
+            height: 80px;
+        }
+        #john-doe-testimonial{
+            font-size: 12px;
+        }
+        .benefits-list span{
+            font-size: 14px;
+        }
+
     }
 
     @media (max-width:400px){
