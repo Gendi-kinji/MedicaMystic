@@ -20,8 +20,8 @@
         //Run error handler and user registration:
         $register->registerUser();
 
-        //Go back to welcome page after registering successfully:
-        header("location: ../welcome.php?error=none");
+        //Go back to home page after registering successfully:
+        header("location: ../home.php?error=none");
 
     }
     

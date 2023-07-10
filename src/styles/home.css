@@ -25,7 +25,15 @@
         color: white;
     }
     #home-nav a:hover{
-        background-color: rgb(95, 95, 95);;
+        background-color: rgb(74, 74, 74);;
+    }
+    #home-nav a.active-page{
+        background: rgb(183, 18, 189);
+        color: rgb(255, 255, 255);
+    }
+    #home-nav a.active-page:hover{
+        background: rgb(219, 19, 226);
+
     }
     #welcome-container{
         background: linear-gradient(180deg, rgb(223, 217, 229), rgb(242, 232, 250));
@@ -37,11 +45,10 @@
         justify-content: center;
         align-items: center;
     }
-    .dispensary-logo{
-        width: 160px;
-        height: 120px;
+    #img-syringe{
+        width: 128px;
+        height: 128px;
     }
-    
     .welcome-header {
         box-sizing: border-box;
         width: 50%;
@@ -59,7 +66,7 @@
         color: blue;
     }
     .welcome-header h2{
-        font-size: 36px;
+        font-size: 40px;
     }
     .welcome-options{
         display: flex;
@@ -112,16 +119,25 @@
         }
         #header-image{
             width: 100%;
+            margin: 0% auto;
+        }
+        #img-syringe{
+            width: 96px;
+            height: 96px;
         }
     }
 
-    @media (max-width:450px) {
+    @media (max-width:480px) {
         #page-headline{
             font-size: 24px;
             font-style: italic;
         }
         .welcome-header h2{
             font-size: 32px;
+        }
+        #img-syringe{
+            width: 80px;
+            height: 80px;
         }
     }
 
