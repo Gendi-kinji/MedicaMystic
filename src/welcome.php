@@ -46,5 +46,12 @@
             </div>
         </div>
     </div>
+    <div id="trust">
+        <p class="medical">Why trust MedicaMystic?</p>
+        <div class="position">
+            <p>It has been trusted<br>by over 25 companies worldwide</p>
+            <p>It has earned the top position<br>for the Best Dispensary Award</p>
+        </div>
+    </div>
 </body>
 </html>

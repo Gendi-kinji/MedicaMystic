@@ -134,3 +134,16 @@
             font-size: 28px;
         }
     }
+    .position{
+        font-style: normal;
+        font-family: 'Times New Roman', Times, serif;
+        color:chocolate;
+        float:left;
+        font-size:90%;
+    }
+    .medical{
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-size:100%;
+
+    }
