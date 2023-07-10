@@ -8,6 +8,10 @@
     <title>Welcome Page</title>
 </head>
 <body>
+    <nav id="home-nav">
+        <a href="">Home</a>
+        <a href="about.php">About</a>
+    </nav>
     <div id="welcome-container">
         <div class="welcome-header">
             <!--the name below is just a placeholder, may be permanent or not-->
