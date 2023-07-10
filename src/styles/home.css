@@ -4,7 +4,6 @@
         padding: 0;
     }
     #home-nav{
-        margin: 0% auto;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -17,8 +16,6 @@
         padding: 0% 5%;
         text-align: center;
         align-items: center;
-        margin: 0% auto;
-        width: 100%;
         text-decoration: none;
         height: inherit;
         line-height: 35px;
@@ -33,7 +30,12 @@
     }
     #home-nav a.active-page:hover{
         background: rgb(219, 19, 226);
-
+    }
+    #nav-login{
+        display: flex;
+        justify-content: flex-end;
+        margin-left:auto;
+        width: inherit;
     }
     #welcome-container{
         background: linear-gradient(180deg, rgb(223, 217, 229), rgb(242, 232, 250));
@@ -104,8 +106,32 @@
     .benefits-section{
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: 60%;
     }
+    .benefits-section h2{
+        font-size: 32px;
+    }
+    .benefits-section h3{
+        font-size: 24px;
+    }
+    .benefits-list span{
+        font-size: 20px;
+    }
+    .testimonials-section{
+        display: flex;
+        flex-direction: column;
+        border: 1px;
+        border-radius: 10px;
+        margin: 0 5% 0 5%;
+        padding: 16px;
+        width: 35%;
+        background: rgb(255, 255, 227);
+        box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
+    }
+    #john-doe-testimonial{
+        font-size: 16px;
+    }
+
     
     /*media queries*/
 
@@ -113,6 +139,7 @@
         #welcome-container{
             display: flex;
             flex-direction: column;
+            height: 480px;
         }
         .welcome-header{
             width: 100%;
@@ -124,6 +151,15 @@
         #img-syringe{
             width: 96px;
             height: 96px;
+        }
+        #benefits-container{
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+        #john-doe-testimonial{
+            font-size: 14px;
+            margin: 0;
         }
     }
 
@@ -138,6 +174,9 @@
         #img-syringe{
             width: 80px;
             height: 80px;
+        }
+        #john-doe-testimonial{
+            font-size: 12px;
         }
     }
 
