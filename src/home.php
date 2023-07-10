@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/home.css" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <a class="active-page" href="home.php">Home</a>
+      <a href="overview.php">Overview</a>
+      <div id="nav-login">
+        <a href="sign_in.php">Sign in</a>
+      </div>
+    </div>
+
+    <!--ABOVE THE FOLD-->
+    <div class="welcome-container">
+      <div class="welcome-header">
+        <!--the page header-->
+        <h2>MedicaMystic Dispensary</h2>
+        <span id="page-headline"
+          ><b
+            >Get your <span class="headline-word">meds</span> with no stress!</b
+          ></span
+        >
+        <br />
+        <span id="page-subheadline"
+          >Sign in or register to access the drug dispensary</span
+        >
+        <br /><br />
+        <div class="welcome-options">
+          <!--call to action-->
+          <a class="btn-links btn-register" href="register.php">Register</a>
+          <a class="btn-links btn-sign_in" href="sign_in.php">Sign In</a>
+        </div>
+      </div>
+      <br /><br />
+
+      <div class="header-image">
+        <!--header-image-->
+        <img
+          id="img-syringe"
+          alt="Image of syringe"
+          title="Syringe: From Flaticon"
+          src="/form_icons/syringe.png"
+        />
+      </div>
+    </div>
+
+    <!--BELOW THE FOLD-->
+
+    <!--benefits and trust indicators-->
+    <div class="benefits-container">
+      <div class="testimonials-section">
+        <!-- (&#39; This is a single quote)-->
+        <q id="john-doe-testimonial">
+          I love MedicaMystic! It&#39;s so easy to order my meds online!<br />
+          No more waiting in line at the pharmacy, I'm lazy! MedicaMystic <br />
+          is like magic, but better! As I always say, <br />
+          &#39;Don&#39;t be tragic, be MedicaMystic!&#39; 😎</q
+        ><br />
+        <i><b>-John Doe, MedicaMystic user</b></i>
+      </div>
+      <br /><br />
+
+      <div class="benefits-section">
+        <h2>Smooth, super, and superb</h2>
+        <h3>Why use MedicaMystic?</h3>
+        <div class="benefits-list">
+          <span>Convenient</span><br />
+          <span>Easy to use</span><br />
+          <span>Your conscience says so</span>
+        </div>
+      </div>
+    </div>
+
+    <!--home page footer-->
+    <div class="footer-container">
+      <br>
+      <div class="footer-content">
+        <div class="footer-about">
+          <h5>About</h5>
+          <a href="https://github.com/Gendi-kinji/Web2023" target="_blank">Github Repo</a>
+        </div>
+        <div class="footer-contact">
+          <h5>Project Collaborators</h5>
+          <a href="https://github.com/Gendi-kinji/" target="_blank">George Fundi</a><br />
+          <a href="https://github.com/Fidelisaboke/" target="_blank">Fidel Isaboke</a>
+        </div>
+      </div><br>
+
+      <div class="copyright-info">
+        <span>&copy; 2023 - Fidel Agade & George Fundi</span><br />
+        <span>All rights reserved.</span>
+      </div>
+    </div>
+  </body>
+</html>
