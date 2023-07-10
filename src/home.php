@@ -8,16 +8,16 @@
     <title>Home Page</title>
   </head>
   <body>
-    <nav id="home-nav">
+    <div class="nav-bar">
       <a class="active-page" href="home.php">Home</a>
       <a href="overview.php">Overview</a>
       <div id="nav-login">
         <a href="sign_in.php">Sign in</a>
       </div>
-    </nav>
+    </div>
 
     <!--ABOVE THE FOLD-->
-    <div id="welcome-container">
+    <div class="welcome-container">
       <div class="welcome-header">
         <!--the page header-->
         <h2>MedicaMystic Dispensary</h2>
@@ -39,7 +39,7 @@
       </div>
       <br /><br />
 
-      <div id="header-image">
+      <div class="header-image">
         <!--header-image-->
         <img
           id="img-syringe"
@@ -53,7 +53,7 @@
     <!--BELOW THE FOLD-->
 
     <!--benefits and trust indicators-->
-    <div id="benefits-container">
+    <div class="benefits-container">
       <div class="testimonials-section">
         <!-- (&#39; This is a single quote)-->
         <q id="john-doe-testimonial">
@@ -78,18 +78,19 @@
     </div>
 
     <!--home page footer-->
-    <div id="footer-container">
+    <div class="footer-container">
+      <br>
       <div class="footer-content">
         <div class="footer-about">
           <h5>About</h5>
-          <a href="https://github.com/Gendi-kinji/Web2023">Github Repo</a>
+          <a href="https://github.com/Gendi-kinji/Web2023" target="_blank">Github Repo</a>
         </div>
         <div class="footer-contact">
           <h5>Project Collaborators</h5>
-          <a href="https://github.com/Gendi-kinji/">George Fundi</a><br />
-          <a href="https://github.com/Fidelisaboke/">Fidel Isaboke</a>
+          <a href="https://github.com/Gendi-kinji/" target="_blank">George Fundi</a><br />
+          <a href="https://github.com/Fidelisaboke/" target="_blank">Fidel Isaboke</a>
         </div>
-      </div>
+      </div><br>
 
       <div class="copyright-info">
         <span>&copy; 2023 - Fidel Agade & George Fundi</span><br />
