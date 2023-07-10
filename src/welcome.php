@@ -12,11 +12,12 @@
         <a href="">Home</a>
         <a href="about.php">About</a>
     </nav>
+    <!--ABOVE THE FOLD-->
     <div id="welcome-container">
         <div class="welcome-header">
-            <!--the name below is just a placeholder, may be permanent or not-->
+            <!--the page header-->
             <h2>MedicaMystic Dispensary</h2>
-            <span id="page-headline"><b>Get your meds, with no stress!</b></span>
+            <span id="page-headline"><b>Get your <span class="headline-word">meds</span> with no stress!</b></span>
             <br>
             <span id="page-subheadline">Sign in or register to access the drug dispensary</span>
             <br><br>
@@ -30,6 +31,19 @@
         <div id="header-image">
             <!--header-image-->
             <img class="dispensary-logo" alt="Dispensary Logo" src="./form_icons/laboratory.jpg">
+        </div>
+    </div>
+
+    <!--BELOW THE FOLD-->
+    <div id="benefits-container">
+        <div class="benefits-section">
+            <h2>Smooth, super, and superb</h2>
+            <h3>Why use MedicaMystic?</h3>
+            <div class="benefits-list">
+                <span>Convenient</span><br>
+                <span>Easy to use</span><br>
+                <span>Your conscience says so</span>
+            </div>
         </div>
     </div>
 </body>
