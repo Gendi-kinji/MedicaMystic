@@ -3,56 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispensary</title>
-
-    
-
-<style>
-    
-    h1{
-    text-transform: uppercase;
-}
-img{
-    size:15px;
-    position: absolute;
-    top:1px;
-    right:10px;
-}
-.drugID{
-    float:left;
-    display: block;
-}
-
-.trade{
-    float:left;
-    display:block;
-}
-table{
-  border-collapse:collapse;
-  padding:8px;
-}
-th,td{
-    border: 15 px solid black;
-
-}
-button{
-    padding:15 px solid black;
-    color: blue;
-}
-button:hover{
-    color:red;
-}
-div{
-    border:1px solid black;
-    border-collapse:collapse;
-    
-    box-sizing: border-box;
-}
-#drugdetails{
-    box-sizing: border-box;
-    float:left;
-}
-</style>
+    <link rel="stylesheet" href="../styles/form_styles/dispense_drugs.css">
+    <title>Dispense Drugs</title>
 </head>
 <body>
     <h1>MedicaMystic Dispensary</h1>
@@ -79,17 +31,19 @@ div{
     </div>
     <table id="drugdetails">
         <thead>
-        <tr>
-            <th>Item number</th>
-            <th>Trade name</th>
-            <th>Quantity</th>
-            <th>Drug price</th>
-            <th>Expiry date</th>
-        </tr>
+            <tr>
+                <th scope="col">Item number</th>
+                <th scope="col">Trade name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Drug price</th>
+                <th scope="col">Expiry date</th>
+            </tr>
         </thead>
-        <tr>
-            <td></td>
-        </tr>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
     </table>
     <button>Dispense</button>
     <button>Add to selection</button>
