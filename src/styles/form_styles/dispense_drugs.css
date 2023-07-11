@@ -1,15 +1,9 @@
-h1{
-    text-transform: uppercase;
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 img{
     size:15px;
     position: absolute;
     top:1px;
     right:10px;
-}
-.drugID{
-    float:left;
-}
-.trade{
-    float:left;
 }
