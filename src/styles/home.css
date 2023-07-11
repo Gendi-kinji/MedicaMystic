@@ -150,9 +150,11 @@
     }
     .footer-container a{
         color: rgb(10, 177, 202);
+        font-size: 14px;
+        text-decoration: none;
     }
-    .footer-container a{
-        color: rgb(10, 177, 202);
+    .footer-container a:hover{
+        text-decoration: underline;
     }
     .footer-content{
         display: flex;
@@ -166,6 +168,9 @@
     .footer-contact{
         margin: 0% auto;
         width: 50%;
+    }
+    .copyright-info span{
+        font-size: 14px;
     }
 
 
