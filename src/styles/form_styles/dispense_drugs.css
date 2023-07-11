@@ -1,15 +1,72 @@
-h1{
-    text-transform: uppercase;
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-img{
-    size:15px;
-    position: absolute;
-    top:1px;
-    right:10px;
+th, td{
+    border: 1px solid black;
 }
-.drugID{
-    float:left;
+
+table{
+    border-collapse: collapse;
+    margin: 0% auto;
 }
-.trade{
-    float:left;
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+.main-header{
+    text-align: center;
+}
+.main-content{
+    display: flex;
+    flex-direction: row;
+}
+.main-left{
+    width: 45%;
+    margin: 0 0 2% 2%;
+}
+.main-right{
+    margin: 0 2% 2% 5%;
+    width: 50%;
+}
+.drug-search{
+    display: flex;
+    flex-direction: row;
+}
+.search-labels{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+.search-dropdowns{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+.search-button{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.drug-details-container{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+.drug-details{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.add-button{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.table-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
