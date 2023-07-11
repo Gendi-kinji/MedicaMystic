@@ -10,44 +10,49 @@
     <div class="topbar">
         <h1>MedicaMystic Dispensary</h1>
     </div>
-    <div class="dispense-drugs-container">
-        <h2>Dispense Drugs</h2>
-        <p class="drugID">Search drug by ID:</p>
-        <select class="drugID" name="Select id">
-            <option value=""></option>
-        </select>
-        <p class="trade">Search by name</p>
-        <select class="trade" name="trade">
-            <option></option>
+    <div class="maincontainer">
+        <div class="main-left">
+            <h2>Dispense Drugs</h2>
+            <p class="drugID">Search drug by ID:</p>
+            <select class="drugID" name="Select id">
+                <option value=""></option>
+            </select>
+            <p class="trade">Search by name</p>
+            <select class="trade" name="trade">
+                <option></option>
 
-        </select>
-        <button>Search</button>
-        <div id="drugdetails">
-            <p>Trade Name:<span></span></p>
-            <p>Dosage:<span></span></p>
-            <p>Quantity:<span></span></p>
-            <p>Drug Price:<span></span></p>
-            <p>Expiry date:<span>/*This is for updating database information*/</span></p>
+            </select>
+            <button>Search</button>
+            <div id="drugdetails">
+                <p>Trade Name:<span></span></p>
+                <p>Dosage:<span></span></p>
+                <p>Quantity:<span></span></p>
+                <p>Drug Price:<span></span></p>
+                <p>Expiry date:<span></span></p>
+                <button>Add to selection</button>
+            </div>
+        </div>
+
+        <div class="main-right">
+            <table id="drugdetails">
+                <thead>
+                    <tr>
+                        <th scope="col">Item number</th>
+                        <th scope="col">Trade name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Drug price</th>
+                        <th scope="col">Expiry date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button>Dispense</button>
             <button>Add to selection</button>
         </div>
-        <table id="drugdetails">
-            <thead>
-                <tr>
-                    <th scope="col">Item number</th>
-                    <th scope="col">Trade name</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Drug price</th>
-                    <th scope="col">Expiry date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <button>Dispense</button>
-        <button>Add to selection</button>
     </div>
 </body>
 </html>

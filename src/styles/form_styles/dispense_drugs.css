@@ -1,9 +1,16 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-img{
-    size:15px;
-    position: absolute;
-    top:1px;
-    right:10px;
+div{
+    border: 1px dashed black;
+}
+.maincontainer{
+    display: flex;
+    flex-direction: row;
+}
+.main-left{
+    width: 50%;
+}
+.main-right{
+    width: 50%;
 }
