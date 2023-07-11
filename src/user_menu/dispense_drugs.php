@@ -33,6 +33,7 @@
                         <button type="button" class="btn-actions btn-search">Search</button>     
                     </div>     
                 </div>
+                <br>
                 <div class="drug-details-container">
                     <div class="drug-details">
                         <span>Trade Name:<span></span></span>
