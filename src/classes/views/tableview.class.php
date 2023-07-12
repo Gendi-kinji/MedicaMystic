@@ -69,6 +69,7 @@ class TableView{
             }
             echo "</table>";
 
+            echo "<br>";
             // Display the pagination! (they are just hyperlinks for now)
             $pageNumbers = PageView::Pagination(count($table_data), $itemsPerPage, $currentPage);
             echo '<div class="pagination">';
