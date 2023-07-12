@@ -71,8 +71,8 @@
                 </table>
                 <br>
                 <div class="table-buttons">
-                    <button type="button" class="btn-actions btn-dispense">Dispense</button>
                     <button type="button" class="btn-actions btn-clear">Clear</button>
+                    <button type="button" class="btn-actions btn-dispense">Dispense</button>
                 </div>
             </div>
         </div>
