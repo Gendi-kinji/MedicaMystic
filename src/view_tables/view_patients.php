@@ -19,7 +19,7 @@
             <?php
             $patient = new Patient();
             $patient_table = $patient->getAllPatients();
-            TableView::showTable($patient_table, 'patient');
+            TableView::showEditableTable($patient_table, 'patient');
             ?>
     </body>
 </html>
