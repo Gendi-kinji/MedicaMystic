@@ -1,6 +1,0 @@
-.drugID{
-    float:left;
-}
-.trade{
-    float:left;
-}
