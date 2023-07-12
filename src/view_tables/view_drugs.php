@@ -19,7 +19,7 @@
             <?php
             $drug = new Drug();
             $drug_table = $drug->getAllDrugs();
-            TableView::showTable($drug_table, 'drug');
+            TableView::showEditableTable($drug_table, 'drug');
             ?>
     </body>
 </html>

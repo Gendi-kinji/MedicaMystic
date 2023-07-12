@@ -19,7 +19,7 @@
             <?php
             $pharmaceutical = new Pharmaceutical();
             $pharmaceutical_table = $pharmaceutical->getAllPharmaceuticals();
-            TableView::showTable($pharmaceutical_table, 'pharmaceutical');
+            TableView::showEditableTable($pharmaceutical_table, 'pharmaceutical');
             ?>
     </body>
 </html>

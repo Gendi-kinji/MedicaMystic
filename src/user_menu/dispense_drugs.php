@@ -1,3 +1,11 @@
+<?php
+    require "../classes/connection.class.php";
+    require "../classes/databasehandler.class.php";
+    require "../classes/models/drug.class.php";
+    require "../classes/views/pageview.class.php";
+    require "../classes/views/tableview.class.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,30 +57,17 @@
             </div>
     
             <div class="main-right">
-                <table class="drugs-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Item number</th>
-                            <th scope="col">Trade name</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Drug price</th>
-                            <th scope="col">Expiry date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="drugs-table">
+                    <?php
+                        $drug = new Drug();
+                        $drug_table = $drug->getAllDrugs();
+                        TableView::showReadOnlyTable($drug_table, 'drug');
+                    ?>
+                </div>
                 <br>
                 <div class="table-buttons">
-                    <button type="button" class="btn-actions btn-dispense">Dispense</button>
                     <button type="button" class="btn-actions btn-clear">Clear</button>
+                    <button type="button" class="btn-actions btn-dispense">Dispense</button>
                 </div>
             </div>
         </div>

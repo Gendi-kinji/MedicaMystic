@@ -19,7 +19,7 @@
             <?php
             $pharmacy = new Pharmacy();
             $pharmacy_table = $pharmacy->getAllPharmacies();
-            TableView::showTable($pharmacy_table, 'pharmacy');
+            TableView::showEditableTable($pharmacy_table, 'pharmacy');
             ?>
     </body>
 </html>

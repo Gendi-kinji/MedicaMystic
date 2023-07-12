@@ -19,7 +19,7 @@
             <?php
             $supervisor = new Supervisor();
             $supervisor_table = $supervisor->getAllSupervisors();
-            TableView::showTable($supervisor_table, 'supervisor');
+            TableView::showEditableTable($supervisor_table, 'supervisor');
             ?>
     </body>
 </html>

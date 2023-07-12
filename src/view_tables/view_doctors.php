@@ -21,7 +21,7 @@
             <?php
             $doctor = new Doctor();
             $doctor_table = $doctor->getAllDoctors();
-            TableView::showTable($doctor_table, 'doctor');
+            TableView::showEditableTable($doctor_table, 'doctor');
             ?>
         </div>
     </body>
