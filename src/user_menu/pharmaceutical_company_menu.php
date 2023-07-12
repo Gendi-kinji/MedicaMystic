@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmaceutical Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
+    <style>
+        .company{
+            display:flex;flex-direction:row;
+        }
+    </style>
 </head>
 <body style="text-align:center;">
     <?php
@@ -19,5 +24,9 @@
        
     </header>
     <hr>
+    <a class="company" href="">Company Details</a>
+    <a class="company" href="">Manage Drug Inventory</a>
+    <a class="company" href="">Manage Contract</a>
+    <a class="company" href="">Manage Sales</a>
 </body>
 </html>

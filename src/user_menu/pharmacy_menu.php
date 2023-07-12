@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmacy Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
+    <style>
+        .pharmacy{
+            display:flex;
+            flex-direction: row;
+        }
+        .medicine{
+            display:flex;
+            flex-direction:row;
+        }
+    </style>
 </head>
 <body style="text-align:center;">
     <?php
@@ -19,5 +29,11 @@
        
     </header>
     <hr>
+    <a class="pharmacy" href="">Pharmacy Details</a>
+    <a class="pharmacy" href="">Manage Inventory</a>
+    <a class="pharmacy" href="">View Prescriptions</a>
+    <a class="pharmacy" href="">Dispense Medicine</a>
+    <a class="medicine" href="">Manage Supervisors</a>
+    <a class="medicine" href="">Purchase drugs</a>
 </body>
 </html>

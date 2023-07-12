@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
+    <style>
+    .patient{
+        display: flex;
+        flex-direction: row;
+    }
+    </style>
 </head>
 <body style="text-align:center;">
     <?php
@@ -19,5 +25,11 @@
        
     </header>
     <hr>
+    <a class="patient" href="">Patient details</a>
+    <a class="patient" href="">Invoices</a>
+    <a class="patient" href="">View Prescriptions</a>
+    <a class="patient" href="">Doctor Appointments</a>
+    <br>
+    <a class="make" href="">Make Payment</a>
 </body>
 </html>

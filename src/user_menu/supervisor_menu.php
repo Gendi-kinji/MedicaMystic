@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmaceutical Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
+    <style>
+        .supervisor{
+            display:flex;
+            flex-direction:row;
+        }
+    </style>
 </head>
 <body style="text-align:center;">
     <?php
@@ -19,5 +25,7 @@
        
     </header>
     <hr>
+    <a class="supervisor" href="">Supervisor details</a>
+    <a class="supervisor" href="">Manage Contract</a>
 </body>
 </html>
