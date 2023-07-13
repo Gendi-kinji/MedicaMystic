@@ -140,6 +140,53 @@
     .benefits-list span{
         font-size: 20px;
     }
+
+    /*FEATURES*/
+    .features-container{
+        display: flex;
+        flex-direction: row;
+        
+        justify-content: center;
+        height: 640px;
+    }
+    .features-header, .features-list{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        text-align: center;
+        align-items: center;
+    }
+    .features-header{
+        width: 40%;
+        background: linear-gradient(180deg, rgb(123, 236, 215), rgb(105, 216, 202), rgb(57, 199, 180));
+    }
+    .features-header h2{
+        font-size: 32px;
+    }
+    .features-header h3{
+        font-size: 28px;
+    }
+    .features-list{
+        width: 60%;
+        font-size: 20px;
+        background:rgb(223, 224, 248);
+        color: rgb(0, 0, 0);
+        line-spacing:
+    }
+    .features-conclusion{
+        background: rgb(177, 177, 177);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .features-conclusion p{
+        font-size: 18px;
+        text-align: center;
+    }
+    .features-text{
+        color:rgb(115, 0, 138);
+    }
     
 
     /*PAGE FOOTER*/
@@ -193,7 +240,7 @@
             height: 96px;
         }
         
-        #john-doe-testimonial{
+        #john-doe-testimonial, .features-list, .features-conclusion p{
             font-size: 14px;
             margin: 0;
         }
@@ -202,14 +249,25 @@
             flex-direction: column;
             height: 600px;
         }
-        .benefits-section h2{
+        .benefits-section h2, .features-header h2{
             font-size: 28px;
         }
-        .benefits-section h3{
+        .benefits-section h3, .features-header h3{
             font-size: 22px;
         }
         .benefits-list span{
             font-size: 16px;
+        }
+        .features-container{
+            display: flex;
+            flex-direction: column;
+            height: 610px;
+        }
+        .features-header{
+            width: 100%;
+        }
+        .features-list{
+            width: 100%;
         }
         
     }
@@ -226,7 +284,7 @@
             width: 80px;
             height: 80px;
         }
-        #john-doe-testimonial{
+        #john-doe-testimonial, .features-conclusion p{
             font-size: 12px;
         }
         .benefits-list span{

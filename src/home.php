@@ -77,20 +77,67 @@
       </div>
     </div>
 
+    <div class="features-container">
+      <div class="features-header">
+        <h2>Features</h2>
+        <h3>What does MedicaMystic offer?</h3>
+      </div>
+      <div class="features-list">
+        <h4>User Account Creation</h4>
+        <p>
+          To effectively view and manage your<br />
+          details on the go
+        </p>
+        <h4>Inventory Control</h4>
+        <p>
+          To streamline inventory management<br />
+          better than ever before
+        </p>
+        <h4>E-prescriptions Management</h4>
+        <p>
+          Storage, control, and slick transfer<br />
+          of medical prescriptions
+        </p>
+        <h4>Automated dispensing solutions</h4>
+        <p>
+          To handle tasks such as searching and<br />
+          selecting drugs, saving you time
+        </p>
+      </div>
+    </div>
+
+    <div class="features-conclusion">
+      <p>
+        With our web-based drug dispensing system, you can enjoy<br />
+        the benefits of a
+        <span class="features-text">comprehensive, connected,</span> and
+        <span class="features-text">consistent</span><br />
+        medication management solution.<br />
+        Register today and see the difference for yourself!
+      </p>
+    </div>
+
     <!--home page footer-->
     <div class="footer-container">
-      <br>
+      <br />
       <div class="footer-content">
         <div class="footer-about">
           <h5>About</h5>
-          <a href="https://github.com/Gendi-kinji/Web2023" target="_blank">Github Repo</a>
+          <a href="https://github.com/Gendi-kinji/Web2023" target="_blank"
+            >Github Repo</a
+          >
         </div>
         <div class="footer-contact">
           <h5>Project Collaborators</h5>
-          <a href="https://github.com/Gendi-kinji/" target="_blank">George Fundi</a><br />
-          <a href="https://github.com/Fidelisaboke/" target="_blank">Fidel Isaboke</a>
+          <a href="https://github.com/Gendi-kinji/" target="_blank"
+            >George Fundi</a
+          ><br />
+          <a href="https://github.com/Fidelisaboke/" target="_blank"
+            >Fidel Isaboke</a
+          >
         </div>
-      </div><br>
+      </div>
+      <br />
 
       <div class="copyright-info">
         <span>&copy; 2023 - Fidel Agade & George Fundi</span><br />
