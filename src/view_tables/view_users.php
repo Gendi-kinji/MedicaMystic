@@ -15,7 +15,7 @@
         <title>User Details</title>
         <link rel="stylesheet" href="../styles/table_styles.css">
     <body>
-        <h1>Userss Table</h1>
+        <h1>Users Table</h1>
             <?php
             $user= new Users();
             $user_table = $user->getAllUsers();
