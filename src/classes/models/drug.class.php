@@ -9,8 +9,11 @@ class Drug extends DatabaseHandler{
         $this->setData('tbl_drugs', $drugData);
     }
 
-    public function getDrug($search_value){
+    public function getDrugByID($search_value){
         return $this->getData('tbl_drugs', 'drug_id', $search_value);
+    }
+    public function getDrugByTradeName($search_value){
+        return $this->getData('tbl_drugs', 'trade_name', $search_value);
     }
 
     public function getAllDrugs(){

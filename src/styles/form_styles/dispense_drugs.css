@@ -59,6 +59,9 @@ h1{
     margin: 0 2% 2% 5%;
     width: 50%;
 }
+.main-left h4{
+    text-align: center;
+}
 .drug-search{
     display: flex;
     flex-direction: row;
@@ -66,7 +69,8 @@ h1{
 .search-labels{
     display: flex;
     flex-direction: column;
-    width: 35%;
+    width: 40%;
+    font-size: 13px;
 }
 .search-dropdowns{
     display: flex;
@@ -75,7 +79,7 @@ h1{
     justify-content: space-between;
 }
 .search-button{
-    width: 30%;
+    width: 25%;
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
@@ -168,7 +172,7 @@ h1{
     }
 }
 @media(max-width: 600px){
-    .drug-details-container, .drugs-table, .btn-actions{
+    .drug-details-container, .drugs-table, .btn-actions, .search-labels, select{
         font-size: 10px;
     }
 }
