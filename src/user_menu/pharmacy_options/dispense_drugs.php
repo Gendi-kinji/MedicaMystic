@@ -5,6 +5,34 @@
     require "../../classes/views/pageview.class.php";
     require "../../classes/views/tableview.class.php";
     require "../../classes/views/dataview.class.php";
+
+    $drug_id = "";
+    $trade_name = "";
+    $drug_formula = "";
+    $administration_method = "";
+    $drug_price = "";
+    $expiry_date = "";
+
+    session_start();
+    $keys = ['drug_id', 'trade_name', 'drug_formula', 'administration_method', 'drug_price', 'expiry_date'];
+    $all_keys_exist = true;
+    foreach ($keys as $key) {
+        if (!array_key_exists($key, $_SESSION)) {
+            $all_keys_exist = false;
+            break;
+        }
+    }
+
+    if ($all_keys_exist) {
+        $drug_id = $_SESSION['drug_id'];
+        $trade_name = $_SESSION['trade_name'];
+        $drug_formula = $_SESSION['drug_formula'];
+        $administration_method = $_SESSION['administration_method'];
+        $drug_price = $_SESSION['drug_price'];
+        $expiry_date = $_SESSION['expiry_date'];
+    }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -25,10 +53,17 @@
         </div>
         <div class="main-content">
             <div class="main-left">
-                <div class="drug-search">
+                <h4>Choose search type (from radio)</h4>
+                <form class="drug-search" method="GET" action="../../search/search_drugs.php">
                     <div class="search-labels">
-                        <span>Search by ID:</span>
-                        <span>Search by name:</span>
+                        <div class="drug-id-option">
+                            <label for="drug_id">Search ID</label>
+                            <input type="radio" name="search_type" value="drug_id" checked>
+                        </div>
+                        <div class="trade_name_option">
+                            <label for="trade_name">Search Name</label>
+                            <input type="radio" name="search_type" value="trade_name">
+                        </div>
                     </div>
                     <div class="search-dropdowns">
                         <!--drug_IDs-->
@@ -45,18 +80,19 @@
                         ?>
                     </div>
                     <div class="search-button">
-                        <button type="button" class="btn-actions btn-search">Search</button>     
+                        <button type="submit" name="search" value="search" class="btn-actions btn-search">Search</button>     
                     </div>     
-                </div>
+                </form>
                 <br>
                 <div class="drug-details-container">
-                    <div class="drug-details">
-                        <span>Trade Name:<span></span></span>
-                        <span>Dosage:<span></span></span>
-                        <span>Quantity:<span></span></span>
-                        <span>Drug Price:<span></span></span>
-                        <span>Expiry date:<span></span></span>
-                    </div>
+                <div class="drug-details">
+                    <span>Drug ID:  <?php echo $drug_id?></span>
+                    <span>Trade Name:  <?php echo $trade_name; ?></span>
+                    <span>Formula: <?php echo $drug_formula; ?></span>
+                    <span>Administration:  <?php echo $administration_method; ?></span>
+                    <span>Drug Price:  <?php echo $drug_price; ?></span>
+                    <span>Expiry date:  <?php echo $expiry_date; ?></span>
+                </div>
                     <div class="add-button">
                         <button type="button" class="btn-actions btn-add">Add</button>
                     </div>

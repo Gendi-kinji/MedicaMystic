@@ -7,7 +7,7 @@ if(isset($_GET["id"])){
     $id = $_GET["id"];
 
     $drug = new Drug();
-    $drug_row = $drug->getDrug($id);
+    $drug_row = $drug->getDrugByID($id);
 
     // Extract values: 
     $trade_name = $drug_row[0]['trade_name'];
