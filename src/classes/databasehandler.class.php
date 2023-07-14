@@ -64,6 +64,15 @@ class DatabaseHandler extends Connection{
 
     }
 
+    protected function getColumn($column, $table){
+        $conn = $this->connect();
+        $sql = "SELECT $column FROM $table";
+        $result = $conn->query($sql);
+        $column_data = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $column_data;
+    }
+
     public function updateData($table, $identifier, $data, $unique_value) {
         $columns = array_keys($data);
         $values = array_values($data);
