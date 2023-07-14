@@ -4,6 +4,7 @@
     require "../../classes/models/drug.class.php";
     require "../../classes/views/pageview.class.php";
     require "../../classes/views/tableview.class.php";
+    require "../../classes/views/dataview.class.php";
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/form_styles/dispense_drugs.css">
+    <link rel="stylesheet" href="../../styles/form_styles/dispense_drugs.css">
     <title>Dispense Drugs</title>
 </head>
 <body>
@@ -30,12 +31,18 @@
                         <span>Search by name:</span>
                     </div>
                     <div class="search-dropdowns">
-                        <select class="drug_ids" name="drug_id">
-                            <option value="Paracetamol">Paracetamol</option>
-                        </select>
-                        <select class="trade_names" name="trade_name">
-                            <option value="RegenX">RegenX</option>
-                        </select>
+                        <!--drug_IDs-->
+                        <?php
+                            $drug = new Drug();
+                            $drug_IDs = $drug->getIDs();
+                            DataView::fillDropdown($drug_IDs);
+                        ?>
+                        <!--trade_names-->
+                        <?php
+                            $drug = new Drug();
+                            $trade_names = $drug->getTradeNames();
+                            DataView::fillDropdown($trade_names);
+                        ?>
                     </div>
                     <div class="search-button">
                         <button type="button" class="btn-actions btn-search">Search</button>     
