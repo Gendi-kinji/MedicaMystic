@@ -33,8 +33,8 @@
         <br /><br />
         <div class="welcome-options">
           <!--call to action-->
-          <a class="btn-links btn-register" href="register.php">Register</a>
           <a class="btn-links btn-sign_in" href="sign_in.php">Sign In</a>
+          <a class="btn-links btn-register" href="register.php">Register</a>
         </div>
       </div>
       <br /><br />
