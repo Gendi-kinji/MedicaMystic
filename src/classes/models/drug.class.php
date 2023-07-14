@@ -16,6 +16,12 @@ class Drug extends DatabaseHandler{
     public function getAllDrugs(){
         return $this->getTable('tbl_drugs');
     }
+    public function getIDs(){
+        return $this->getColumn('drug_id', 'tbl_drugs');
+    }
+    public function getTradeNames(){
+        return $this->getColumn('trade_name', 'tbl_drugs');
+    }
 
     public function updateDrug($drug_data, $unique_value){
         $this->updateData('tbl_drugs', 'drug_id', $drug_data, $unique_value);
