@@ -44,6 +44,9 @@
     <title>Dispense Drugs</title>
 </head>
 <body>
+    <!--Dispense drugs page script-->
+    <script src="../../scripts/dispense_drugs.js">repopulate();</script>
+ 
     <div class="topbar">
         <h1>MedicaMystic Dispensary</h1>
     </div>
@@ -54,7 +57,7 @@
         <div class="main-content">
             <div class="main-left">
                 <h4>Choose search type (from radio)</h4>
-                <form class="drug-search" method="GET" action="../../search/search_drugs.php">
+                <form class="drug-search" method="POST" action="../../search/search_drugs.php">
                     <div class="search-labels">
                         <div class="drug-id-option">
                             <label for="drug_id">Search ID</label>
@@ -80,19 +83,19 @@
                         ?>
                     </div>
                     <div class="search-button">
-                        <button type="submit" name="search" value="search" class="btn-actions btn-search">Search</button>     
+                        <button type="submit" name="search" value="search_drug" class="btn-actions btn-search">Search</button>     
                     </div>     
                 </form>
                 <br>
                 <div class="drug-details-container">
-                <div class="drug-details">
-                    <span>Drug ID:  <?php echo $drug_id?></span>
-                    <span>Trade Name:  <?php echo $trade_name; ?></span>
-                    <span>Formula: <?php echo $drug_formula; ?></span>
-                    <span>Administration:  <?php echo $administration_method; ?></span>
-                    <span>Drug Price:  <?php echo $drug_price; ?></span>
-                    <span>Expiry date:  <?php echo $expiry_date; ?></span>
-                </div>
+                    <div class="drug-details">
+                        <span>Drug ID:  <?php echo $drug_id?></span>
+                        <span>Trade Name:  <?php echo $trade_name; ?></span>
+                        <span>Formula: <?php echo $drug_formula; ?></span>
+                        <span>Administration:  <?php echo $administration_method; ?></span>
+                        <span>Drug Price:  <?php echo $drug_price; ?></span>
+                        <span>Expiry date:  <?php echo $expiry_date; ?></span>
+                    </div>
                     <div class="add-button">
                         <button type="button" class="btn-actions btn-add">Add</button>
                     </div>
@@ -100,12 +103,22 @@
             </div>
     
             <div class="main-right">
-                <div class="drugs-table">
-                    <?php
-                        $drug = new Drug();
-                        $drug_table = $drug->getAllDrugs();
-                        TableView::showReadOnlyTable($drug_table, 'drug');
-                    ?>
+                <div class="drugs-table-container">
+                    <table class="drugs-table">
+                        <thead>
+                            <tr>
+                                <th>Drug ID</th>
+                                <th>Trade Name</th>
+                                <th>Formula</th>
+                                <th>Administration</th>
+                                <th>Price</th>
+                                <th>Expiry Date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="drugs-table-data">
+                            <!-- Populated by clicking the 'add' button -->
+                        </tbody>
+                    </table>
                 </div>
                 <br>
                 <div class="table-buttons">

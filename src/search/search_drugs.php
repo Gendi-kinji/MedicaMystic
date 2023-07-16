@@ -3,11 +3,11 @@ require '../classes/connection.class.php';
 require '../classes/databasehandler.class.php';
 require '../classes/models/drug.class.php';
 
-if (isset($_GET['search'])) {
+if (isset($_POST['search'])) {
     // Get the selected value from the dropdown list
-    $drug_id = $_GET['drug_id'];
-    $trade_name = $_GET['trade_name'];
-    $search_type = $_GET['search_type'];
+    $drug_id = $_POST['drug_id'];
+    $trade_name = $_POST['trade_name'];
+    $search_type = $_POST['search_type'];
 
     $drug = new Drug();
     switch ($search_type) {
@@ -18,7 +18,7 @@ if (isset($_GET['search'])) {
             $drug_row = $drug->getDrugByTradeName($trade_name);
             break;
         default:
-            echo("Error checking for selection of search type.<br>");
+            echo json_encode(["error" => "Error checking for selection of search type."]);
             break;
     }
 
@@ -32,9 +32,13 @@ if (isset($_GET['search'])) {
     $_SESSION['drug_price'] = $drug_row[0]['drug_price'];
     $_SESSION['expiry_date'] = $drug_row[0]['expiry_date'];
 
-    header("Location: ../user_menu/pharmacy_options/dispense_drugs.php?error=none");
+    // Return a JSON response, indicating a successful process:
+    echo json_encode(["success" => true]);
     exit();
     
 
+} else {
+    echo json_encode(["error" => "Search parameter not set."]);
+    exit();
 }
 ?>
