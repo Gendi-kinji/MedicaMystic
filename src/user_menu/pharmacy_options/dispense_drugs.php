@@ -45,7 +45,8 @@
 </head>
 <body>
     <!--Dispense drugs page script-->
-    <script src="../../scripts/dispense_drugs.js"></script>
+    <script src="../../scripts/dispense_drugs.js">repopulate();</script>
+ 
     <div class="topbar">
         <h1>MedicaMystic Dispensary</h1>
     </div>
