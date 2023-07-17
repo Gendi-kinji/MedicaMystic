@@ -18,7 +18,7 @@ if (isset($_POST['search'])) {
             $drug_row = $drug->getDrugByTradeName($trade_name);
             break;
         default:
-            echo "Error checking for selection of search type.<br>";
+            echo json_encode(["error" => "Error checking for selection of search type."]);
             break;
     }
 
@@ -32,14 +32,13 @@ if (isset($_POST['search'])) {
     $_SESSION['drug_price'] = $drug_row[0]['drug_price'];
     $_SESSION['expiry_date'] = $drug_row[0]['expiry_date'];
 
-    // Return back to the page with the data:
-    header('Location: ../user_menu/pharmacy_options/dispense_drugs.php?error=none');
+    // Return a JSON response, indicating a successful process:
+    echo json_encode(["success" => true]);
     exit();
     
 
 } else {
-    // Display an error message
-    echo "Error: Search parameter not set.<br>";
+    echo json_encode(["error" => "Search parameter not set."]);
     exit();
 }
 ?>
