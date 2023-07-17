@@ -44,17 +44,20 @@
     <title>Dispense Drugs</title>
 </head>
 <body>
-    <!--The topbar that appears on the page-->
+    <!--Dispense drugs page script-->
+    <script src="../../scripts/dispense_drugs.js"></script>
+ 
+    <!--page topbar-->
     <div class="topbar">
         <h1>MedicaMystic Dispensary</h1>
     </div>
-    <!--holds the main content to be displayed after the topbar-->
+    <!--container for the main content of the page-->
     <div class="maincontainer">
         <div class="main-header">
             <h2>Dispense Drugs</h2>
         </div>
         <div class="main-content">
-            <!--Drug search components-->
+            <!--search components-->
             <div class="main-left">
                 <h4>Choose search type (from radio)</h4>
                 <form class="drug-search" method="POST" action="../../search/search_drugs.php">
@@ -68,7 +71,7 @@
                             <input type="radio" name="search_type" value="trade_name">
                         </div>
                     </div>
-                    <!--Dropdowns populated by db-->
+                    <!--Dropdowns populated by database-->
                     <div class="search-dropdowns">
                         <!--drug_IDs-->
                         <?php
@@ -89,6 +92,7 @@
                 </form>
                 <br>
                 <div class="drug-details-container">
+                    <!--Details are revealed here after clicking 'search'-->
                     <div class="drug-details">
                         <span>Drug ID:  <?php echo $drug_id?></span>
                         <span>Trade Name:  <?php echo $trade_name; ?></span>
@@ -103,6 +107,7 @@
                 </div>
             </div>
     
+            <!--Table components-->
             <div class="main-right">
                 <div class="drugs-table-container">
                     <table class="drugs-table">
