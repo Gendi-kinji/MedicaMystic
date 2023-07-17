@@ -44,17 +44,17 @@
     <title>Dispense Drugs</title>
 </head>
 <body>
-    <!--Dispense drugs page script-->
-    <script src="../../scripts/dispense_drugs.js">repopulate();</script>
- 
+    <!--The topbar that appears on the page-->
     <div class="topbar">
         <h1>MedicaMystic Dispensary</h1>
     </div>
+    <!--holds the main content to be displayed after the topbar-->
     <div class="maincontainer">
         <div class="main-header">
             <h2>Dispense Drugs</h2>
         </div>
         <div class="main-content">
+            <!--Drug search components-->
             <div class="main-left">
                 <h4>Choose search type (from radio)</h4>
                 <form class="drug-search" method="POST" action="../../search/search_drugs.php">
@@ -68,6 +68,7 @@
                             <input type="radio" name="search_type" value="trade_name">
                         </div>
                     </div>
+                    <!--Dropdowns populated by db-->
                     <div class="search-dropdowns">
                         <!--drug_IDs-->
                         <?php
