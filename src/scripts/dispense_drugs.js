@@ -1,139 +1,169 @@
+//FUNCTIONS
 
-// Script for dispense_drugs page
-
-// FUNCTIONS
-// function to repopulate table data:
-function repopulateTable(){
-
-  // Get table data from cookie
-  const cookies = document.cookie.split('; ');
-  const tableDataCookie = cookies.find(cookie => cookie.startsWith('tableData='));
-  const tableData = JSON.parse(tableDataCookie.split('=')[1]);
-
-  // Get reference to table body
-  const tableBody = document.querySelector('.drugs-table-data');
-
-  // Clear existing table rows
-  tableBody.innerHTML = '';
-
-  // Repopulate table with data
-  tableData.forEach(item => {
-  // Create new row
-  const newRow = document.createElement('tr');
-
-  // Create cells for each data item
-  const drugIdCell = document.createElement('td');
-  drugIdCell.textContent = item.drugId;
-  newRow.appendChild(drugIdCell);
-
-  const tradeNameCell = document.createElement('td');
-  tradeNameCell.textContent = item.tradeName;
-  newRow.appendChild(tradeNameCell);
-
-  const formulaCell = document.createElement('td');
-  formulaCell.textContent = item.formula;
-  newRow.appendChild(formulaCell);
-
-  const administrationCell = document.createElement('td');
-  administrationCell.textContent = item.administration;
-  newRow.appendChild(administrationCell);
-
-  const priceCell = document.createElement('td');
-  priceCell.textContent = item.price;
-  newRow.appendChild(priceCell);
-
-  const expiryDateCell = document.createElement('td');
-  expiryDateCell.textContent = item.expiryDate;
-  newRow.appendChild(expiryDateCell);
-
-  // Append new row to table body
-  tableBody.appendChild(newRow);
+//Save the data of the html table
+function saveTableData() {
+  // Get all rows in the table
+  const rows = document.querySelectorAll('.drugs-table-data tr');
+  // Create an array to hold the data for each row
+  const rowData = [];
+  // Loop through each row and get the data for each cell
+  rows.forEach(row => {
+    const cells = row.querySelectorAll('td');
+    const rowValues = [];
+    cells.forEach(cell => {
+      rowValues.push(cell.textContent);
+    });
+    rowData.push(rowValues);
   });
+  // Save the data to local storage
+  localStorage.setItem('tableData', JSON.stringify(rowData));
+}
 
+//Load data onto the html table
+function loadTableData() {
+  // Check if there is any data in local storage
+  if (localStorage.getItem('tableData')) {
+    // Get the data from local storage
+    const rowData = JSON.parse(localStorage.getItem('tableData'));
+    // Loop through each row of data and create a new row in the table
+    rowData.forEach(rowValues => {
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${rowValues[0]}</td>
+        <td>${rowValues[1]}</td>
+        <td>${rowValues[2]}</td>
+        <td>${rowValues[3]}</td>
+        <td>${rowValues[4]}</td>
+        <td>${rowValues[5]}</td>
+      `;
+      document.querySelector('.drugs-table-data').appendChild(newRow);
+    });
+  }
+}
+
+// Clear data from the table
+function clearTable(){
+  // Remove all rows from the table
+  const rows = document.querySelectorAll('.drugs-table-data tr');
+  rows.forEach(row => row.remove());
+  // Clear data from local storage
+  localStorage.removeItem('tableData');
 }
 
 
-// MAIN SCRIPT - this will be run in the site
 
+
+// MAIN SCRIPT:
 // Making the buttons to run only when the DOMContent of the webpage is loaded
 document.addEventListener('DOMContentLoaded', ()=>{
-  // Functionality for <button class="btn-search">:
-  document.querySelector('.btn-search').addEventListener('click', (event) => {
-    event.preventDefault(); //Prevent refreshing
-    
-    // Get form data
-    const formData = new FormData(document.querySelector('.drug-search'));
+  // Load table data from local storage
+  loadTableData();
 
-    // Get the name and value of the submit button
-    const buttonName = event.target.name;
-    const buttonValue = event.target.value;
-    
-    // Append the name and value of the submit button to the form data
-    formData.append(buttonName, buttonValue);
+    // Functionality for the 'search' button:
+    document.querySelector('.btn-search').addEventListener('click', (event) => {
+      event.preventDefault(); //Prevent refreshing
+      
+      // Get form data
+      const formData = new FormData(document.querySelector('.drug-search'));
   
-    // Get reference to table body
-    const tableBody = document.querySelector('.drugs-table-data');
-
-    // Get table data from DOM
-    const tableData = Array.from(tableBody.rows).map(row => {
-      const cells = row.cells;
-      return {
-        drugId: cells[0].textContent,
-        tradeName: cells[1].textContent,
-        formula: cells[2].textContent,
-        administration: cells[3].textContent,
-        price: cells[4].textContent,
-        expiryDate: cells[5].textContent
-      };
+      // Get the name and value of the submit button
+      const buttonName = event.target.name;
+      const buttonValue = event.target.value;
+      
+      // Append the name and value of the submit button to the form data
+      formData.append(buttonName, buttonValue);
+  
+      fetch('../../search/search_drugs.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json()) // response handling
+      .then(data => {
+        if (data.success) {
+          window.location.href = '/user_menu/pharmacy_options/dispense_drugs.php?error=none';
+        } else if (data.error) {
+          // An error occurred
+          console.error(data.error);
+        }
+      });
     });
-
-    // Set the table data in a cookie
-    document.cookie = `tableData=${JSON.stringify(tableData)}`;
-
-    fetch('../../search/search_drugs.php', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json()) // response handling
-    .then(data => {
-      if (data.success) {
-        // Successful submission:
-        alert('Record retrieved.')
-        window.location.href = '/user_menu/pharmacy_options/dispense_drugs.php?error=none';
-      } else if (data.error) {
-        // An error occurred
-        console.error(data.error);
+  
+  
+  
+    document.querySelector('.btn-add').addEventListener('click', () => {
+      // Get drug details
+      const drugDetails = document.querySelector('.drug-details');
+      const drugId = drugDetails.querySelector('span:nth-child(1)').textContent.split(': ')[1];
+      const tradeName = drugDetails.querySelector('span:nth-child(2)').textContent.split(': ')[1];
+      const formula = drugDetails.querySelector('span:nth-child(3)').textContent.split(': ')[1];
+      const administration = drugDetails.querySelector('span:nth-child(4)').textContent.split(': ')[1];
+      const price = drugDetails.querySelector('span:nth-child(5)').textContent.split(': ')[1];
+      const expiryDate = drugDetails.querySelector('span:nth-child(6)').textContent.split(': ')[1];
+    
+      // Check if a row with the same Drug ID already exists in the table
+      const rows = document.querySelectorAll('.drugs-table-data tr');
+      let duplicateFound = false;
+      rows.forEach(row => {
+        const rowDrugId = row.querySelector('td:nth-child(1)').textContent;
+        if (rowDrugId === drugId) {
+          duplicateFound = true;
+        }
+      });
+    
+      // If no duplicate was found, add new row to the table
+      if (!duplicateFound) {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${drugId}</td>
+          <td>${tradeName}</td>
+          <td>${formula}</td>
+          <td>${administration}</td>
+          <td>${price}</td>
+          <td>${expiryDate}</td>
+        `;
+        document.querySelector('.drugs-table-data').appendChild(newRow);
+        alert('Record added!');
+        saveTableData();
+      } else {
+        alert('A record with this Drug ID already exists in the table.');
       }
     });
+    
+
+    // Functionality for the 'clear' button
+    document.querySelector('.btn-clear').addEventListener('click', () => {
+      clearTable();
+    });
+
+
+    // Functionality for the 'dispense' button
+    document.querySelector('.btn-dispense').addEventListener('click', () => {
+      // Get all rows in the table
+      const rows = document.querySelectorAll('.drugs-table-data tr');
+      // Create an array to hold the Drug IDs
+      const drugIds = [];
+      // Loop through each row and get the Drug ID
+      rows.forEach(row => {
+        const drugId = row.querySelector('td:nth-child(1)').textContent;
+        drugIds.push(drugId);
+      });
+    
+      // Send data to server using an AJAX request
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'dispense-drugs.process.php');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          // Request was successful
+          console.log(xhr.responseText);
+        } else {
+          // Request failed
+          console.error(xhr.responseText);
+        }
+      };
+      xhr.send(JSON.stringify(drugIds));
+    });
+      
+    
+    
   });
-
-
-
-  // Functionality for <button class="btn-add">:
-  document.querySelector('.btn-add').addEventListener('click', () => {
-    // Get drug details by using the query selector method of the document object.
-    const drugDetails = document.querySelector('.drug-details');
-    const drugId = drugDetails.querySelector('span:nth-child(1)').textContent.split(': ')[1];
-    const tradeName = drugDetails.querySelector('span:nth-child(2)').textContent.split(': ')[1];
-    const formula = drugDetails.querySelector('span:nth-child(3)').textContent.split(': ')[1];
-    const administration = drugDetails.querySelector('span:nth-child(4)').textContent.split(': ')[1];
-    const price = drugDetails.querySelector('span:nth-child(5)').textContent.split(': ')[1];
-    const expiryDate = drugDetails.querySelector('span:nth-child(6)').textContent.split(': ')[1];
-  
-    // Create new row using the createElement method of the document object
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-      <td>${drugId}</td>
-      <td>${tradeName}</td>
-      <td>${formula}</td>
-      <td>${administration}</td>
-      <td>${price}</td>
-      <td>${expiryDate}</td>
-    `;
-  
-    // Add new row to the selected drugs table
-    document.querySelector('.drugs-table-data').appendChild(newRow);
-    alert('Record added!');
-  });
-});
-  

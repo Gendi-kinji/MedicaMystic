@@ -8,6 +8,7 @@
     <title>Home Page</title>
   </head>
   <body>
+    <!--NAVIGATION BAR-->
     <div class="nav-bar">
       <a class="active-page" href="home.php">Home</a>
       <a href="overview.php">Overview</a>
