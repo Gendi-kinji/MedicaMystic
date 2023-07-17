@@ -138,32 +138,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
     // Functionality for the 'dispense' button
     document.querySelector('.btn-dispense').addEventListener('click', () => {
-      document.querySelector('.btn-dispense').addEventListener('click', () => {
-        // Get all rows in the table
-        const rows = document.querySelectorAll('.drugs-table-data tr');
-        // Create an array to hold the Drug IDs
-        const drugIds = [];
-        // Loop through each row and get the Drug ID
-        rows.forEach(row => {
-          const drugId = row.querySelector('td:nth-child(1)').textContent;
-          drugIds.push(drugId);
-        });
-      
-        // Send data to server using an AJAX request
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'dispense-drugs.process.php');
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = () => {
-          if (xhr.status === 200) {
-            // Request was successful
-            console.log(xhr.responseText);
-          } else {
-            // Request failed
-            console.error(xhr.responseText);
-          }
-        };
-        xhr.send(JSON.stringify(drugIds));
+      // Get all rows in the table
+      const rows = document.querySelectorAll('.drugs-table-data tr');
+      // Create an array to hold the Drug IDs
+      const drugIds = [];
+      // Loop through each row and get the Drug ID
+      rows.forEach(row => {
+        const drugId = row.querySelector('td:nth-child(1)').textContent;
+        drugIds.push(drugId);
       });
+    
+      // Send data to server using an AJAX request
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', 'dispense-drugs.process.php');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          // Request was successful
+          console.log(xhr.responseText);
+        } else {
+          // Request failed
+          console.error(xhr.responseText);
+        }
+      };
+      xhr.send(JSON.stringify(drugIds));
+    });
       
     
     
