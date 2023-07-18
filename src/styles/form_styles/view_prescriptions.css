@@ -3,18 +3,20 @@ th,td{
 }
 table{
     border-collapse: collapse;
+    background: linear-gradient(120deg,white,);
 
 }
 body{
     display:flex;
     flex-direction: column;
+    background: linear-gradient(120deg,rgb(122,22,11),white);
 }
 button{
     display:flex;
     flex-direction:row;
     justify-content: center;
     color:blue;
-    align-self: center;
+    
    
 
 }
