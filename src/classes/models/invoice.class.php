@@ -1,22 +1,10 @@
-<?
-
-// Get ID of new invoice
-$invoiceId = $mysqli->insert_id;
-
-// Loop through Drug IDs and insert rows into invoice_items table
-foreach ($drugIds as $drugId) {
-  $stmt = $mysqli->prepare('INSERT INTO invoice_items (invoice_id, drug_id) VALUES (?, ?)');
-  $stmt->bind_param('ii', $invoiceId, $drugId);
-  $stmt->execute();
-}
-
+<?php
 class Invoice extends DatabaseHandler{
-
     public function __construct(){
         
     }
-    public function addInvoice($patient_ssn, $return_insert_id = true) {
-        return $this->setData('tbl_invoice', $patient_ssn, $return_insert_id);
+    public function addInvoice($invoiceData, $return_insert_id = true) {
+        return $this->setData('tbl_invoice', $invoiceData, $return_insert_id);
     }
     public function getInvoice($search_value){
         return $this->getData('tbl_invoice', 'invoice_id', $search_value);
@@ -36,5 +24,4 @@ class Invoice extends DatabaseHandler{
 
     }
 }
-
 ?>

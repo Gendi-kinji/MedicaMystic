@@ -6,11 +6,13 @@
     require "../../classes/views/tableview.class.php";
     require "../../classes/views/dataview.class.php";
 
+    // Details for drug details container:
     $drug_id = "";
     $trade_name = "";
     $drug_formula = "";
     $administration_method = "";
-    $quantity = "";
+    $quantity = 0;
+    $dosage_mg = "";
     $drug_price = "";
     $expiry_date = "";
 
@@ -19,7 +21,8 @@
         'drug_id', 
         'trade_name', 
         'drug_formula', 
-        'administration_method', 
+        'administration_method',
+        'dosage_mg',
         'quantity', 
         'drug_price', 
         'expiry_date'
@@ -38,6 +41,7 @@
         $trade_name = $_SESSION['trade_name'];
         $drug_formula = $_SESSION['drug_formula'];
         $administration_method = $_SESSION['administration_method'];
+        $dosage_mg = $_SESSION['dosage_mg'];
         $quantity = $_SESSION['quantity'];
         $drug_price = $_SESSION['drug_price'];
         $expiry_date = $_SESSION['expiry_date'];
@@ -97,7 +101,7 @@
                             $trade_names = $drug->getTradeNames();
                             DataView::fillDropdown($trade_names);
                         ?>
-                        <input type="number" min="1" max="100" name="quantity" value="quantity">
+                        <input type="number" min="1" max="100" name="selected_quantity" required>
                     </div>
                     <div class="search-button">
                         <button type="submit" name="search" value="search_drug" class="btn-actions btn-search">Search</button>     
@@ -111,6 +115,7 @@
                         <span>Trade Name:  <?php echo $trade_name; ?></span>
                         <span>Formula: <?php echo $drug_formula; ?></span>
                         <span>Administration:  <?php echo $administration_method; ?></span>
+                        <span>Dosage: <?php echo $dosage_mg; ?></span>
                         <span>Quantity: <?php echo $quantity; ?></span>
                         <span>Drug Price:  <?php echo $drug_price; ?></span>
                         <span>Expiry date:  <?php echo $expiry_date; ?></span>
@@ -131,6 +136,7 @@
                                 <th>Trade Name</th>
                                 <th>Formula</th>
                                 <th>Administration</th>
+                                <th>Dosage (mg) </th>
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Expiry Date</th>
