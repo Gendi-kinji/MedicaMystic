@@ -30,6 +30,7 @@
             <td><button>Delete</button></td>
         </tbody>
     </table>
+    
     <br>
     <button class="update">Update dispense table</button>
     
