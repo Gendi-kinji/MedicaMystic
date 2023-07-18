@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2023 at 02:52 PM
+-- Generation Time: Jul 18, 2023 at 04:59 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -257,7 +257,8 @@ INSERT INTO `tbl_users` (`user_id`, `user_name`, `user_email`, `user_type`, `use
 (21, 'George', 'george@gmail.com', 'doctor', '$2y$10$S3xqOgnuaO6lIxyB75HBuusubFfgtUh1z2Al59XBs59ojA69Tb0XC', '2023-06-27 07:13:45.841654'),
 (22, 'alvin', 'alvin@gmail.com', 'doctor', '$2y$10$pHSImATapTDld2OHntS7bOiZKuicG5KBq1CADFQOKH3kA1BtkqOsa', '2023-06-27 07:13:45.841654'),
 (23, 'Melvin', 'melvin@gmail.com', 'doctor', '$2y$10$deUj7UxYhuQ3Cm31JOKZLOR9leAcBaCZTp5Vd0dkOk4tdWBdcvvDS', '2023-07-11 08:45:55.302860'),
-(24, 'Fidelagade', 'agadeisaboke@gmail.com', 'pharmaceutical_company', '$2y$10$JZ3/0k/V/xEadQw/bVEj2.SKRnGXjPLvAilgh7dVUNsxIajVbKz0i', '2023-07-11 10:21:39.679725');
+(24, 'Fidelagade', 'agadeisaboke@gmail.com', 'pharmaceutical_company', '$2y$10$JZ3/0k/V/xEadQw/bVEj2.SKRnGXjPLvAilgh7dVUNsxIajVbKz0i', '2023-07-11 10:21:39.679725'),
+(25, 'pharmacy1', 'pharmacy1@email.com', 'pharmacist', '$2y$10$.imyo2JkfYejyDA.dEYBQ.XYZjdg0HTwhOeESeRVfs8S38p.dUj02', '2023-07-18 13:31:24.455660');
 
 --
 -- Indexes for dumped tables
@@ -391,7 +392,7 @@ ALTER TABLE `tbl_supervisors`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
