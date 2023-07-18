@@ -29,8 +29,7 @@
         >
         <br />
         <span id="page-subheadline"
-          >Sign in or register to access the drug dispensary</span
-        >
+          >Sign in or register to access the drug dispensary</span>
         <br /><br />
         <div class="welcome-options">
           <!--call to action-->

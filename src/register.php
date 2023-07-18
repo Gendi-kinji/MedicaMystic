@@ -13,7 +13,7 @@
             <img id="digital-pharmacy" alt="image of digital pharmacy" src="form_icons/online-pharmacy.png">
             <hr>
         </header>
-        <form class="register-form" action="/process/register.process.php" method="POST">
+        <form class="register-form" action="./process/register.process.php" method="POST">
             <h3>REGISTER</h3>
             <h4>Enter your details below</h4>
             <label for="user_name">Username</label>
