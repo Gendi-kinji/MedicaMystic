@@ -1,8 +1,7 @@
 <?php
 class DatabaseHandler extends Connection{
 
-    // Common methods to be inherited by sub-models:
-    public function setData($table, $data) {
+    public function setData($table, $data, $return_insert_id = false) {
         $columns = array_keys($data);
         $values = array_values($data);
         $placeholders = array_fill(0, count($values), '?');
@@ -18,7 +17,7 @@ class DatabaseHandler extends Connection{
                 $types .= 's';
             }
         }
-
+    
         // Generating lists of columns and placeholders:
         $column_list = implode(',', $columns);
         $placeholder_list = implode(',', $placeholders);
@@ -27,7 +26,15 @@ class DatabaseHandler extends Connection{
         $conn = $this->connect();
         $stmt = $conn->prepare($sql);
         $stmt->bind_param($types, ...$values);
-        return $stmt->execute();
+        if ($stmt->execute()) {
+            if ($return_insert_id) {
+                return $conn->insert_id;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
     }
 
     protected function getData($table, $identifier, $search_value){

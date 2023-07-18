@@ -70,6 +70,8 @@ if(isset($_GET["id"])){
         value="<?php echo $administration_method;?>"
         required
       />
+      <label for="drug_quantity">Drug Quantity</label>
+      <input type="number" min="0" max ="9999" id="drug_id" name="drug_id">
       <label for="drug_price">Drug price</label>
       <input
         type="number"

@@ -117,6 +117,7 @@
                                 <th>Trade Name</th>
                                 <th>Formula</th>
                                 <th>Administration</th>
+                                <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Expiry Date</th>
                             </tr>

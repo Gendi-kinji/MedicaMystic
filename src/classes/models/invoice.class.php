@@ -15,11 +15,11 @@ class Invoice extends DatabaseHandler{
     public function __construct(){
         
     }
-    public function addInvoice($patient_ssn) {
-        $this->setData('tbl_invoice', $patient_ssn);
+    public function addInvoice($patient_ssn, $return_insert_id = true) {
+        return $this->setData('tbl_invoice', $patient_ssn, $return_insert_id);
     }
     public function getInvoice($search_value){
-        return $this->getData('tbl_invoice', 'invoice_s=id', $search_value);
+        return $this->getData('tbl_invoice', 'invoice_id', $search_value);
     }
 
     public function getAllInvoices(){

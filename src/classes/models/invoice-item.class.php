@@ -1,4 +1,5 @@
-<?class Invoice extends DatabaseHandler{
+<?
+class InvoiceItem extends DatabaseHandler{
     public function __construct(){
         
     }
