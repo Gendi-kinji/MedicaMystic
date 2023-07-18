@@ -1,0 +1,9 @@
+.topbar{
+    /*universal styles for the topbar of the page*/
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(169, 169, 169);
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+}
