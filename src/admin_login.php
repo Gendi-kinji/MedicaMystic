@@ -6,7 +6,7 @@
         <title>Sign In</title>
     </head>
     <body>
-        <form action="/process/admin-login.process.php" method="POST">
+        <form action="./process/admin-login.process.php" method="POST">
             <div class="form-header">
                 <h1>DRUG DISPENSARY NAME</h1>
             </div>

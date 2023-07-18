@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="./styles/register.css">
     <title>Admin Registration Page</title>
 </head>
 
@@ -11,7 +11,7 @@
         <h1>DRUG DISPENSARY NAME</h1>
         <img alt="image of logo">
     </header>
-    <form id="register-form" action="/process/admin-register.process.php" method="POST">
+    <form id="register-form" action="./process/admin-register.process.php" method="POST">
         <h3>REGISTER</h3>
         <h4>Enter your details below</h4>
         <label for="admin_name">Username</label>

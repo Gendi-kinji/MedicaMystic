@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, inital-scale=1.0">
-        <link rel="stylesheet" href="/styles/sign_in.css">
+        <link rel="stylesheet" href="./styles/sign_in.css">
         <title>Sign In</title>
     </head>
     <body>
-        <form action="/process/signin.process.php" method="POST">
+        <form action="./process/signin.process.php" method="POST">
             <div class="form-header">
                 <h1>DRUG DISPENSARY NAME</h1>
             </div>
