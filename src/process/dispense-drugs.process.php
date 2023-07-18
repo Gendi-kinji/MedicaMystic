@@ -9,8 +9,11 @@ require '../classes/models/invoice-item.class.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get JSON data from request body
   $json = file_get_contents('php://input');
-  $drug_IDs = json_decode($json, true);
+  $dispensed_drugs = json_decode($json, true);
+  echo $dispensed_drugs;
 
+  /*
+  
   // Details for invoice
   $patient_ssn = "";
 
@@ -22,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $invoice_id = $invoice->addInvoice($patient_ssn);
 
   //Computing the total price
-  
 
 
   // Details for invoice items
@@ -42,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Send response
   echo 'Data inserted successfully';
+
+  */
 } else {
   // Invalid request method
   http_response_code(405);
