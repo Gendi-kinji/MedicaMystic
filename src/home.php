@@ -46,7 +46,7 @@
           id="img-syringe"
           alt="Image of syringe"
           title="Syringe: From Flaticon"
-          src="/form_icons/syringe.png"
+          src="form_icons/syringe.png"
         />
       </div>
     </div>

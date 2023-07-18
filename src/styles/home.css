@@ -171,7 +171,6 @@
         font-size: 20px;
         background:rgb(223, 224, 248);
         color: rgb(0, 0, 0);
-        line-spacing:
     }
     .features-conclusion{
         background: rgb(177, 177, 177);
@@ -247,7 +246,7 @@
         .benefits-container{
             display: flex;
             flex-direction: column;
-            height: 600px;
+            height: 620px;
         }
         .benefits-section h2, .features-header h2{
             font-size: 28px;
@@ -261,7 +260,7 @@
         .features-container{
             display: flex;
             flex-direction: column;
-            height: 610px;
+            height: 600px;
         }
         .features-header{
             width: 100%;
