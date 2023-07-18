@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="../../styles/form_styles/view_prescriptions.css">
 </head>
 <body>
+    <!--page topbar-->
+    <div class="topbar">
+        <h1>MedicaMystic Dispensary</h1>
+    </div>
     <h1>Prescriptions Table</h1>
     <table>
         <thead>
