@@ -182,14 +182,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".btn-dispense").addEventListener("click", () => {
     // Get all rows in the table
     const rows = document.querySelectorAll(".drugs-table-data tr");
-    // Create an array to hold the Drug IDs
+    // Create an array to hold the drug data
     const dispensedDrugs = [];
     // Loop through each row and get the Drug ID, Quantity, and Price
     rows.forEach((row) => {
       const drugId = row.querySelector("td:nth-child(1)").textContent;
       const quantity = row.querySelector("td:nth-child(6)").textContent;
-      const drugPrice = row.querySelector("d:nth-child(7)").textContent;
-      dispensedDrugs.push(drugId, quantity, drugPrice);
+      const drugPrice = row.querySelector("td:nth-child(7)").textContent;
+
+      // push the data to dispensed drugs as an object
+      dispensedDrugs.push({drugId, quantity, drugPrice});
     });
 
     // Send data to server using an AJAX request
@@ -202,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (xhr.status === 200) {
         // Request was successful
         console.log(xhr.responseText);
+        alert('Drugs dispensed successfully!');
       } else {
         // Request failed
         console.error(xhr.responseText);
@@ -209,4 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     xhr.send(JSON.stringify(dispensedDrugs)); // sending the data
   });
+
+
+
 });

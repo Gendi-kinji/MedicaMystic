@@ -1,4 +1,4 @@
-<?
+<?php
 class InvoiceItem extends DatabaseHandler{
     public function __construct(){
         

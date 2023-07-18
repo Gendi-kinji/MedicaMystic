@@ -6,6 +6,7 @@
     require "../../classes/views/tableview.class.php";
     require "../../classes/views/dataview.class.php";
 
+    // Details for drug details container:
     $drug_id = "";
     $trade_name = "";
     $drug_formula = "";
