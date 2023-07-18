@@ -25,6 +25,8 @@
         <input type="text" id="drug_formula" name="drug_formula" placeholder="Formula..." required>
         <label for="administration_method">Administration Method</label>
         <input type="text" id="administration_method" name="administration_method" placeholder="Method..." required>
+        <label for="drug_quantity">Drug Quantity</label>
+        <input type="number" min="0" max ="9999" id="drug_id" name="drug_id">
         <label for="drug_price">Drug price</label>
         <input type="number" min="0" step="0.01" id="drug_price" name="drug_price" placeholder="Enter price..." required>
         <label for="expiry_date">Expiry date</label>
