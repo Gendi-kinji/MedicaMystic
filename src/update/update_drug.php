@@ -71,7 +71,7 @@ if(isset($_GET["id"])){
         required
       />
       <label for="drug_quantity">Drug Quantity</label>
-      <input type="number" min="0" max ="9999" id="drug_id" name="drug_id">
+      <input type="number" min="0" max ="9999" id="drug_quantity" name="drug_quantity">
       <label for="drug_price">Drug price</label>
       <input
         type="number"
