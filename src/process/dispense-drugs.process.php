@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   //Computing the total price
   
 
+
   // Details for invoice items
   $itemsData = [
     'invoice_id'=>$invoice_id,

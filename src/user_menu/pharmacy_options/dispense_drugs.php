@@ -10,11 +10,21 @@
     $trade_name = "";
     $drug_formula = "";
     $administration_method = "";
+    $quantity = "";
     $drug_price = "";
     $expiry_date = "";
 
     session_start();
-    $keys = ['drug_id', 'trade_name', 'drug_formula', 'administration_method', 'drug_price', 'expiry_date'];
+    $keys = [
+        'drug_id', 
+        'trade_name', 
+        'drug_formula', 
+        'administration_method', 
+        'quantity', 
+        'drug_price', 
+        'expiry_date'
+    ];
+
     $all_keys_exist = true;
     foreach ($keys as $key) {
         if (!array_key_exists($key, $_SESSION)) {
@@ -28,6 +38,7 @@
         $trade_name = $_SESSION['trade_name'];
         $drug_formula = $_SESSION['drug_formula'];
         $administration_method = $_SESSION['administration_method'];
+        $quantity = $_SESSION['quantity'];
         $drug_price = $_SESSION['drug_price'];
         $expiry_date = $_SESSION['expiry_date'];
     }
@@ -70,6 +81,7 @@
                             <label for="trade_name">Search Name</label>
                             <input type="radio" name="search_type" value="trade_name">
                         </div>
+                        <label for="quantity">Quantity</label>
                     </div>
                     <!--Dropdowns populated by database-->
                     <div class="search-dropdowns">
@@ -85,6 +97,7 @@
                             $trade_names = $drug->getTradeNames();
                             DataView::fillDropdown($trade_names);
                         ?>
+                        <input type="number" min="1" max="100" name="quantity" value="quantity">
                     </div>
                     <div class="search-button">
                         <button type="submit" name="search" value="search_drug" class="btn-actions btn-search">Search</button>     
@@ -98,6 +111,7 @@
                         <span>Trade Name:  <?php echo $trade_name; ?></span>
                         <span>Formula: <?php echo $drug_formula; ?></span>
                         <span>Administration:  <?php echo $administration_method; ?></span>
+                        <span>Quantity: <?php echo $quantity; ?></span>
                         <span>Drug Price:  <?php echo $drug_price; ?></span>
                         <span>Expiry date:  <?php echo $expiry_date; ?></span>
                     </div>
