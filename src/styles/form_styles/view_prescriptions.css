@@ -1,0 +1,28 @@
+th,td{
+    border: 1px solid black;
+}
+table{
+    border-collapse: collapse;
+
+}
+body{
+    display:flex;
+    flex-direction: column;
+}
+button{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    color:blue;
+    align-self: center;
+   
+
+}
+button.update{
+    width:15%;
+    align-self: center;
+    top:50%;
+}
+button:hover{
+    color:red;
+}
