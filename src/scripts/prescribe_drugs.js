@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Functionality for the 'clear' button
   document.querySelector(".btn-clear").addEventListener("click", () => {
-      clearTable(".drugs-table-data tr");
+      clearTable(".prescriptions-table-data tr");
     });
 
 
