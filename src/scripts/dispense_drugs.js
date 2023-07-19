@@ -1,62 +1,15 @@
-//FUNCTIONS
+// FUNCTIONS
 
-//Save the data of the html table
-function saveTableData() {
-  // Get all rows in the table
-  const rows = document.querySelectorAll(".drugs-table-data tr");
-  // Create an array to hold the data for each row
-  const rowData = [];
-  // Loop through each row and get the data for each cell
-  rows.forEach((row) => {
-    const cells = row.querySelectorAll("td");
-    const rowValues = [];
-    cells.forEach((cell) => {
-      rowValues.push(cell.textContent);
-    });
-    rowData.push(rowValues);
-  });
-  // Save the data to local storage
-  localStorage.setItem("tableData", JSON.stringify(rowData));
-}
-
-//Load data onto the html table
-function loadTableData() {
-  // Check if there is any data in local storage
-  if (localStorage.getItem("tableData")) {
-    // Get the data from local storage
-    const rowData = JSON.parse(localStorage.getItem("tableData"));
-    // Loop through each row of data and create a new row in the table
-    rowData.forEach((rowValues) => {
-      const newRow = document.createElement("tr");
-      newRow.innerHTML = `
-        <td>${rowValues[0]}</td>
-        <td>${rowValues[1]}</td>
-        <td>${rowValues[2]}</td>
-        <td>${rowValues[3]}</td>
-        <td>${rowValues[4]}</td>
-        <td>${rowValues[5]}</td>
-        <td>${rowValues[6]}</td>
-        <td>${rowValues[7]}</td>
-      `;
-      document.querySelector(".drugs-table-data").appendChild(newRow);
-    });
-  }
-}
-
-// Clear data from the table
-function clearTable() {
-  // Remove all rows from the table
-  const rows = document.querySelectorAll(".drugs-table-data tr");
-  rows.forEach((row) => row.remove());
-  // Clear data from local storage
-  localStorage.removeItem("tableData");
-}
+// importing from table_actions.js file
+import { saveTableData } from "./table_actions.js";
+import { loadTableData } from "./table_actions.js";
+import { clearTable } from "./table_actions.js";
 
 // MAIN SCRIPT:
 // Making the buttons to run only when the DOMContent of the webpage is loaded
 document.addEventListener("DOMContentLoaded", () => {
   // Load table data from local storage
-  loadTableData();
+  loadTableData(".drugs-table-data");
 
   // Functionality for the 'search' button:
   document.querySelector(".btn-search").addEventListener("click", (event) => {
@@ -80,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         if (data.success) {
           window.location.href =
-            "/user_menu/pharmacy_options/dispense_drugs.php?error=none";
+            "/user_menu/doctor_options/prescribe_drugs.php?error=none";
           alert("Data retrieved successfully!");
         } else if (data.error === "Selected quantity is not a valid number.") {
           alert("Selected quantity is not a valid number.");
@@ -102,33 +55,37 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".btn-add").addEventListener("click", () => {
     // Get drug details
     const drugDetails = document.querySelector(".drug-details");
-    const drugId = drugDetails
+    const prescriptionId = drugDetails
       .querySelector("span:nth-child(1)")
-      .textContent.split(": ")[1];
-    const tradeName = drugDetails
+    . textContent.split(": ")[1];
+    const drugId = drugDetails
       .querySelector("span:nth-child(2)")
       .textContent.split(": ")[1];
-    const formula = drugDetails
+    const tradeName = drugDetails
       .querySelector("span:nth-child(3)")
       .textContent.split(": ")[1];
-    const administration = drugDetails
+    const formula = drugDetails
       .querySelector("span:nth-child(4)")
       .textContent.split(": ")[1];
-    const dosage = drugDetails
+    const administration = drugDetails
       .querySelector("span:nth-child(5)")
       .textContent.split(": ")[1];
-    const quantity = drugDetails
+    const dosage = drugDetails
       .querySelector("span:nth-child(6)")
       .textContent.split(": ")[1];
-    const price = drugDetails
+    const quantity = drugDetails
       .querySelector("span:nth-child(7)")
       .textContent.split(": ")[1];
-    const expiryDate = drugDetails
+    const price = drugDetails
       .querySelector("span:nth-child(8)")
+      .textContent.split(": ")[1];
+    const expiryDate = drugDetails
+      .querySelector("span:nth-child(9)")
       .textContent.split(": ")[1];
 
     // Check if any of the input fields are empty
     if (
+      !prescriptionId ||
       !drugId ||
       !tradeName ||
       !formula ||
@@ -156,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!duplicateFound) {
       const newRow = document.createElement("tr");
       newRow.innerHTML = `
+          <td>${prescriptionId}</td>
           <td>${drugId}</td>
           <td>${tradeName}</td>
           <td>${formula}</td>
@@ -167,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       document.querySelector(".drugs-table-data").appendChild(newRow);
       alert("Record added!");
-      saveTableData();
+      saveTableData(".drugs-table-data");
     } else {
       alert("A record with this Drug ID already exists in the table.");
     }
@@ -175,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Functionality for the 'clear' button
   document.querySelector(".btn-clear").addEventListener("click", () => {
-    clearTable();
+    clearTable(".drugs-table-data tr");
   });
 
   // Functionality for the 'dispense' button
@@ -186,12 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const dispensedDrugs = [];
     // Loop through each row and get the Drug ID, Quantity, and Price
     rows.forEach((row) => {
-      const drugId = row.querySelector("td:nth-child(1)").textContent;
-      const quantity = row.querySelector("td:nth-child(6)").textContent;
-      const drugPrice = row.querySelector("td:nth-child(7)").textContent;
+      const prescriptionId = row.querySelector("td:nth-child(1)").textContent;
+      const drugId = row.querySelector("td:nth-child(2)").textContent;
+      const quantity = row.querySelector("td:nth-child(7)").textContent;
+      const drugPrice = row.querySelector("td:nth-child(9)").textContent;
 
       // push the data to dispensed drugs as an object
-      dispensedDrugs.push({drugId, quantity, drugPrice});
+      dispensedDrugs.push({prescriptionId, drugId, quantity, drugPrice});
     });
 
     // Send data to server using an AJAX request
