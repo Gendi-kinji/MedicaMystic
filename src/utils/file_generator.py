@@ -30,8 +30,8 @@ def create_file(filenames):
     <body>
         <h1>{filenames[i]} Table</h1>
             <?php
-                ${filenames[i]}= new {filenames[i]});
-                ${filenames[i]}_table = ${filenames[i]}->getAll{filenames[i]};
+                ${filenames[i]}= new {filenames[i]}();
+                ${filenames[i]}_table = ${filenames[i]}->getAll{filenames[i]}();
                 TableView::showReadOnlyTable(${filenames[i]}_table,'{filenames[i]}');
             ?>
         </body>
@@ -48,17 +48,17 @@ def create_file(filenames):
 # MAIN
 # List of filenames
 filenames = [
-    'drugs', 
-    'doctors', 
+    'drug', 
+    'doctor', 
     'pharmacy', 
     'pharmaceutical', 
-    'patients', 
-    'prescriptions',
-    'invoices',
-    'invoice_items',
-    'users',
-    'prescription_items',
-    'supervisors'
+    'patient', 
+    'prescription',
+    'invoice',
+    'invoice_item',
+    'user',
+    'prescription_item',
+    'supervisor'
     ]
 
 # run the script

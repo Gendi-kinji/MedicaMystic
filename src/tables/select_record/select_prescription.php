@@ -4,6 +4,7 @@
     require "../../classes/models/prescription.class.php";
     require "../../classes/views/pageview.class.php";
     require "../../classes/views/tableview.class.php";
+    
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +14,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prescription Details</title>
         <link rel="stylesheet" href="../../styles/table_styles.css">
-    </head>
     <body>
-        <h1>Prescriptions Table</h1>
+        <h1>Select Prescription</h1>
             <?php
             $prescription = new prescription();
-            $prescription_table = $prescription->getAllPrescriptions();
-            TableView::showEditableTable($prescription_table, 'prescription');
+            $prescription_table = $prescription->getAllprescriptions();
+            TableView::showSelectTable($prescription_table, 'pharmacy', 'dispense');
             ?>
     </body>
 </html>

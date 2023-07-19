@@ -26,7 +26,7 @@
     </header>
     <hr>
     <a class="doctor" href="">Doctor Details</a>
-    <a class="doctor" href="./doctor_options/prescribe_drugs.php">Prescribe Drugs</a>
+    <a class="doctor" href="/tables/select_record/select_patient.php">Prescribe Drugs</a>
     <a class="doctor" href="">View Available Drugs</a>
     <a class="doctor" href="">View Appointments</a>
     

@@ -1,9 +1,11 @@
+
 <?php
     require "../../classes/connection.class.php";
     require "../../classes/databasehandler.class.php";
-    require "../../classes/models/prescription.class.php";
+    require "../../classes/models/invoice_item.class.php";
     require "../../classes/views/pageview.class.php";
     require "../../classes/views/tableview.class.php";
+        
 ?>
 
 <!DOCTYPE html>
@@ -11,15 +13,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Prescription Details</title>
+        <title>Invoice Item Details</title>
         <link rel="stylesheet" href="../../styles/table_styles.css">
-    </head>
     <body>
-        <h1>Prescriptions Table</h1>
+        <h1>Invoice Items Table</h1>
             <?php
-            $prescription = new prescription();
-            $prescription_table = $prescription->getAllPrescriptions();
-            TableView::showEditableTable($prescription_table, 'prescription');
+                $invoice_item = new InvoiceItem();
+                $invoice_item_table = $invoice_item->getAllInvoiceItems();
+                TableView::showReadOnlyTable($invoice_item_table);
             ?>
-    </body>
+        </body>
 </html>

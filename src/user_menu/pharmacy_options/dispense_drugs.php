@@ -52,11 +52,11 @@
     
     }
 
-    if(!empty($_GET['prescription_id'])){
-        $prescription_id = $_GET['prescription_id'];
+    if(!empty($_GET['id'])){
+        $prescription_id = $_GET['id'];
     }
     
-       print_r($_SESSION);
+       # print_r($_SESSION);
 
     
 ?>

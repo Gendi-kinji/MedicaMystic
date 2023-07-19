@@ -1,9 +1,9 @@
 <?php
-    require "../..classes/connection.class.php";
-    require "../..classes/databasehandler.class.php";
-    require "../..classes/models/doctor.class.php";
-    require "../..classes/views/pageview.class.php";
-    require "../..classes/views/tableview.class.php";
+    require "../../classes/connection.class.php";
+    require "../../classes/databasehandler.class.php";
+    require "../../classes/models/doctor.class.php";
+    require "../../classes/views/pageview.class.php";
+    require "../../classes/views/tableview.class.php";
 ?>
 
 <!DOCTYPE html>
