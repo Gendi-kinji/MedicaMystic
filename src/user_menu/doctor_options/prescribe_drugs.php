@@ -52,8 +52,8 @@
         $patient_ssn = $_SESSION['patient_ssn'];
     }
 
-    if(!empty($_GET['patient_ssn'])){
-        $patient_ssn = $_GET['patient_ssn'];
+    if(!empty($_GET['id'])){
+        $patient_ssn = $_GET['id'];
     }
 
    # print_r($_SESSION);

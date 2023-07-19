@@ -1,10 +1,11 @@
+
 <?php
     require "../../classes/connection.class.php";
     require "../../classes/databasehandler.class.php";
     require "../../classes/models/pharmaceutical.class.php";
     require "../../classes/views/pageview.class.php";
     require "../../classes/views/tableview.class.php";
-    
+        
 ?>
 
 <!DOCTYPE html>
@@ -17,9 +18,9 @@
     <body>
         <h1>Pharmaceuticals Table</h1>
             <?php
-            $pharmaceutical = new Pharmaceutical();
-            $pharmaceutical_table = $pharmaceutical->getAllPharmaceuticals();
-            TableView::showEditableTable($pharmaceutical_table, 'pharmaceutical');
+                $pharmaceutical= new pharmaceutical();
+                $pharmaceutical_table = $pharmaceutical->getAllpharmaceuticals();
+                TableView::showReadOnlyTable($pharmaceutical_table);
             ?>
-    </body>
+        </body>
 </html>
