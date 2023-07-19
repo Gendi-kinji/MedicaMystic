@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Storing data in an array
     $itemsData = [
       'prescription_id'=>$prescription_id,
-      'drug_id'=>$drug_id,
       'quantity'=>$quantity,
-      'total_price'=>$total_price
+      'dosage_schedule'=>$dosage_schedule,
+      'presc_date'=>$presc_date
     ];
 
     $invoice_item->addInvoiceItem($itemsData);
