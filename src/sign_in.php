@@ -18,7 +18,6 @@
                     <button type="submit" name="submit" value="submit">Submit</button><br>
                 </div><br>                
                 <a href="./register.php">New user?</a>
-                <a href="">Forgot password</a>
                 <br>
                 </div>
         </form>

@@ -36,8 +36,8 @@ require "../classes/webapputils.class.php"
                 <?php WebAppUtils::generateFilesList("add", "add_");?>
             </div>
             <div class="tables-nav">
-                <h3>Tables</h3>
-                <?php WebAppUtils::generateFilesList("view_tables", "view_")?>
+                <h3>Manage DB Tables</h3>
+                <?php WebAppUtils::generateFilesList("tables/manage", "manage_")?>
             </div>
         </div>
     </div>
