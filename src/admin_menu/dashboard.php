@@ -37,7 +37,7 @@ require "../classes/webapputils.class.php"
             </div>
             <div class="tables-nav">
                 <h3>Manage DB Tables</h3>
-                <?php WebAppUtils::generateFilesList("tables/manage", "manage_")?>
+                <?php WebAppUtils::generateFilesList("/tables/editable", "manage_")?>
             </div>
         </div>
     </div>
