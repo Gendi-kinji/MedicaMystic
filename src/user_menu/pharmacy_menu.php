@@ -32,7 +32,7 @@
     <a class="pharmacy" href="">Pharmacy Details</a>
     <a class="pharmacy" href="">Manage Inventory</a>
     <a class="pharmacy" href="">View Prescriptions</a>
-    <a class="pharmacy" href="/tables/select_record/select_prescription.php">Dispense Medicine</a>
+    <a class="pharmacy" href="../tables/select_record/select_prescription.php">Dispense Medicine</a>
     <a class="medicine" href="">Manage Supervisors</a>
     <a class="medicine" href="">Purchase drugs</a>
 </body>
