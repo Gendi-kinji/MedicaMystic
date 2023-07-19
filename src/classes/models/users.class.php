@@ -1,13 +1,13 @@
 <?php
 
-class Users extends DatabaseHandler{
+class User extends DatabaseHandler{
     public function __construct(){
 
     }
-    public function addUsers($userData){
+    public function addUser($userData){
         return $this->setData('tbl_users',$userData);
     }
-    public function getUsers($search_value){
+    public function getUser($search_value){
         return $this->getData('tbl_users','user_name',$search_value);
     }
     public function getAllUsers(){
