@@ -9,9 +9,6 @@ def create_file(filenames):
             # Open the file in write mode
             text_file = open(f"view_{filenames[i]}.php", "w")
             
-            file_title = filenames[i][0].upper()+filenames[i][1:0]
-            file_plural = file_title +'s';
-            
             # Write content to the file:
             text_file.write(f'''
 <?php
@@ -28,13 +25,13 @@ def create_file(filenames):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{file_title} Details</title>
+        <title>{filenames[i]} Details</title>
         <link rel="stylesheet" href="../../styles/table_styles.css">
     <body>
-        <h1>{file_plural} Table</h1>
+        <h1>{filenames[i]} Table</h1>
             <?php
-                ${filenames[i]}= new {file_title});
-                ${filenames[i]}_table = ${filenames[i]}->getAll{file_title};
+                ${filenames[i]}= new {filenames[i]});
+                ${filenames[i]}_table = ${filenames[i]}->getAll{filenames[i]};
                 TableView::showReadOnlyTable(${filenames[i]}_table,'{filenames[i]}');
             ?>
         </body>
@@ -55,9 +52,13 @@ filenames = [
     'doctors', 
     'pharmacy', 
     'pharmaceutical', 
-    'pharmacy', 
-    'patient', 
-    'prescription'
+    'patients', 
+    'prescriptions',
+    'invoices',
+    'invoice_items',
+    'users',
+    'prescription_items',
+    'supervisors'
     ]
 
 # run the script
