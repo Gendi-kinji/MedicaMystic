@@ -35,19 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
           window.location.href =
             "/user_menu/doctor_options/prescribe_drugs.php?error=none";
           alert("Data retrieved successfully!");
-        } else if (data.error === "Selected quantity is not a valid number.") {
-          alert("Selected quantity is not a valid number.");
-        } else if (
-          data.error === "quantity selected exceeds available quantity."
-        ) {
-          alert("The selected quantity exceeds the available quantity.");
-        } else if (data.error === "please enter a value.") {
-          alert("Please enter a value");
-        } else if (data.error === "Drug is out of stock.") {
-          alert("Drug is out of stock");
         } else if (data.error) {
-          // An unknown error occurred
-          console.error(data.error);
+          // An error occurred
+          alert(data.error); // alert sent on webpage
+          console.log(data.error); // log the error onto the console
         }
       });
   });
