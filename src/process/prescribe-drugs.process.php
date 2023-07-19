@@ -10,42 +10,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Get JSON data from request body
   $json = file_get_contents('php://input');
   $prescribed_drugs = json_decode($json, true);
-  print_r($prescribed_drugs);
+  # print_r($prescribed_drugs);
 
-  // Instantiate objects of the invoice and invoice_items class
+  //checking if prescribed_drugs array is empty
+  if(empty($prescribed_drugs)){
+    http_response_code(400);
+    echo 'Invalid data';
+    exit;
+  }
+
+  // Instantiate objects of the prescription and prescription_items class
   $prescription = new Prescription();
   $prescription_item = new PrescriptionItem();
 
-  // Insert invoice data into database
+  // Insert prescription data into database
   $prescriptionData = [
-    'patient_ssn'=>$dispensed_drug[0]['patientSSN']
+    'patient_ssn'=>$prescribed_drugs[0]['patientSSN'],
+    'presc_date'=>$prescribed_drugs[0]['prescriptionDate']
   ];
 
   $prescription_id = $prescription->addPrescription($prescriptionData);
 
- // prescribedDrugs.push({patientSSN, drugId, prescribedQuantity, dosageSchedule, prescriptionDate});
-
   // Loop through each drug_id sent in the array and add records
   foreach($prescribed_drugs as $drug){
 
-    // Details for invoice items
+    // Details for prescription items
     $drug_id = $drug['drugId'];
     $prescribed_quantity = $drug['prescribedQuantity'];
     $dosage_schedule = $drug['dosageSchedule'];
-    $presc_date = $drug['prescriptionDate'];
 
     // Storing data in an array
     $itemsData = [
       'prescription_id'=>$prescription_id,
-      'quantity'=>$quantity,
+      'quantity'=>$prescribed_quantity,
       'dosage_schedule'=>$dosage_schedule,
-      'presc_date'=>$presc_date
     ];
 
-    $invoice_item->addInvoiceItem($itemsData);
+    $prescription_item->addPrescriptionItem($itemsData);
   }
 
-  // Relocate to dispense drugs page
+  // Success
   echo "Drugs prescribed successfully";
 } else {
 

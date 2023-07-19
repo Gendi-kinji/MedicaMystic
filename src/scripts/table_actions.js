@@ -20,8 +20,7 @@ export function saveTableData(selector) {
   }
 
 
-//Load data onto the html table
-export function loadTableData(selector) {
+  export function loadTableData(selector) {
     // Check if there is any data in local storage
     if (localStorage.getItem("tableData")) {
       // Get the data from local storage
@@ -29,16 +28,11 @@ export function loadTableData(selector) {
       // Loop through each row of data and create a new row in the table
       rowData.forEach((rowValues) => {
         const newRow = document.createElement("tr");
-        newRow.innerHTML = `
-          <td>${rowValues[0]}</td>
-          <td>${rowValues[1]}</td>
-          <td>${rowValues[2]}</td>
-          <td>${rowValues[3]}</td>
-          <td>${rowValues[4]}</td>
-          <td>${rowValues[5]}</td>
-          <td>${rowValues[6]}</td>
-          <td>${rowValues[7]}</td>
-        `;
+        let newRowContent = "";
+        for (let i = 0; i < rowValues.length; i++) {
+          newRowContent += `<td>${rowValues[i]}</td>`;
+        }
+        newRow.innerHTML = newRowContent;
         document.querySelector(`${selector}`).appendChild(newRow);
       });
     }

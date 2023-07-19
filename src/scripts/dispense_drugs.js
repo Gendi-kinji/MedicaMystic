@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((data) => {
         if (data.success) {
           window.location.href =
-            "/user_menu/doctor_options/prescribe_drugs.php?error=none";
+            "/user_menu/pharmacy_options/dispense_drugs.php?error=none";
           alert("Data retrieved successfully!");
         } else if (data.error) {
           // An error occurred
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const rows = document.querySelectorAll(".drugs-table-data tr");
     let duplicateFound = false;
     rows.forEach((row) => {
-      const rowDrugId = row.querySelector("td:nth-child(1)").textContent;
+      const rowDrugId = row.querySelector("td:nth-child(2)").textContent;
       if (rowDrugId === drugId) {
         duplicateFound = true;
       }
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const prescriptionId = row.querySelector("td:nth-child(1)").textContent;
       const drugId = row.querySelector("td:nth-child(2)").textContent;
       const quantity = row.querySelector("td:nth-child(7)").textContent;
-      const drugPrice = row.querySelector("td:nth-child(9)").textContent;
+      const drugPrice = row.querySelector("td:nth-child(8)").textContent;
 
       // push the data to dispensed drugs as an object
       dispensedDrugs.push({prescriptionId, drugId, quantity, drugPrice});
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (xhr.status === 200) {
         // Request was successful
         console.log(xhr.responseText);
-        alert('Drugs dispensed successfully!');
+        alert('Request successful');
       } else {
         // Request failed
         console.error(xhr.responseText);

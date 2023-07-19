@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   // Insert invoice data into database
   $invoiceData = [
-    'prescription_id'=>$dispensed_drug[0]['prescriptionId']
+    'prescription_id'=>$dispensed_drugs[0]['prescriptionId']
   ];
 
   $invoice_id = $invoice->addInvoice($invoiceData);

@@ -126,16 +126,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Functionality for the 'dispense' button
   document.querySelector(".btn-prescribe").addEventListener("click", () => {
     // Get all rows in the table
-    const rows = document.querySelectorAll(".drugs-table-data tr");
+    const rows = document.querySelectorAll(".prescriptions-table-data tr");
     // Create an array to hold the drug data
-    const dispensedDrugs = [];
+    const prescribedDrugs = [];
     // Loop through each row and get the Drug ID, Quantity, and Price
     rows.forEach((row) => {
       const patientSSN = row.querySelector("td:nth-child(1)").textContent;
       const drugId = row.querySelector("td:nth-child(2)").textContent;
       const prescribedQuantity = row.querySelector("td:nth-child(5)").textContent;
-      const dosageSchedule = row.querySelector("td:nth-child(6)").textContent;
-      const prescriptionDate = row.querySelector("td:nth-child(7)").textContent;
+      const dosageSchedule = row.querySelector("td:nth-child(7)").textContent;
+      const prescriptionDate = row.querySelector("td:nth-child(8)").textContent;
 
       // push the data to prescribed drugs as an object
       prescribedDrugs.push({patientSSN, drugId, prescribedQuantity, dosageSchedule, prescriptionDate});
@@ -151,13 +151,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (xhr.status === 200) {
         // Request was successful
         console.log(xhr.responseText);
-        alert('Drugs dispensed successfully!');
+        alert('Drugs prescribed successfully');
       } else {
         // Request failed
         console.error(xhr.responseText);
+        alert('An error occurred: ' + xhr.responseText);
       }
     };
-    xhr.send(JSON.stringify(dispensedDrugs)); // sending the data
+    xhr.send(JSON.stringify(prescribedDrugs)); // sending the data
   });
 
 
