@@ -16,6 +16,10 @@ class Patient extends DatabaseHandler{
         return $this->getTable('tbl_patients');
     }
 
+    public function getSSNs(){
+        return $this->getColumn('patient_ssn', 'tbl_patients');
+    }
+
     public function updatePatient($patient_data, $unique_value){
         $this->updateData('tbl_patients', 'patient_ssn', $patient_data, $unique_value);
     }
