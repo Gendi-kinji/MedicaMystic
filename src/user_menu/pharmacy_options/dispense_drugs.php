@@ -6,7 +6,8 @@
     require "../../classes/views/tableview.class.php";
     require "../../classes/views/dataview.class.php";
 
-    // Details for drug details container:
+    // Details for drug details container:$
+    $prescription_id = "";
     $drug_id = "";
     $trade_name = "";
     $drug_formula = "";
@@ -25,7 +26,8 @@
         'dosage_mg',
         'quantity', 
         'drug_price', 
-        'expiry_date'
+        'expiry_date',
+        'prescription_id'
     ];
 
     $all_keys_exist = true;
@@ -45,7 +47,16 @@
         $quantity = $_SESSION['quantity'];
         $drug_price = $_SESSION['drug_price'];
         $expiry_date = $_SESSION['expiry_date'];
+        $prescription_id = $_SESSION['prescription_id'];
+
+    
     }
+
+    if(!empty($_GET['prescription_id'])){
+        $prescription_id = $_GET['prescription_id'];
+    }
+    
+       print_r($_SESSION);
 
     
 ?>
@@ -60,7 +71,7 @@
 </head>
 <body>
     <!--Dispense drugs page script-->
-    <script src="../../scripts/dispense_drugs.js"></script>
+    <script type="module" src="../../scripts/dispense_drugs.js"></script>
  
     <!--page topbar-->
     <div class="topbar">
@@ -102,6 +113,8 @@
                             DataView::fillDropdown($trade_names);
                         ?>
                         <input type="number" min="1" max="100" name="selected_quantity" required>
+                        <input type="hidden" id="prescription_id" name="prescription_id" value="<?php echo $prescription_id?>">
+                        <input type="hidden" id="page_type" name="page_type" value="dispense">
                     </div>
                     <div class="search-button">
                         <button type="submit" name="search" value="search_drug" class="btn-actions btn-search">Search</button>     
@@ -111,6 +124,7 @@
                 <div class="drug-details-container">
                     <!--Details are revealed here after clicking 'search'-->
                     <div class="drug-details">
+                        <span>Prescription ID: <?php echo $prescription_id; ?></span>
                         <span>Drug ID:  <?php echo $drug_id?></span>
                         <span>Trade Name:  <?php echo $trade_name; ?></span>
                         <span>Formula: <?php echo $drug_formula; ?></span>
@@ -132,6 +146,7 @@
                     <table class="drugs-table">
                         <thead>
                             <tr>
+                                <th>Prescr ID</th>
                                 <th>Drug ID</th>
                                 <th>Trade Name</th>
                                 <th>Formula</th>

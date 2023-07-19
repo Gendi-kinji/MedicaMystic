@@ -12,16 +12,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $dispensed_drugs = json_decode($json, true);
   print_r($dispensed_drugs);
 
-  // Grab the patient SSN
-  $patient_ssn = 7;
-
   // Instantiate objects of the invoice and invoice_items class
   $invoice = new Invoice();
   $invoice_item = new InvoiceItem();
 
   // Insert invoice data into database
   $invoiceData = [
-    'patient_ssn'=>$patient_ssn
+    'prescription_id'=>$dispensed_drugs[0]['prescriptionId']
   ];
 
   $invoice_id = $invoice->addInvoice($invoiceData);

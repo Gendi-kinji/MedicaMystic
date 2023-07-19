@@ -8,15 +8,15 @@
     <title>Prescriptions Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_prescription.php" method="GET">
+    <form action="/view_tables/view_prescriptions.php" method="GET">
         <input type="submit" value="View prescription Table">
     </form>
     <form class="prescription-form" action="../process/prescription.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="prescription-form-header">
-            <h3 id="prescription-form-title">prescription Form</h3>
-            <h4>Enter your details below</h4>
+            <h3 id="prescription-form-title">Prescription Form</h3>
+            <h4>Enter details below</h4>
         </header>
         <label for="patient_ssn">Patient SSN</label>
         <input type="number" min="1" max="1000" id="patient_ssn" name="patient_ssn" placeholder="SSN..." required>

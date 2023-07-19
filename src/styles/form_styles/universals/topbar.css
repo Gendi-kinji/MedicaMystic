@@ -8,3 +8,9 @@
     width: 100%;
     height: 50px;
 }
+
+@media(max-width: 400px){
+    .topbar{
+        font-size: 12px;
+    }
+}
