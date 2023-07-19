@@ -10,7 +10,7 @@ form.prescription-form {
     border-radius: 20px;
     width: 360px;
     align-items: center;
-    background: linear-gradient(176deg, rgb(124 37 195), #ef22b6);
+    background: linear-gradient(23deg, rgb(199, 10, 241), #ff00b7);
 }
 #prescription-form-header{
     text-align: center;
