@@ -15,11 +15,11 @@
         <link rel="stylesheet" href="../../styles/table_styles.css">
     </head>
     <body>
-        <h1>Pharmacy Table</h1>
+        <h1>Prescription Table</h1>
             <?php
-            $pharmacy = new Pharmacy();
-            $pharmacy_table = $pharmacy->getAllPharmacies();
-            TableView::showEditableTable($pharmacy_table, 'pharmacy');
+            $prescription = new Prescription();
+            $prescription_table = $prescription->getAllPrescriptions();
+            TableView::showEditableTable($prescription_table, 'prescription');
             ?>
     </body>
 </html>
