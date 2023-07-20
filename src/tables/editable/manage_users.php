@@ -1,7 +1,7 @@
 <?php
     require "../../classes/connection.class.php";
     require "../../classes/databasehandler.class.php";
-    require "../../classes/models/users.class.php";
+    require "../../classes/models/user.class.php";
     require "../../classes/views/pageview.class.php";
     require "../../classes/views/tableview.class.php";
     
