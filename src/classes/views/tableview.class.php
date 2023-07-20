@@ -25,6 +25,7 @@ class TableView{
                     echo "<td>" . $value . "</td>"; // display the records (values) in the HTML table
                 }
                 $identifier = $row[$id];
+              
                 //href links to update or delete (Don't change)
                 echo "<td><a class='btn-links btn-update' href='../../update/update_$item_name.php?id=$identifier'>Update</a></td>";
                 echo "<td><a class='btn-links btn-delete' href='../../delete/$item_name.delete.php?id=$identifier'>Delete</a></td>";
