@@ -11,13 +11,23 @@ body{
     margin: 0% 0% 0% 50%;
     text-align: right;
 }
-a{
-    padding:14px;
-    width:10%;
-    background-color: black;
+.user-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+.user-options a{
+    padding: 10px;
+    width: 80%;
+    background-color: rgb(46, 91, 205);
     color:white;
     text-decoration: none;
+    height: 80%;
+    line-height:25px;
 }
-a:hover{
+.user-options a:hover{
     background: rgb(69, 69, 69);
 }

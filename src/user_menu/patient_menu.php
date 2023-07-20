@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
-    <style>
-    .patient{
-        display: flex;
-        flex-direction: row;
-    }
-    </style>
 </head>
 <body style="text-align:center;">
     <?php
-        // Resume the session started by the verifyUserDetails() function and reclaim the user_name:
         session_start();
-        $user_name = $_SESSION['user_name'];
+        if(isset($_SESSION['user_name'])){
+            $user_name = $_SESSION['user_name'];
+        }else{
+            $user_name = 'user';
+        }
     ?>
     <header class="page-header">
          <!--Displaying the username on the page-->
@@ -25,11 +22,12 @@
        
     </header>
     <hr>
-    <a class="patient" href="">Patient details</a>
-    <a class="patient" href="">Invoices</a>
-    <a class="patient" href="">View Prescriptions</a>
-    <a class="patient" href="">Doctor Appointments</a>
-    <br>
-    <a class="make" href="">Make Payment</a>
+    <div class="user-options">
+        <a class="patient" href="">Patient details</a>
+        <a class="patient" href="">Invoices</a>
+        <a class="patient" href="">View Prescriptions</a>
+        <a class="patient" href="">Doctor Appointments</a>
+        <a class="make" href="">Make Payment</a>
+    </div>
 </body>
 </html>
