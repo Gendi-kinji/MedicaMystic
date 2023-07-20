@@ -19,8 +19,6 @@
             <h3 id="patient-form-title">Patient Form</h3>
             <h4>Enter your details below</h4>
         </header>
-        <!--<label for="patient_ssn">SSN</label>
-        <input type="text" id="patient_ssn" name="patient_ssn" placeholder="SSN...">-->
         <label for="patient_firstname">First Name</label>
         <input type="text" id="patient_firstname" name="patient_firstname" placeholder="First name..." required>
         <label for="patient_surname">Surname</label>

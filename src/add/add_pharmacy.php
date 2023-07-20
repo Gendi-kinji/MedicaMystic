@@ -16,7 +16,7 @@
     being run-->
         <header id="pharmacy-form-header">
             <h3 id="pharmacy-form-title">Pharmacy Form</h3>
-            <h4>Enter your details below</h4>
+            <h4>Enter details below</h4>
         </header>
         <label for="pharmacy_name">Pharmacy Name</label>
         <input type="text" id="pharmacy_name" name="pharmacy_name" placeholder="Pharmacy name..." required>

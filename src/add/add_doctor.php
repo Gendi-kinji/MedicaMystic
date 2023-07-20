@@ -16,7 +16,7 @@
     being run-->
         <header id="doctor-form-header">
             <h3 id="doctor-form-title">Doctors Form</h3>
-            <h4>Enter your details below</h4>
+            <h4>Enter details below</h4>
         </header>
         <label for="doctor_firstname">First Name</label>
         <input type="text" id="doctor_firstname" name="doctor_firstname" placeholder="First name..." required>

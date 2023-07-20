@@ -25,7 +25,7 @@
         <input type="text" id="supervisor_firstname" name="supervisor_firstname" placeholder="First name..." required>
         <label for="supervisor_lastname">Last Name</label>
         <input type="text" id="supervisor_lastname" name="supervisor_lastname" placeholder="Last name..." required>
-        <!--<label for="supervisor_lastname">Address</label>
+        <label for="supervisor_lastname">Address</label>
         <input type="text" id="supervisor_address" name="supervisor_address" placeholder="Address..." required>
         <label for="supervisor_phone">Phone</label>
         <input type="text" id="supervisor_phone" name="supervisor_phone" list="country-codes" required>
@@ -33,7 +33,7 @@
             <option value="+254">Kenya</option>
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
-        </datalist><br>-->
+        </datalist><br>
         <button type="submit" name="submit" value="submit">Submit</button><br>
     </form>
 </body>

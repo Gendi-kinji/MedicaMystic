@@ -19,7 +19,7 @@
     being run-->
         <header id="supervisor-form-header">
             <h3 id="supervisor-form-title">Supervisor Form</h3>
-            <h4>Enter your details below</h4>
+            <h4>Enter details below</h4>
         </header>
         <label for="supervisor_firstname">First Name</label>
         <input type="text" id="supervisor_firstname" name="supervisor_firstname" placeholder="First name..." required>
