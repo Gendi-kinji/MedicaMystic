@@ -11,6 +11,24 @@
     </style>
 </head>
 <body>
+    <?php
+        // Start a session
+        session_start();
+
+        // Display error messages if there are any
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            echo '<ul id="error_msg">';
+            foreach ($_SESSION['errors'] as $error) {
+                echo '<li>' . htmlspecialchars($error) . '</li>';
+            }
+            echo '</ul>';
+
+            // Clear the errors from the session
+            unset($_SESSION['errors']);
+        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
+            echo '<span id="success_msg">Record added successfully</span>';
+        }
+    ?>
     <form action="../tables/editable/manage_supervisors.php" method="GET">
         <input type="submit" value="View Supervisors Table">
     </form>
@@ -19,7 +37,7 @@
     being run-->
         <header id="supervisor-form-header">
             <h3 id="supervisor-form-title">Supervisor Form</h3>
-            <h4>Enter your details below</h4>
+            <h4>Enter details below</h4>
         </header>
         <label for="supervisor_firstname">First Name</label>
         <input type="text" id="supervisor_firstname" name="supervisor_firstname" placeholder="First name..." required>

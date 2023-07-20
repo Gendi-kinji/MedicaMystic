@@ -43,7 +43,7 @@ if(isset($_GET["id"])){
     being run-->
       <header id="supervisor-form-header">
         <h3 id="supervisor-form-title">Supervisor Form</h3>
-        <h4>Enter your details below</h4>
+        <h4>Enter details below</h4>
       </header>
       <label for="supervisor_firstname">First Name</label>
       <input

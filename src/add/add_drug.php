@@ -8,18 +8,32 @@
     <title>Drugs From</title>
 </head>
 <body>
+    <?php
+        // Start a session
+        session_start();
+
+        // Display error messages if there are any
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            echo '<ul id="error_msg">';
+            foreach ($_SESSION['errors'] as $error) {
+                echo '<li>' . htmlspecialchars($error) . '</li>';
+            }
+            echo '</ul>';
+
+            // Clear the errors from the session
+            unset($_SESSION['errors']);
+        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
+            echo '<span id="success_msg">Record added successfully</span>';
+        }
+    ?>
     <form action="../tables/editable/manage_drugs.php" method="GET">
         <input type="submit" value="View Drugs Table">
     </form>
     <form class="drug-form" action="../process/drug.process.php" method="POST">
-    <!-- In the action attribute, the value passed is the php script which outputs the name of the script
-    being run-->
         <header id="drugs-form-header">
             <h3 id="drugs-form-title">Drugs Form</h3>
             <h4>Enter drug details</h4>
         </header>
-        <!--trade_name, drug_formula, administration_method, drug_price, 
-        expiry_date-->
         <label for="trade_name">Trade Name</label>
         <input type="text" id="trade_name" name="trade_name" placeholder="Trade name..." required>
         <label for="drug_formula">Drug Formula</label>

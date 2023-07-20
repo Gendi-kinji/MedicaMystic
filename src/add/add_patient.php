@@ -8,6 +8,24 @@
     <title>Patients Form</title>
 </head>
 <body>
+    <?php
+        // Start a session
+        session_start();
+
+        // Display error messages if there are any
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            echo '<ul id="error_msg">';
+            foreach ($_SESSION['errors'] as $error) {
+                echo '<li>' . htmlspecialchars($error) . '</li>';
+            }
+            echo '</ul>';
+
+            // Clear the errors from the session
+            unset($_SESSION['errors']);
+        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
+            echo '<span id="success_msg">Record added successfully</span>';
+        }
+    ?>
     <form action="../tables/editable/manage_patients.php" method="GET">
         <input type="submit" value="View Patients Table">
     </form>
@@ -16,10 +34,8 @@
     being run-->
         <header id="patient-form-header">
             <h3 id="patient-form-title">Patient Form</h3>
-            <h4>Enter your details below</h4>
+            <h4>Enter details below</h4>
         </header>
-        <!--<label for="patient_ssn">SSN</label>
-        <input type="text" id="patient_ssn" name="patient_ssn" placeholder="SSN...">-->
         <label for="patient_firstname">First Name</label>
         <input type="text" id="patient_firstname" name="patient_firstname" placeholder="First name..." required>
         <label for="patient_surname">Surname</label>

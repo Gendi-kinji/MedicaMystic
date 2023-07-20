@@ -43,7 +43,7 @@ if(isset($_GET["id"])){
     being run-->
       <header id="pharmacy-form-header">
         <h3 id="pharmacy-form-title">Pharmacy Form</h3>
-        <h4>Enter your details below</h4>
+        <h4>Enter details below</h4>
       </header>
       <label for="pharmacy_name">Pharmacy Name</label>
       <input

@@ -134,15 +134,30 @@ document.addEventListener("DOMContentLoaded", () => {
     // Create an array to hold the drug data
     const dispensedDrugs = [];
     // Loop through each row and get the Drug ID, Quantity, and Price
-    rows.forEach((row) => {
-      const prescriptionId = row.querySelector("td:nth-child(1)").textContent;
-      const drugId = row.querySelector("td:nth-child(2)").textContent;
-      const quantity = row.querySelector("td:nth-child(7)").textContent;
-      const drugPrice = row.querySelector("td:nth-child(8)").textContent;
+  rows.forEach((row) => {
+    const prescriptionId = row.querySelector("td:nth-child(1)").textContent;
+    const drugId = row.querySelector("td:nth-child(2)").textContent;
+    const quantity = row.querySelector("td:nth-child(7)").textContent;
+    const drugPrice = row.querySelector("td:nth-child(8)").textContent;
 
+    // Check if the data is not blank
+    if (prescriptionId && drugId && quantity && drugPrice) {
       // push the data to dispensed drugs as an object
       dispensedDrugs.push({prescriptionId, drugId, quantity, drugPrice});
+    } else {
+      // Display an alert if any of the fields are blank
+      alert('One or more fields in the table are blank!');
+      return;
+    }
     });
+
+    // Check if dispensedDrugs array is empty
+    if (dispensedDrugs.length === 0) {
+      // Display an error message
+      alert('No data to send. Please fill in all fields before submitting.');
+      // Return from the function to stop the script from executing further
+      return;
+    }
 
     // Send data to server using an AJAX request
     const xhr = new XMLHttpRequest();
@@ -162,6 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     xhr.send(JSON.stringify(dispensedDrugs)); // sending the data
   });
+
+
+  // Clear local storage on closing the window
+  window.onbeforeunload = function() {
+    // Clear data from local storage
+    localStorage.removeItem("tableData");
+  }
+
 
 
 

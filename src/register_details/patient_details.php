@@ -9,18 +9,13 @@
     <title>Patients Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_patients.php" method="GET">
-        <input type="submit" value="View Patients Table">
-    </form>
-    <form class="patient-form" action="../process/patient.process.php" method="POST">
+    <form class="patient-form" action="../process/process_reg_details/patient-details.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="patient-form-header">
             <h3 id="patient-form-title">Patient Form</h3>
             <h4>Enter your details below</h4>
         </header>
-        <!--<label for="patient_ssn">SSN</label>
-        <input type="text" id="patient_ssn" name="patient_ssn" placeholder="SSN...">-->
         <label for="patient_firstname">First Name</label>
         <input type="text" id="patient_firstname" name="patient_firstname" placeholder="First name..." required>
         <label for="patient_surname">Surname</label>
@@ -42,5 +37,3 @@
     </form>
 </body>
 </html>
-
-?>

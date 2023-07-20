@@ -8,10 +8,7 @@
     <title>Pharmacy Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_pharmacy.php" method="GET">
-        <input type="submit" value="View Pharmacy Table">
-    </form>
-    <form class="pharmacy-form" action="../process/pharmacy.process.php" method="POST">
+    <form class="pharmacy-form" action="../process/process_reg_details/pharmacy-details.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="pharmacy-form-header">
