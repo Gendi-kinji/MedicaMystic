@@ -5,22 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmacy Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
-    <style>
-        .pharmacy{
-            display:flex;
-            flex-direction: row;
-        }
-        .medicine{
-            display:flex;
-            flex-direction:row;
-        }
-    </style>
 </head>
 <body style="text-align:center;">
     <?php
-        // Resume the session started by the verifyUserDetails() function and reclaim the user_name:
-        session_start();
-        $user_name = $_SESSION['user_name'];
+            session_start();
+            if(isset($_SESSION['user_name'])){
+                $user_name = $_SESSION['user_name'];
+            }else{
+                $user_name = 'user';
+            }
     ?>
     <header class="page-header">
          <!--Displaying the username on the page-->
@@ -29,11 +22,14 @@
        
     </header>
     <hr>
-    <a class="pharmacy" href="">Pharmacy Details</a>
-    <a class="pharmacy" href="">Manage Inventory</a>
-    <a class="pharmacy" href="">View Prescriptions</a>
-    <a class="pharmacy" href="../tables/select_record/select_prescription.php">Dispense Medicine</a>
-    <a class="medicine" href="">Manage Supervisors</a>
-    <a class="medicine" href="">Purchase drugs</a>
+    <div class="user-options">
+        <a href="">Pharmacy Details</a>
+        <a href="">Manage Inventory</a>
+        <a href="">View Prescriptions</a>
+        <a href="../tables/select_record/select_prescription.php">Dispense Medicine</a>
+        <a href="">Manage Supervisors</a>
+        <a href="">Purchase drugs</a>
+    </div>
+    
 </body>
 </html>
