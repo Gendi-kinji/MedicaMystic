@@ -1,8 +1,11 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 body{
     background: aliceblue;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0;
-    padding: 0;
 }
 form {
     margin: 0% auto;
@@ -10,7 +13,7 @@ form {
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
-    height: 600px;
+    height: 100%;
 }
 .form-header, .form-content{
     height: 100%;
@@ -56,6 +59,9 @@ a{
 }
 a:hover{
     color: rgb(95, 2, 120);
+}
+#error_msg{
+    color: red;
 }
 @media (max-width:750px){
     form{

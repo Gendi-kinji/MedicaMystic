@@ -26,6 +26,14 @@
                     </div><br><br>
                     <a href="./register.php">New user?</a>
                     <br>
+                    <?php
+                        // showing error messages
+                        session_start();
+                        if (isset($_SESSION['error'])) {
+                            echo '<p id="error_msg">Error: ' . $_SESSION['error'] . '</p>';
+                            unset($_SESSION['error']);
+                        }
+                    ?>
                 </div>    
             </div>
         </form>
