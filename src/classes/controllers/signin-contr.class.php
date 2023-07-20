@@ -10,7 +10,9 @@ class SignInContr extends SignIn{
 	
 	public function SignInUser(){
 		if($this->emptyInput() == false){
-			header("location: ../../signin.php?error=emptyinput");
+            session_start();
+            $_SESSION['error'] = "empty input";
+			header("location: ../../sign_in.php?error=emptyinput");
 			exit();
 		}
 		
