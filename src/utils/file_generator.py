@@ -1,13 +1,17 @@
+import os
 from time import sleep
 
 def create_file(filenames):
     for i in range(len(filenames)):
-            
+        filename = f"manage_{filenames[i]}.php"
+        # Check if file already exists
+        if not os.path.exists(filename):
             # Create a file
-            text_file = open(f"view_{filenames[i]}.php", "x")
+            text_file = open(filename, "x")
             text_file.close()
+            
             # Open the file in write mode
-            text_file = open(f"view_{filenames[i]}.php", "w")
+            text_file = open(filename, "w")
             
             # Write content to the file:
             text_file.write(f'''
@@ -32,7 +36,7 @@ def create_file(filenames):
             <?php
                 ${filenames[i]}= new {filenames[i]}();
                 ${filenames[i]}_table = ${filenames[i]}->getAll{filenames[i]}();
-                TableView::showReadOnlyTable(${filenames[i]}_table,'{filenames[i]}');
+                TableView::showEditableTable(${filenames[i]}_table,'{filenames[i]}');
             ?>
         </body>
 </html>
@@ -44,23 +48,21 @@ def create_file(filenames):
             # Delay execution for 1.5 seconds
             sleep(1.5)
             
-
-# MAIN
-# List of filenames
-filenames = [
-    'drug', 
-    'doctor', 
-    'pharmacy', 
-    'pharmaceutical', 
-    'patient', 
-    'prescription',
-    'invoice',
-    'invoice_item',
-    'user',
-    'prescription_item',
-    'supervisor'
-    ]
-
-# run the script
-create_file(filenames)
+        else:
+            print(f'{filename} exists.')
             
+            
+filenames = [
+    'doctors',
+    'pharmacy',
+    'pharmaceutical',
+    'supervisors',
+    'invoices',
+    'invoiceitems',
+    'patients',
+    'drugs',
+    'prescriptions',
+    'users'
+]
+
+create_file(filenames)
