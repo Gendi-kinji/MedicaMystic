@@ -24,7 +24,7 @@ if(isset($_POST["submit"])){
      $patient->updatePatient($patient_data, $id);
 
      //Go back to  page after updating successfully:
-     header("location: ../view_tables/view_patients.php?error=none");
+     header("location: ../tables/editable/manage_patients.php?error=none");
 
 
 }

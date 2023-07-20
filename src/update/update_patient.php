@@ -33,12 +33,12 @@ if(isset($_GET["id"])){
     <title>Patients Form</title>
   </head>
   <body>
-    <form action="../view_tables/view_patients.php" method="GET">
+  <form action="../tables/editable/manage_patients.php" method="GET">
       <input type="submit" value="View Patients Table" />
     </form>
     <form
       class="patient-form"
-      action="../updators/patient.updator.php"
+      action="../../updators/patient.updator.php"
       method="POST"
     >
       <!-- In the action attribute, the value passed is the php script which outputs the name of the script
