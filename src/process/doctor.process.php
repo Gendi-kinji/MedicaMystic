@@ -2,19 +2,17 @@
     require "../classes/connection.class.php";
     require "../classes/databasehandler.class.php";
     require "../classes/models/doctor.class.php";
-    $doctorData = [
-        'doctor_firstname' => $_POST['doctor_firstname'],
-        'doctor_surname' => $_POST['doctor_surname'],
-        'doctor_dob' => $_POST['doctor_dob'],
-        'doctor_address' => $_POST['doctor_address'],
-        'doctor_email' => $_POST['doctor_email'],
-        'years_of_exp' => $_POST['years_of_exp'],
-        'doctor_phone' => $_POST['doctor_phone']
-    ];
+    require "../classes/formoperator.class.php";
 
-    $doctor = new Doctor();
-    $doctor->addDoctor($doctorData);
-
+    // Process doctor form
+    $form_processed = FormOperator::processDoctorForm();
+    
     // redirect to form page:
-    header('Location: ../add/add_doctor.php?error=none');
+    if($form_processed){
+        session_start();
+        $_SESSION['success'] = true;
+        header('Location: ../add/add_doctor.php?error=none');
+    } else{
+        header('Location: ../add/add_doctor.php?error=addfailed');
+    }
 ?>

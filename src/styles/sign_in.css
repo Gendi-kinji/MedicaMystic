@@ -63,6 +63,9 @@ a:hover{
 #error_msg{
     color: red;
 }
+#success_msg{
+    color: green;
+}
 @media (max-width:750px){
     form{
         display: flex;

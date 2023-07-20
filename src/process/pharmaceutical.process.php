@@ -2,16 +2,18 @@
     require "../classes/connection.class.php";
     require "../classes/databasehandler.class.php";
     require "../classes/models/pharmaceutical.class.php";
-    $pharmaceuticalData = [
-        'company_name' => $_POST['company_name'],
-        'company_address' => $_POST['company_address'],
-        'company_phone' => $_POST['company_phone']
-    ];
+    require "../classes/formoperator.class.php";
 
-    $pharmaceutical = new Pharmaceutical();
-    $pharmaceutical->addPharmaceutical($pharmaceuticalData);
-
+    // Process pharmaceutical form
+    $form_processed = FormOperator::processpharmaceuticalForm();
+    
     // redirect to form page:
-    header('Location: ../add/add_pharmaceutical.php?error=none');
+    if($form_processed){
+        session_start();
+        $_SESSION['success'] = true;
+        header('Location: ../add/add_pharmaceutical.php?error=none');
+    } else{
+        header('Location: ../add/add_pharmaceutical.php?error=addfailed');
+    }
     
 ?>

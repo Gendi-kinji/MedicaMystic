@@ -8,10 +8,25 @@
     <title>Doctors Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_doctors.php" method="GET">
-        <input type="submit" value="View Doctors Table">
-    </form>
-    <form class="doctor-form" action="../process/doctor.process.php" method="POST">
+    <?php
+        // Start a session
+        session_start();
+
+        // Display error messages if there are any
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            echo '<ul id="error_msg">';
+            foreach ($_SESSION['errors'] as $error) {
+                echo '<li>' . htmlspecialchars($error) . '</li>';
+            }
+            echo '</ul>';
+
+            // Clear the errors from the session
+            unset($_SESSION['errors']);
+        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
+            echo '<span id="success_msg">Record added successfully</span>';
+        }
+    ?>
+    <form class="doctor-form" action="../process/process_reg_details/doctor-details.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="doctor-form-header">

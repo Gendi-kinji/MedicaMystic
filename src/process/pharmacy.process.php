@@ -2,17 +2,18 @@
     require "../classes/connection.class.php";
     require "../classes/databasehandler.class.php";
     require "../classes/models/pharmacy.class.php";
+    require "../classes/formoperator.class.php";
 
-    $pharmacyData = [
-        'pharmacy_name' => $_POST['pharmacy_name'],
-        'pharmacy_address' => $_POST['pharmacy_address'],
-        'pharmacy_phone' => $_POST['pharmacy_phone']
-    ];
-
-    $pharmacy = new Pharmacy();
-    $pharmacy->addPharmacy($pharmacyData);
-
-    // redirect to form page:
-    header('Location: ../add/add_pharmacy.php?error=none');
+    // Process pharmacy form
+    $form_processed = FormOperator::processpharmacyForm();
     
+    // redirect to form page:
+    if($form_processed){
+        session_start();
+        $_SESSION['success'] = true;
+        header('Location: ../add/add_pharmacy.php?error=none');
+    } else{
+        header('Location: ../add/add_pharmacy.php?error=addfailed');
+    }
+
 ?>

@@ -11,10 +11,7 @@
     </style>
 </head>
 <body>
-    <form action="../view_tables/view_supervisors.php" method="GET">
-        <input type="submit" value="View Supervisors Table">
-    </form>
-    <form class="supervisor-form" action="../process/supervisor.process.php" method="POST">
+    <form class="supervisor-form" action="../process/process_reg_details/supervisor-details.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="supervisor-form-header">
