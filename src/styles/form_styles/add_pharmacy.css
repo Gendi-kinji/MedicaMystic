@@ -10,7 +10,7 @@ form.pharmacy-form {
     border-radius: 20px;
     width: 360px;
     align-items: center;
-    background: linear-gradient(176deg, rgb(195 114 37), #ffa900);
+    background: linear-gradient(176deg, rgb(254, 164, 81), #ffc337);
 }
 #pharmacy-form-header{
     text-align: center;

@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-    <form action="../view_tables/view_supervisors.php" method="GET">
+    <form action="../tables/editable/manage_supervisors.php" method="GET">
         <input type="submit" value="View Supervisors Table">
     </form>
     <form class="supervisor-form" action="../process/supervisor.process.php" method="POST">
@@ -25,15 +25,13 @@
         <input type="text" id="supervisor_firstname" name="supervisor_firstname" placeholder="First name..." required>
         <label for="supervisor_lastname">Last Name</label>
         <input type="text" id="supervisor_lastname" name="supervisor_lastname" placeholder="Last name..." required>
-        <!--<label for="supervisor_lastname">Address</label>
-        <input type="text" id="supervisor_address" name="supervisor_address" placeholder="Address..." required>
         <label for="supervisor_phone">Phone</label>
         <input type="text" id="supervisor_phone" name="supervisor_phone" list="country-codes" required>
         <datalist id="country-codes">
             <option value="+254">Kenya</option>
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
-        </datalist><br>-->
+        </datalist><br>
         <button type="submit" name="submit" value="submit">Submit</button><br>
     </form>
 </body>

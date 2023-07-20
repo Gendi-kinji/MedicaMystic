@@ -33,7 +33,7 @@ if(isset($_GET["id"])){
     <link rel="stylesheet" href="../styles/form_styles/add_drugs.css" />
   </head>
   <body>
-  <form action="../tables/editable/manage_doctors.php" method="GET">
+  <form action="../tables/editable/manage_drugs.php" method="GET">
       <input type="submit" value="View Drugs Table" />
     </form>
     <form class="drug-form" action="../../updators/drug.updator.php" method="POST">

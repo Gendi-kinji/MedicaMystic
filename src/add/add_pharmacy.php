@@ -8,7 +8,7 @@
     <title>Pharmacy Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_pharmacy.php" method="GET">
+    <form action="../tables/editable/manage_pharmacy.php" method="GET">
         <input type="submit" value="View Pharmacy Table">
     </form>
     <form class="pharmacy-form" action="../process/pharmacy.process.php" method="POST">

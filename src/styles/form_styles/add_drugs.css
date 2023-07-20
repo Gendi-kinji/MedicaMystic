@@ -10,7 +10,7 @@ body{
         border-radius: 20px;
         width: 360px;
         align-items: center;
-        background: linear-gradient(176deg, rgb(49, 66, 124), #22c3ef);
+        background: linear-gradient(176deg, rgb(129, 149, 215), #22c3ef);
     }
     #drugs-form-header{
         text-align: center;

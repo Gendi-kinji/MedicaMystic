@@ -8,7 +8,7 @@
     <title>Drugs From</title>
 </head>
 <body>
-    <form action="../view_tables/view_drugs.php" method="GET">
+    <form action="../tables/editable/manage_drugs.php" method="GET">
         <input type="submit" value="View Drugs Table">
     </form>
     <form class="drug-form" action="../process/drug.process.php" method="POST">
@@ -30,7 +30,7 @@
         <input type="number" min="0" max ="9999" id="dosage_mg" name="dosage_mg">
         <label for="drug_quantity">Drug Quantity</label>
         <input type="number" min="0" max ="9999" id="drug_quantity" name="drug_quantity">
-        <label for="drug_price">Drug price</label>
+        <label for="drug_price">Drug price (Ksh)</label>
         <input type="number" min="0" step="0.01" id="drug_price" name="drug_price" placeholder="Enter price..." required>
         <label for="expiry_date">Expiry date</label>
         <input type="date" id="expiry_date" name="expiry_date"><br>

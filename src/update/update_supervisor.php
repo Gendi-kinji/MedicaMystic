@@ -12,6 +12,7 @@ if(isset($_GET["id"])){
     // Extract values: 
     $supervisor_firstname = $supervisor_row[0]['supervisor_firstname'];
     $supervisor_lastname = $supervisor_row[0]['supervisor_lastname'];
+    $supervisor_phone = $supervisor_row[0]['supervisor_phone'];
 
     // Starting a session to hold the id:
     session_start();
@@ -62,15 +63,20 @@ if(isset($_GET["id"])){
         required
         value = "<?php echo $supervisor_lastname;?>"
       />
-      <!--<label for="supervisor_address">Address</label>
-        <input type="text" id="supervisor_address" name="supervisor_address" placeholder="Address..." required>
         <label for="supervisor_phone">Phone</label>
-        <input type="text" id="supervisor_phone" name="supervisor_phone" list="country-codes" required>
+        <input 
+          type="text" 
+          id="supervisor_phone" 
+          name="supervisor_phone" 
+          list="country-codes" 
+          value="<?php echo $supervisor_phone?>" 
+          required
+        />
         <datalist id="country-codes">
             <option value="+254">Kenya</option>
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
-        </datalist><br>-->
+        </datalist><br>
         <button type="submit" name="submit" value="Update">Update</button><br />
     </form>
   </body>
