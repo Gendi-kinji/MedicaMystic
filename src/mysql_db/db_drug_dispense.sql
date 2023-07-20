@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2023 at 08:36 PM
+-- Generation Time: Jul 20, 2023 at 09:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -43,6 +43,7 @@ CREATE TABLE `tbl_admins` (
 
 CREATE TABLE `tbl_doctors` (
   `doctor_ssn` int(15) UNSIGNED NOT NULL,
+  `user_id` int(15) UNSIGNED NOT NULL,
   `doctor_firstname` varchar(60) NOT NULL,
   `doctor_surname` varchar(60) NOT NULL,
   `doctor_dob` date NOT NULL,
@@ -77,8 +78,8 @@ CREATE TABLE `tbl_drugs` (
 --
 
 CREATE TABLE `tbl_invoice` (
-  `invoice_id` int(15) NOT NULL,
-  `prescription_id` int(15) NOT NULL,
+  `invoice_id` int(15) UNSIGNED NOT NULL,
+  `prescription_id` int(15) UNSIGNED NOT NULL,
   `invoice_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -89,11 +90,11 @@ CREATE TABLE `tbl_invoice` (
 --
 
 CREATE TABLE `tbl_invoice_items` (
-  `invoice_item_id` int(15) NOT NULL,
-  `invoice_id` int(15) NOT NULL,
-  `drug_id` int(15) NOT NULL,
-  `quantity` int(10) NOT NULL,
-  `total_price` float(15,2) NOT NULL
+  `invoice_item_id` int(15) UNSIGNED NOT NULL,
+  `invoice_id` int(15) UNSIGNED NOT NULL,
+  `drug_id` int(15) UNSIGNED NOT NULL,
+  `quantity` int(10) UNSIGNED NOT NULL,
+  `total_price` float(15,2) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -103,14 +104,15 @@ CREATE TABLE `tbl_invoice_items` (
 --
 
 CREATE TABLE `tbl_patients` (
-  `patient_ssn` int(9) UNSIGNED NOT NULL,
+  `patient_ssn` int(15) UNSIGNED NOT NULL,
+  `user_id` int(15) UNSIGNED NOT NULL,
   `patient_firstname` varchar(30) NOT NULL,
   `patient_surname` varchar(30) NOT NULL,
   `patient_dob` date NOT NULL,
   `patient_address` varchar(60) NOT NULL,
   `patient_email` varchar(50) NOT NULL,
   `patient_phone` varchar(13) NOT NULL,
-  `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `reg_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -121,6 +123,7 @@ CREATE TABLE `tbl_patients` (
 
 CREATE TABLE `tbl_pharmaceutical` (
   `company_id` int(15) UNSIGNED NOT NULL,
+  `user_id` int(15) UNSIGNED NOT NULL,
   `company_name` varchar(65) NOT NULL,
   `company_address` varchar(150) NOT NULL,
   `company_phone` varchar(13) NOT NULL
@@ -133,7 +136,8 @@ CREATE TABLE `tbl_pharmaceutical` (
 --
 
 CREATE TABLE `tbl_pharmacy` (
-  `pharmacy_id` int(15) NOT NULL,
+  `pharmacy_id` int(15) UNSIGNED NOT NULL,
+  `user_id` int(15) UNSIGNED NOT NULL,
   `pharmacy_name` varchar(65) NOT NULL,
   `pharmacy_address` varchar(150) NOT NULL,
   `pharmacy_phone` varchar(13) NOT NULL
@@ -160,6 +164,7 @@ CREATE TABLE `tbl_prescriptions` (
 CREATE TABLE `tbl_prescription_items` (
   `presc_item_id` int(15) UNSIGNED NOT NULL,
   `prescription_id` int(15) UNSIGNED NOT NULL,
+  `drug_id` int(15) UNSIGNED NOT NULL,
   `quantity` int(15) UNSIGNED NOT NULL,
   `dosage_schedule` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -171,7 +176,9 @@ CREATE TABLE `tbl_prescription_items` (
 --
 
 CREATE TABLE `tbl_supervisors` (
-  `supervisor_id` int(15) NOT NULL,
+  `supervisor_id` int(15) UNSIGNED NOT NULL,
+  `user_id` int(15) UNSIGNED NOT NULL,
+  `pharmacy_id` int(15) UNSIGNED DEFAULT NULL,
   `supervisor_firstname` varchar(40) NOT NULL,
   `supervisor_lastname` varchar(40) NOT NULL,
   `supervisor_phone` varchar(15) NOT NULL
@@ -184,7 +191,7 @@ CREATE TABLE `tbl_supervisors` (
 --
 
 CREATE TABLE `tbl_users` (
-  `user_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(15) UNSIGNED NOT NULL,
   `user_name` varchar(40) NOT NULL,
   `user_email` varchar(40) NOT NULL,
   `user_type` varchar(40) NOT NULL,
@@ -208,7 +215,8 @@ ALTER TABLE `tbl_admins`
 -- Indexes for table `tbl_doctors`
 --
 ALTER TABLE `tbl_doctors`
-  ADD PRIMARY KEY (`doctor_ssn`);
+  ADD PRIMARY KEY (`doctor_ssn`),
+  ADD KEY `tbl_doctors_ibfk_1` (`user_id`);
 
 --
 -- Indexes for table `tbl_drugs`
@@ -220,27 +228,31 @@ ALTER TABLE `tbl_drugs`
 -- Indexes for table `tbl_invoice`
 --
 ALTER TABLE `tbl_invoice`
-  ADD PRIMARY KEY (`invoice_id`);
+  ADD PRIMARY KEY (`invoice_id`),
+  ADD KEY `prescription_id` (`prescription_id`);
 
 --
 -- Indexes for table `tbl_invoice_items`
 --
 ALTER TABLE `tbl_invoice_items`
-  ADD PRIMARY KEY (`invoice_item_id`);
+  ADD PRIMARY KEY (`invoice_item_id`),
+  ADD KEY `invoice_id` (`invoice_id`);
 
 --
 -- Indexes for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
   ADD PRIMARY KEY (`patient_ssn`),
-  ADD UNIQUE KEY `patient_email` (`patient_email`,`patient_phone`);
+  ADD UNIQUE KEY `patient_email` (`patient_email`,`patient_phone`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_pharmaceutical`
 --
 ALTER TABLE `tbl_pharmaceutical`
   ADD PRIMARY KEY (`company_id`),
-  ADD UNIQUE KEY `unique_company_name` (`company_name`);
+  ADD UNIQUE KEY `unique_company_name` (`company_name`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_pharmacy`
@@ -253,19 +265,24 @@ ALTER TABLE `tbl_pharmacy`
 -- Indexes for table `tbl_prescriptions`
 --
 ALTER TABLE `tbl_prescriptions`
-  ADD PRIMARY KEY (`prescription_id`);
+  ADD PRIMARY KEY (`prescription_id`),
+  ADD KEY `patient_ssn` (`patient_ssn`);
 
 --
 -- Indexes for table `tbl_prescription_items`
 --
 ALTER TABLE `tbl_prescription_items`
-  ADD PRIMARY KEY (`presc_item_id`);
+  ADD PRIMARY KEY (`presc_item_id`),
+  ADD KEY `drug_id` (`drug_id`),
+  ADD KEY `prescription_id` (`prescription_id`);
 
 --
 -- Indexes for table `tbl_supervisors`
 --
 ALTER TABLE `tbl_supervisors`
-  ADD PRIMARY KEY (`supervisor_id`);
+  ADD PRIMARY KEY (`supervisor_id`),
+  ADD KEY `pharmacy_id` (`pharmacy_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `tbl_users`
@@ -300,19 +317,19 @@ ALTER TABLE `tbl_drugs`
 -- AUTO_INCREMENT for table `tbl_invoice`
 --
 ALTER TABLE `tbl_invoice`
-  MODIFY `invoice_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `invoice_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice_items`
 --
 ALTER TABLE `tbl_invoice_items`
-  MODIFY `invoice_item_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `invoice_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  MODIFY `patient_ssn` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `patient_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tbl_pharmaceutical`
@@ -324,7 +341,7 @@ ALTER TABLE `tbl_pharmaceutical`
 -- AUTO_INCREMENT for table `tbl_pharmacy`
 --
 ALTER TABLE `tbl_pharmacy`
-  MODIFY `pharmacy_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pharmacy_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_prescriptions`
@@ -342,13 +359,67 @@ ALTER TABLE `tbl_prescription_items`
 -- AUTO_INCREMENT for table `tbl_supervisors`
 --
 ALTER TABLE `tbl_supervisors`
-  MODIFY `supervisor_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `supervisor_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `user_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tbl_doctors`
+--
+ALTER TABLE `tbl_doctors`
+  ADD CONSTRAINT `tbl_doctors_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_invoice`
+--
+ALTER TABLE `tbl_invoice`
+  ADD CONSTRAINT `tbl_invoice_ibfk_1` FOREIGN KEY (`prescription_id`) REFERENCES `tbl_prescriptions` (`prescription_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_invoice_items`
+--
+ALTER TABLE `tbl_invoice_items`
+  ADD CONSTRAINT `tbl_invoice_items_ibfk_1` FOREIGN KEY (`invoice_id`) REFERENCES `tbl_invoice` (`invoice_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_patients`
+--
+ALTER TABLE `tbl_patients`
+  ADD CONSTRAINT `tbl_patients_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pharmaceutical`
+--
+ALTER TABLE `tbl_pharmaceutical`
+  ADD CONSTRAINT `tbl_pharmaceutical_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_prescriptions`
+--
+ALTER TABLE `tbl_prescriptions`
+  ADD CONSTRAINT `tbl_prescriptions_ibfk_1` FOREIGN KEY (`patient_ssn`) REFERENCES `tbl_patients` (`patient_ssn`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_prescription_items`
+--
+ALTER TABLE `tbl_prescription_items`
+  ADD CONSTRAINT `tbl_prescription_items_ibfk_1` FOREIGN KEY (`drug_id`) REFERENCES `tbl_drugs` (`drug_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_prescription_items_ibfk_2` FOREIGN KEY (`prescription_id`) REFERENCES `tbl_prescriptions` (`prescription_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_supervisors`
+--
+ALTER TABLE `tbl_supervisors`
+  ADD CONSTRAINT `tbl_supervisors_ibfk_1` FOREIGN KEY (`pharmacy_id`) REFERENCES `tbl_pharmacy` (`pharmacy_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_supervisors_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
