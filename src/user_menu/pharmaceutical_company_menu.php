@@ -22,7 +22,7 @@
        
     </header>
     <hr>
-    <div class="user-opitons">
+    <div class="user-options">
         <a class="company" href="">Company Details</a>
         <a class="company" href="">Manage Drug Inventory</a>
         <a class="company" href="">Manage Contract</a>

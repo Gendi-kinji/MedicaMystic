@@ -20,14 +20,26 @@ body{
     align-items: center;
 }
 .user-options a{
+    font-size: 20px;
     padding: 10px;
     width: 80%;
-    background-color: rgb(46, 91, 205);
+    background-color: rgb(53, 105, 237);
     color:white;
     text-decoration: none;
-    height: 80%;
-    line-height:25px;
+    height: 60px;
+    line-height:50px;
 }
 .user-options a:hover{
     background: rgb(69, 69, 69);
+}
+@media(max-width:850px){
+    .user-options{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width:600px){
+    .user-options{
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -10,7 +10,7 @@ form.doctor-form {
     border-radius: 20px;
     width: 360px;
     align-items: center;
-    background: linear-gradient(176deg, rgb(124 37 195), #ef22b6);
+    background: linear-gradient(180deg, rgb(172, 115, 219), #ef22b6);
 }
 #doctor-form-header{
     text-align: center;

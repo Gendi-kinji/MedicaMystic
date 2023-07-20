@@ -25,8 +25,8 @@ class TableView{
                     echo "<td>" . $value . "</td>"; // display the records (values) in the HTML table
                 }
                 $identifier = $row[$id];
-                echo "<td><a class='btn-links btn-update' href='../update/update_$item_name.php?id=$identifier'>Update</a></td>";
-                echo "<td><a class='btn-links btn-delete' href='../delete/$item_name.delete.php?id=$identifier'>Delete</a></td>";
+                echo "<td><a class='btn-links btn-update' href='../../update/update_$item_name.php?id=$identifier'>Update</a></td>";
+                echo "<td><a class='btn-links btn-delete' href='../../delete/$item_name.delete.php?id=$identifier'>Delete</a></td>";
                 echo "</tr>";
             }
             echo "</table>";
@@ -40,7 +40,7 @@ class TableView{
             echo '</div>';
         }
         echo "<br>";
-        echo "<a class='btn-links btn-new' href='../add/add_$item_name.php'>Add New Record</a>";
+        echo "<a class='btn-links btn-new' href='../../add/add_$item_name.php'>Add New Record</a>";
     }
 
     public static function showReadOnlyTable($table_data, $itemsPerPage = 10){

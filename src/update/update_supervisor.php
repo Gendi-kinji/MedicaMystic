@@ -30,12 +30,12 @@ if(isset($_GET["id"])){
     <style></style>
   </head>
   <body>
-    <form action="../view_tables/view_supervisors.php" method="GET">
+  <form action="../tables/editable/manage_supervisors.php" method="GET">
       <input type="submit" value="View Supervisors Table" />
     </form>
     <form
       class="supervisor-form"
-      action="../updators/supervisor.updator.php"
+      action="../../updators/supervisor.updator.php"
       method="POST"
     >
       <!-- In the action attribute, the value passed is the php script which outputs the name of the script
