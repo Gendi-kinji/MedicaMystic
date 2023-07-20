@@ -8,7 +8,7 @@
     <title>Patients Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_patients.php" method="GET">
+    <form action="../tables/editable/manage_patients.php" method="GET">
         <input type="submit" value="View Patients Table">
     </form>
     <form class="patient-form" action="../process/patient.process.php" method="POST">

@@ -11,7 +11,7 @@
     <form action="/tables/editable/manage_prescriptions.php" method="GET">
         <input type="submit" value="View Prescriptions Table">
     </form>
-    <form class="prescription-form" action="../process/prescribe-drugs.process.php" method="POST">
+    <form class="prescription-form" action="../process/prescription.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="prescription-form-header">

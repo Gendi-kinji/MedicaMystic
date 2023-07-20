@@ -10,7 +10,7 @@ form.patient-form {
     border-radius: 20px;
     width: 360px;
     align-items: center;
-    background: linear-gradient(176deg, rgb(49 124 49), #22ef22);
+    background: linear-gradient(176deg, rgb(78, 171, 78), #22ef22);
 }
 #patient-form-header{
     text-align: center;

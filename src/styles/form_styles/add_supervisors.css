@@ -10,7 +10,7 @@ form.supervisor-form {
     border-radius: 20px;
     width: 360px;
     align-items: center;
-    background: linear-gradient(176deg, rgb(177 37 195), #00d0ff);
+    background: linear-gradient(176deg, rgb(18, 196, 196), #00d0ff);
 }
 #supervisor-form-header{
     text-align: center;
