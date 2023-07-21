@@ -19,6 +19,7 @@ body{
 }
 #pagetitle > h1{
     margin-left: 5%;
+    font-size: 34px;
 }
 #logout{
     width: 5%;

@@ -74,13 +74,14 @@
     <script type="module" src="../../scripts/dispense_drugs.js"></script>
  
     <!--page topbar-->
-    <div class="topbar">
-        <h1>MedicaMystic Dispensary</h1>
-    </div>
+    <?php
+      include '../../common_sections/topbar.php';
+    ?><br>
     <!--container for the main content of the page-->
     <div class="maincontainer">
         <div class="main-header">
             <h2>Dispense Drugs</h2>
+            <a href="../../tables/read_only/view_invoice_details.php">View dispensed drugs</a>
         </div>
         <div class="main-content">
             <!--search components-->

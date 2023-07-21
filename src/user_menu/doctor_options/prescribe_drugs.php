@@ -77,12 +77,13 @@
     <script type="module" src="../../scripts/prescribe_drugs.js"></script>
     
     <!--page topbar-->
-    <div class="topbar">
-        <h1>MedicaMystic Dispensary</h1>
-    </div>
+    <?php
+      include '../../common_sections/topbar.php';
+    ?><br>
     <div class="maincontainer">
         <div class="main-header">
             <h2>Prescribe Drugs</h2>
+            <a href="../../tables/read_only/view_presc_details.php">View prescribed drugs</a>
         </div>
         <div class="main-content">
             <!--search components-->
