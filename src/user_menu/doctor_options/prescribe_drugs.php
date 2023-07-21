@@ -109,14 +109,22 @@
                         <?php
                             $drug = new Drug();
                             $drug_IDs = $drug->getIDs();
-                            DataView::fillDropdown($drug_IDs);
-                        ?><br>
+                            if(count($drug_IDs)==0){
+                                echo "No records in DB<br><br>";
+                            } else{
+                                DataView::fillDropdown($drug_IDs);
+                            }
+                        ?>
                         <!--trade_names-->
                         <?php
                             $drug = new Drug();
                             $trade_names = $drug->getTradeNames();
-                            DataView::fillDropdown($trade_names);
-                        ?><br>
+                            if(count($trade_names)==0){
+                                echo "No records in DB<br><br>";
+                            }else{
+                                DataView::fillDropdown($trade_names);
+                            }
+                        ?>
                         <input type="number" min="1" max="100" name="selected_quantity" required><br>
                         <input type="date" id="prescription_date" name="prescription_date" value="<?php echo $date_today?>" required><br>
                         <textarea 
