@@ -9,7 +9,9 @@ class Prescription extends DatabaseHandler{
     public function getPrescription($search_value){
         return $this->getData('tbl_prescriptions', 'prescription_id', $search_value);
     }
-
+    public function getPrescriptionsBySSN($search_value){
+        return $this->getData('tbl_prescriptions', 'patient_ssn', $search_value);
+    }
     public function getAllPrescriptions(){
         return $this->getTable('tbl_prescriptions');
     }
