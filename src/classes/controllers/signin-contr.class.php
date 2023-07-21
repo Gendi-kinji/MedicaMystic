@@ -17,6 +17,10 @@ class SignInContr extends SignIn{
 		}
 		
 		$this->getUser($this->user_name, $this->user_pass);
+
+        //Check registered details to redirect the user
+        $this->checkRegisteredDetails();
+
 	}
 
     private function emptyInput()
@@ -31,6 +35,64 @@ class SignInContr extends SignIn{
         }
         return $check;
     }
+
+    private function checkRegisteredDetails() {
+        //Open user menu (depending on user_type):
+        if (isset($_SESSION["user_type"]) && isset($_SESSION['user_id'])) {
+            $user_type = $_SESSION["user_type"];
+            $user_id = $_SESSION["user_id"];
+            $redirect_page = "";
+            // switch-case block that sets the redirect page depending on the user type:
+            switch ($user_type) {
+                case "pharmacist":
+                    $pharmacy = new Pharmacy();
+                    $registered_fully = $pharmacy->checkColumn('user_id', 'tbl_pharmacy', $user_id);
+                    if ($registered_fully) {
+                        $redirect_page = "../../user_menu/pharmacy_menu.php";
+                    } else {
+                        $redirect_page = "../../register_details/pharmacy-details.php";
+                    }
+                    break;
+                case "patient":
+                    $patient = new Patient();
+                    $registered_fully = $patient->checkColumn('user_id', 'tbl_patient', $user_id);
+                    if ($registered_fully) {
+                        $redirect_page = "../../user_menu/patient_menu.php";
+                    } else {
+                        $redirect_page = "../../register_details/patient-details.php";
+                    }
+                    break;
+                case "doctor":
+                    $doctor = new Doctor();
+                    $registered_fully = $doctor->checkColumn('user_id', 'tbl_doctor', $user_id);
+                    if ($registered_fully) {
+                        $redirect_page = "../../user_menu/doctor_menu.php";
+                    } else {
+                        $redirect_page = "../../register_details/doctor-details.php";
+                    }
+                    break;
+                case "supervisor":
+                    $supervisor = new Supervisor();
+                    $registered_fully = $supervisor->checkColumn('user_id', 'tbl_supervisor', $user_id);
+                    if ($registered_fully) {
+                        $redirect_page = "../../user_menu/supervisor_menu.php";
+                    } else {
+                        $redirect_page = "../../register_details/supervisor-details.php";
+                    }
+                    break;
+                case "pharmaceutical_company":
+                    $pharmaceutical = new Pharmaceutical();
+                    $registered_fully = $pharmaceutical->checkColumn('user_id', 'tbl_pharmaceutical', $user_id);
+                    if ($registered_fully) {
+                        $redirect_page = "../../user_menu/pharmaceutical_menu.php";
+                    } else {
+                        $redirect_page = "../../register_details/pharmaceutical-details.php";
+                    }
+            }
+            header("Location: " . $redirect_page . "?error=none");
+        }
+    }
+    
 
     
 
