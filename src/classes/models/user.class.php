@@ -14,10 +14,10 @@ class User extends DatabaseHandler{
         return $this->getTable('tbl_users');
     }
     public function updateUsers($user_data,$unique_value){
-        return $this->updateData('tbl_users','user_name',$user_data,$unique_value);
+        return $this->updateData('tbl_users','user_id',$user_data,$unique_value);
     }
     public function deleteUsers($unique_value){
-        return $this->deleteData('tbl_users','user_name',$unique_value);
+        return $this->deleteData('tbl_users','user_id',$unique_value);
     }
 }
 ?>
