@@ -81,8 +81,8 @@
     <div class="maincontainer">
         <div class="main-header">
             <h2>Dispense Drugs</h2>
-            <a href="../../tables/read_only/view_invoice_details.php">View dispensed drugs</a>
-            <a href="../../tables/select_record/select_prescription.php">Select prescription</a>
+            <a href="../../tables/read_only/view_invoice_details.php">View dispensed drugs</a><br>
+            <a href="../../tables/select_record/select_prescription.php">Select prescription</a><br><br>
         </div>
         <div class="main-content">
             <!--search components-->
