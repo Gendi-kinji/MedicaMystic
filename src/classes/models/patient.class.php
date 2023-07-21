@@ -11,7 +11,6 @@ class Patient extends DatabaseHandler{
     public function getPatient($search_value){
         return $this->getData('tbl_patients', 'patient_ssn', $search_value);
     }
-
     public function getAllPatients(){
         return $this->getTable('tbl_patients');
     }
