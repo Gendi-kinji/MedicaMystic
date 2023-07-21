@@ -7,6 +7,7 @@
     <title>Overview</title>
   </head>
   <body>
+    
     <!--This page is to describe what the web-based system is all about-->
     <h1>Overview</h1>
     <hr />
@@ -69,5 +70,8 @@
         </p>
       </article>
     </div>
+    <?php
+    include '/common_sections/footer.php';
+    ?>
   </body>
 </html>

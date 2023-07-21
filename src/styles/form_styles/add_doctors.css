@@ -1,5 +1,6 @@
 @import url('universals/info.css');
-
+@import url('universals/topbar.css');
+@import url('universals/footer.css');
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: aliceblue;

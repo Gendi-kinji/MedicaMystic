@@ -34,6 +34,9 @@ if(isset($_GET["id"])){
     <title>Doctors Form</title>
   </head>
   <body>
+    <?php
+      include '../common_sections/topbar.php';
+    ?><br>
     <form action="../tables/editable/manage_doctors.php" method="GET">
       <input type="submit" value="View Doctors Table" />
     </form>
@@ -116,6 +119,6 @@ if(isset($_GET["id"])){
         <option value="+256">Uganda</option></datalist
       ><br />
       <button type="submit" name="submit" value="Update">Update</button><br />
-    </form>
+    </form><br>
   </body>
 </html>

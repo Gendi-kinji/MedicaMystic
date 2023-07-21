@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../styles/user_menu.css">
 </head>
 <body style="text-align:center;">
+<?php
+      include '../common_sections/topbar.php';
+    ?><br>
     <?php
         session_start();
         if(isset($_SESSION['user_name'])){
@@ -19,7 +22,6 @@
          <!--Displaying the username on the page-->
         <span style="margin-left:50%; align=right;" id="welcome-username">Welcome, <?php echo $user_name; ?></span>
         <h1>Pharmaceutical Menu</h1>
-       
     </header>
     <hr>
     <div class="user-options">

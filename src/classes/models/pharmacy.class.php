@@ -11,6 +11,9 @@ class Pharmacy extends DatabaseHandler{
     public function getPharmacy($search_value){
         return $this->getData('tbl_pharmacy', 'pharmacy_id', $search_value);
     }
+    public function getPharmacyByUserId($search_value){
+        return $this->getData('tbl_pharmacy', 'user_id', $search_value);
+    }
 
     public function getAllPharmacies(){
         return $this->getTable('tbl_pharmacy');

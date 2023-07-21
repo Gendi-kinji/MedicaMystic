@@ -13,6 +13,9 @@ class Invoice extends DatabaseHandler{
     public function getAllInvoices(){
         return $this->getTable('tbl_invoice');
     }
+    public function getAllInvoiceDetails(){
+        return $this->getTable('view_invoices');
+    }
     public function getIDs(){
         return $this->getColumn('invoice_id', 'tbl_invoice');
     }

@@ -8,6 +8,9 @@
 </head>
 <body style="text-align:center;">
     <?php
+      include '../common_sections/topbar.php';
+    ?><br>
+    <?php
         session_start();
         if(isset($_SESSION['user_name'])){
             $user_name = $_SESSION['user_name'];
