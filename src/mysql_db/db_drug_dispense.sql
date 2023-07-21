@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2023 at 09:51 PM
+-- Generation Time: Jul 21, 2023 at 11:35 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -244,7 +244,7 @@ ALTER TABLE `tbl_invoice_items`
 ALTER TABLE `tbl_patients`
   ADD PRIMARY KEY (`patient_ssn`),
   ADD UNIQUE KEY `patient_email` (`patient_email`,`patient_phone`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `tbl_patients_ibfk_1` (`user_id`);
 
 --
 -- Indexes for table `tbl_pharmaceutical`
@@ -252,14 +252,15 @@ ALTER TABLE `tbl_patients`
 ALTER TABLE `tbl_pharmaceutical`
   ADD PRIMARY KEY (`company_id`),
   ADD UNIQUE KEY `unique_company_name` (`company_name`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `tbl_pharmaceutical_ibfk_1` (`user_id`);
 
 --
 -- Indexes for table `tbl_pharmacy`
 --
 ALTER TABLE `tbl_pharmacy`
   ADD PRIMARY KEY (`pharmacy_id`),
-  ADD UNIQUE KEY `unique_company_name` (`pharmacy_name`);
+  ADD UNIQUE KEY `unique_company_name` (`pharmacy_name`),
+  ADD KEY `tbl_pharmacy_ibfk_1` (`user_id`);
 
 --
 -- Indexes for table `tbl_prescriptions`
@@ -305,7 +306,7 @@ ALTER TABLE `tbl_admins`
 -- AUTO_INCREMENT for table `tbl_doctors`
 --
 ALTER TABLE `tbl_doctors`
-  MODIFY `doctor_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `doctor_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_drugs`
@@ -329,7 +330,7 @@ ALTER TABLE `tbl_invoice_items`
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  MODIFY `patient_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `patient_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tbl_pharmaceutical`
@@ -365,7 +366,7 @@ ALTER TABLE `tbl_supervisors`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `user_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `user_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables
@@ -400,6 +401,12 @@ ALTER TABLE `tbl_patients`
 --
 ALTER TABLE `tbl_pharmaceutical`
   ADD CONSTRAINT `tbl_pharmaceutical_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pharmacy`
+--
+ALTER TABLE `tbl_pharmacy`
+  ADD CONSTRAINT `tbl_pharmacy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_prescriptions`

@@ -2,7 +2,7 @@
 <?php
     require "../../classes/connection.class.php";
     require "../../classes/databasehandler.class.php";
-    require "../../classes/models/prescription.class.php";
+    require "../../classes/models/invoice.class.php";
     require "../../classes/views/pageview.class.php";
     require "../../classes/views/tableview.class.php";
         
@@ -13,14 +13,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Prescription Details</title>
+        <title>Invoice Details</title>
         <link rel="stylesheet" href="../../styles/table_styles.css">
     <body>
-        <h1>Prescriptions Table</h1>
+        <h1>Dispensed Drugs History</h1>
             <?php
-                $prescription= new prescription();
-                $prescription_table = $prescription->getAllprescriptions();
-                TableView::showReadOnlyTable($prescription_table);
+                $invoice= new invoice();
+                $invoice_table = $invoice->getAllInvoiceDetails();
+                TableView::showReadOnlyTable($invoice_table);
             ?>
         </body>
 </html>

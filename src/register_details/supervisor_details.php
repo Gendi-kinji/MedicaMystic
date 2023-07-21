@@ -35,6 +35,7 @@
             echo '<span id="success_msg">Record added successfully</span>';
         }
     ?>
+    <h3 style="text-align: center;">Do your details exist? Contact your pharmacy to add your user id.</h3>
     <form class="supervisor-form" action="../process/process_reg_details/supervisor-details.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
