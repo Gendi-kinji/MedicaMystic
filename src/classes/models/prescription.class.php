@@ -14,7 +14,7 @@ class Prescription extends DatabaseHandler{
         return $this->getTable('tbl_prescriptions');
     }
     public function getAllPrescriptionDetails(){
-        return $this->getTable('view_prescriptions');
+        return $this->getTable('tbl_prescription_items');
     }
     public function getIDs(){
         return $this->getColumn('prescription_id', 'tbl_prescriptions');

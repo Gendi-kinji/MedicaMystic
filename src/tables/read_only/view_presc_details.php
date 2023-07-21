@@ -18,7 +18,7 @@
     <body>
         <h1>Prescriptions History</h1>
             <?php
-                $prescription= new prescription();
+                $prescription= new Prescription();
                 $prescription_view = $prescription->getAllPrescriptionDetails();
                 TableView::showReadOnlyTable($prescription_view);
             ?>
