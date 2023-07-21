@@ -1,4 +1,5 @@
 <?php
+
 class AdminLoginContr extends AdminLogin{
     private $admin_name;
     private $admin_pass;

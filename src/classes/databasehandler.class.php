@@ -80,6 +80,16 @@ class DatabaseHandler extends Connection{
         return $column_data;
     }
 
+    protected function checkColumn($column, $table, $data) {
+        $conn = $this->connect();
+        $stmt = $conn->prepare("SELECT 1 FROM `$table` WHERE `$column` = ? LIMIT 1");
+        $stmt->bind_param('s', $data);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return ($result->num_rows > 0);
+    }
+    
+
     public function updateData($table, $identifier, $data, $unique_value) {
         $columns = array_keys($data);
         $values = array_values($data);
