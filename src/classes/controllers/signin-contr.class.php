@@ -50,34 +50,34 @@ class SignInContr extends SignIn{
                     if ($registered_fully) {
                         $redirect_page = "../../user_menu/pharmacy_menu.php";
                     } else {
-                        $redirect_page = "../../register_details/pharmacy-details.php";
+                        $redirect_page = "../../register_details/pharmacy_details.php";
                     }
                     break;
                 case "patient":
                     $patient = new Patient();
-                    $registered_fully = $patient->checkColumn('user_id', 'tbl_patient', $user_id);
+                    $registered_fully = $patient->checkColumn('user_id', 'tbl_patients', $user_id);
                     if ($registered_fully) {
                         $redirect_page = "../../user_menu/patient_menu.php";
                     } else {
-                        $redirect_page = "../../register_details/patient-details.php";
+                        $redirect_page = "../../register_details/patient_details.php";
                     }
                     break;
                 case "doctor":
                     $doctor = new Doctor();
-                    $registered_fully = $doctor->checkColumn('user_id', 'tbl_doctor', $user_id);
+                    $registered_fully = $doctor->checkColumn('user_id', 'tbl_doctors', $user_id);
                     if ($registered_fully) {
                         $redirect_page = "../../user_menu/doctor_menu.php";
                     } else {
-                        $redirect_page = "../../register_details/doctor-details.php";
+                        $redirect_page = "../../register_details/doctor_details.php";
                     }
                     break;
                 case "supervisor":
                     $supervisor = new Supervisor();
-                    $registered_fully = $supervisor->checkColumn('user_id', 'tbl_supervisor', $user_id);
+                    $registered_fully = $supervisor->checkColumn('user_id', 'tbl_supervisors', $user_id);
                     if ($registered_fully) {
                         $redirect_page = "../../user_menu/supervisor_menu.php";
                     } else {
-                        $redirect_page = "../../register_details/supervisor-details.php";
+                        $redirect_page = "../../register_details/supervisor_details.php";
                     }
                     break;
                 case "pharmaceutical_company":
@@ -86,7 +86,7 @@ class SignInContr extends SignIn{
                     if ($registered_fully) {
                         $redirect_page = "../../user_menu/pharmaceutical_menu.php";
                     } else {
-                        $redirect_page = "../../register_details/pharmaceutical-details.php";
+                        $redirect_page = "../../register_details/pharmaceutical_details.php";
                     }
             }
             header("Location: " . $redirect_page . "?error=none");

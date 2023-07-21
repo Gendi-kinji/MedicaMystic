@@ -58,7 +58,7 @@
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
         </datalist><br>
-        <input type="hidden" id="user_id" name="user_id" value="<?php $user_id?>">
+        <input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id?>">
         <button type="submit" name="submit" value="submit">Submit</button><br>
     </form>
 </body>

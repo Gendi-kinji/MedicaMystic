@@ -83,10 +83,27 @@ class DatabaseHandler extends Connection{
     protected function checkColumn($column, $table, $data) {
         $conn = $this->connect();
         $stmt = $conn->prepare("SELECT 1 FROM `$table` WHERE `$column` = ? LIMIT 1");
-        $stmt->bind_param('s', $data);
+        $type = '';
+        if (is_int($data)) {
+            $type = 'i';
+        } elseif (is_double($data)) {
+            $type = 'd';
+        } else {
+            $type = 's';
+        }
+        $stmt->bind_param($type, $data);
         $stmt->execute();
+        $result = null;
+        if(!$stmt->execute()){
+            $stmt = null;
+            header('Location: '.$_SERVER['PHP_SELF']."?error=stmtfailed");
+            exit();
+        }
+        else{
+            $result = $stmt->execute();
+        }
         $result = $stmt->get_result();
-        return ($result->num_rows > 0);
+        return ($result->num_rows>0);
     }
     
 
