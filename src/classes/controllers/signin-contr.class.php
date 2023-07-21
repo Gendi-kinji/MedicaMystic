@@ -84,7 +84,7 @@ class SignInContr extends SignIn{
                     $pharmaceutical = new Pharmaceutical();
                     $registered_fully = $pharmaceutical->checkColumn('user_id', 'tbl_pharmaceutical', $user_id);
                     if ($registered_fully) {
-                        $redirect_page = "../../user_menu/pharmaceutical_company_menu.php";
+                        $redirect_page = "../../user_menu/pharmaceutical_menu.php";
                     } else {
                         $redirect_page = "../../register_details/pharmaceutical_details.php";
                     }

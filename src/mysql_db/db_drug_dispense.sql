@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2023 at 11:35 AM
+-- Generation Time: Jul 21, 2023 at 05:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -34,6 +34,13 @@ CREATE TABLE `tbl_admins` (
   `admin_pass` varchar(80) NOT NULL,
   `admin_reg_date` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_admins`
+--
+
+INSERT INTO `tbl_admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_reg_date`) VALUES
+(3, 'admin1', 'admin1@dispensary.com', '$2y$10$09IJOe6o4axnaJu.kk7qve/hDUAPqvd42JNq0wUdMdtshgbmyyOXm', '2023-07-21 13:35:07.816046');
 
 -- --------------------------------------------------------
 
@@ -199,6 +206,56 @@ CREATE TABLE `tbl_users` (
   `user_reg_date` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_invoices`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_invoices` (
+`invoice_id` int(15) unsigned
+,`prescription_id` int(15) unsigned
+,`invoice_date` date
+,`invoice_item_id` int(15) unsigned
+,`drug_id` int(15) unsigned
+,`quantity` int(10) unsigned
+,`total_price` float(15,2) unsigned
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_prescriptions`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_prescriptions` (
+`prescription_id` int(15) unsigned
+,`patient_ssn` int(15) unsigned
+,`presc_date` date
+,`presc_item_id` int(15) unsigned
+,`drug_id` int(15) unsigned
+,`quantity` int(15) unsigned
+,`dosage_schedule` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_invoices`
+--
+DROP TABLE IF EXISTS `view_invoices`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_invoices`  AS SELECT `i`.`invoice_id` AS `invoice_id`, `i`.`prescription_id` AS `prescription_id`, `i`.`invoice_date` AS `invoice_date`, `ii`.`invoice_item_id` AS `invoice_item_id`, `ii`.`drug_id` AS `drug_id`, `ii`.`quantity` AS `quantity`, `ii`.`total_price` AS `total_price` FROM (`tbl_invoice` `i` join `tbl_invoice_items` `ii` on(`i`.`invoice_id` = `ii`.`invoice_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_prescriptions`
+--
+DROP TABLE IF EXISTS `view_prescriptions`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_prescriptions`  AS SELECT `p`.`prescription_id` AS `prescription_id`, `p`.`patient_ssn` AS `patient_ssn`, `p`.`presc_date` AS `presc_date`, `pi`.`presc_item_id` AS `presc_item_id`, `pi`.`drug_id` AS `drug_id`, `pi`.`quantity` AS `quantity`, `pi`.`dosage_schedule` AS `dosage_schedule` FROM (`tbl_prescriptions` `p` join `tbl_prescription_items` `pi` on(`p`.`prescription_id` = `pi`.`prescription_id`)) ;
+
 --
 -- Indexes for dumped tables
 --
@@ -300,61 +357,61 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_admins`
 --
 ALTER TABLE `tbl_admins`
-  MODIFY `admin_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_doctors`
 --
 ALTER TABLE `tbl_doctors`
-  MODIFY `doctor_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `doctor_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_drugs`
 --
 ALTER TABLE `tbl_drugs`
-  MODIFY `drug_id` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `drug_id` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice`
 --
 ALTER TABLE `tbl_invoice`
-  MODIFY `invoice_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `invoice_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice_items`
 --
 ALTER TABLE `tbl_invoice_items`
-  MODIFY `invoice_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `invoice_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  MODIFY `patient_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `patient_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_pharmaceutical`
 --
 ALTER TABLE `tbl_pharmaceutical`
-  MODIFY `company_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `company_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_pharmacy`
 --
 ALTER TABLE `tbl_pharmacy`
-  MODIFY `pharmacy_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pharmacy_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_prescriptions`
 --
 ALTER TABLE `tbl_prescriptions`
-  MODIFY `prescription_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `prescription_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_prescription_items`
 --
 ALTER TABLE `tbl_prescription_items`
-  MODIFY `presc_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `presc_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_supervisors`
@@ -366,7 +423,7 @@ ALTER TABLE `tbl_supervisors`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `user_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `user_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables
