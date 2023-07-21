@@ -17,6 +17,7 @@
         session_start();
         if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
             $user_id = $_SESSION['user_id'];
+            echo '<span> User id: '.$user_id.'</span>';
         } else{
             echo "<span style='color: red;'>User id not set.</span>";
         }

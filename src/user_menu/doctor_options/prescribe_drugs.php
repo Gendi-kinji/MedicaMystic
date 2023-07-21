@@ -84,7 +84,7 @@
         <div class="main-header">
             <h2>Prescribe Drugs</h2>
             <a href="../../tables/read_only/view_presc_details.php">View prescribed drugs</a>
-        </div>
+        </div><br>
         <div class="main-content">
             <!--search components-->
             <div class="main-left">

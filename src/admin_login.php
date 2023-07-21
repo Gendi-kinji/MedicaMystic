@@ -20,13 +20,26 @@
                 <div class="sign-in-section">
                     <h2>ADMIN SIGN IN</h2>
                     <span>Authorised access only</span><br>
-                    <input type="text" placeholder="Email or Username" id="user_name" name="user_name"><br>
-                    <input type="password" placeholder="Enter password..." id="user_pass" name="user_pass"><br>
+                    <input type="text" placeholder="Email or Username" id="admin_name" name="admin_name"><br>
+                    <input type="password" placeholder="Enter password..." id="admin_pass" name="admin_pass"><br>
                     <div class="form-buttons">
                         <button type="submit" name="submit" value="submit">Submit</button><br>
                     </div><br><br>
                     <a href="./admin_register.php">New admin?</a>
                     <br>
+                    <?php
+                        // showing error messages
+                        session_start();
+                        if (isset($_SESSION['error'])) {
+                            echo '<p id="error_msg">Error: ' . $_SESSION['error'] . '</p>';
+                            unset($_SESSION['error']);
+                        } else if(isset($_SESSION['success'])){
+                            if($_SESSION['success']===true){
+                                echo '<p id="success_msg">Registration successful</p>';
+                            }
+                            unset($_SESSION['success']);
+                        }
+                    ?>
                 </div>    
             </div>
         </form>

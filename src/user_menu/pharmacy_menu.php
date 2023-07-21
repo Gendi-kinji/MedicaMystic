@@ -33,7 +33,7 @@
     <div class="user-options">
         <a href="">Pharmacy Details</a>
         <a href="../tables/editable/manage_drugs.php">Manage Drug Inventory</a>
-        <a href="../tables/read_only/view_prescriptions.php">View Prescriptions</a>
+        <a href="../tables/read_only/view_presc_details.php">View Prescriptions</a>
         <a href="../tables/select_record/select_prescription.php">Dispense Medicine</a>
         <a href="../tables/editable/manage_supervisors.php">Manage Supervisors</a>
         <a href="">Purchase drugs</a>

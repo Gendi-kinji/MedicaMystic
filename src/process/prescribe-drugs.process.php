@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Storing data in an array
     $itemsData = [
       'prescription_id'=>$prescription_id,
+      'drug_id'=>$drug_id,
       'quantity'=>$prescribed_quantity,
       'dosage_schedule'=>$dosage_schedule,
     ];

@@ -7,7 +7,9 @@ class AdminLogin extends DatabaseHandler{
         $stmt->bind_param("ss", $admin_name, $admin_name);
         if(!$stmt->execute()){
             $stmt = null;
-            header('Location: ../../admin_login.php?error=stmtfailed');
+            session_start();
+            $_SESSION['error'] = 'Statement failed';
+            header('Location: ../../admin_login.php');
             exit();
         }
 
@@ -16,7 +18,9 @@ class AdminLogin extends DatabaseHandler{
         //Check the result:
         if($result->num_rows==0){
             $stmt = null;
-            header("location: ../../admin_login.php?error=adminnotfound");
+            session_start();
+            $_SESSION['error'] = 'Admin not found';
+            header("location: ../../admin_login.php");
             exit();
         }
 
@@ -25,7 +29,9 @@ class AdminLogin extends DatabaseHandler{
 
         if($checkPwd == false){
             $stmt = null;
-            header("location: ../../admin_login.php?error=incorrectpassword");
+            session_start();
+            $_SESSION['error'] = 'Incorrect password';
+            header("location: ../../admin_login.php");
             exit();
         }
         elseif($checkPwd == true){
@@ -36,7 +42,9 @@ class AdminLogin extends DatabaseHandler{
 
             if(!$stmt->execute()){
                 $stmt = null; // delete the statement
-                header("Location: ../../admin_login.php?error=stmtfailed"); // send back to page
+                session_start();
+                $_SESSION['error'] = 'Statement failed';
+                header("Location: ../../admin_login.php"); // send back to page
                 exit(); // leave the script
             }
 		}
@@ -47,7 +55,9 @@ class AdminLogin extends DatabaseHandler{
         //Check the result:
         if($result->num_rows==0){
             $stmt = null;
-            header("location: ../../admin_login.php?error=adminnotfound");
+            session_start();
+            $_SESSION['error'] = 'Admin not found';
+            header("location: ../../admin_login.php");
             exit();
         }
 
