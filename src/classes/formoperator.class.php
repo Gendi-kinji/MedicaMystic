@@ -27,6 +27,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the doctorData array
                 $doctorData = [
+                    'user_id'=> $_POST['user_id'],
                     'doctor_firstname' => $_POST['doctor_firstname'],
                     'doctor_surname' => $_POST['doctor_surname'],
                     'doctor_dob' => $_POST['doctor_dob'],
@@ -128,6 +129,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the patientData array
                 $patientData = [
+                    'user_id'=> $_POST['user_id'],
                     'patient_firstname' => $_POST['patient_firstname'],
                     'patient_surname' => $_POST['patient_surname'],
                     'patient_dob' => $_POST['patient_dob'],
@@ -135,6 +137,8 @@ Class FormOperator{
                     'patient_email' => $_POST['patient_email'],
                     'patient_phone' => $_POST['patient_phone']
                 ];
+
+                print_r($patientData);
 
                 // Use the addPatient() function to add the data to the database
                 $patient = new Patient();
@@ -173,6 +177,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the pharmaceuticalData array
                 $pharmaceuticalData = [
+                    'user_id'=> $_POST['user_id'],
                     'company_name' => $_POST['company_name'],
                     'company_address' => $_POST['company_address'],
                     'company_phone' => $_POST['company_phone']
@@ -216,6 +221,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the pharmacyData array
                 $pharmacyData = [
+                    'user_id'=> $_POST['user_id'],
                     'pharmacy_name' => $_POST['pharmacy_name'],
                     'pharmacy_address' => $_POST['pharmacy_address'],
                     'pharmacy_phone' => $_POST['pharmacy_phone']
@@ -299,6 +305,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the supervisorData array
                 $supervisorData = [
+                    'user_id'=> $_POST['user_id'],
                     'supervisor_firstname' => $_POST['supervisor_firstname'],
                     'supervisor_lastname' => $_POST['supervisor_lastname'],
                     'supervisor_phone'=> $_POST['supervisor_phone']
