@@ -114,7 +114,7 @@
                             } else{
                                 DataView::fillDropdown($drug_IDs);
                             }
-                        ?>
+                        ?><br>
                         <!--trade_names-->
                         <?php
                             $drug = new Drug();
@@ -124,7 +124,7 @@
                             }else{
                                 DataView::fillDropdown($trade_names);
                             }
-                        ?>
+                        ?><br>
                         <input type="number" min="1" max="100" name="selected_quantity" required><br>
                         <input type="date" id="prescription_date" name="prescription_date" value="<?php echo $date_today?>" required><br>
                         <textarea 
