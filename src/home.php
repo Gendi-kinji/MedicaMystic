@@ -12,7 +12,7 @@
     <div class="nav-bar">
       <a class="active-page" href="home.php">Home</a>
       <a href="overview.php">Overview</a>
-      <div id="nav-login">
+      <div id="nav-login"> 
         <a href="sign_in.php">Sign in</a>
       </div>
     </div>
