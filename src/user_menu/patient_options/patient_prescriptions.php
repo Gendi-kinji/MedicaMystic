@@ -16,33 +16,26 @@
         <title>Prescription Details</title>
         <link rel="stylesheet" href="../../styles/table_styles.css">
     <body>
-        <h1>Select Prescription</h1>
-        
-        <!-- The search form -->
-        <form method="GET" action="">
-            <h4>Search patient:</h4>
-            <label for="ssn">SSN:</label>
-            <input type="number" id="ssn" name="ssn" required>
-            <input type="submit" value="Search">
-        </form><br>
+        <h1>Patient Prescriptions</h1>
 
         <?php
             $prescription = new prescription();
+            $patient_ssn = null;
 
-            PageView::showPatientDetails();
+            session_start();
             // Check if the search form was submitted
-            if (isset($_GET['ssn'])) {
+            if (isset($_SESSION['patient_ssn'])) {
                 // Get the search criteria from the form
-                $ssn = $_GET['ssn'];
+                $patient_ssn = $_SESSION['patient_ssn'];
 
                 // Filter the data based on the search criteria
-                $prescription_table = $prescription->getPrescriptionsBySSN($ssn);
+                $presc_table = $prescription->getPrescriptionsBySSN($patient_ssn);
+
             } else {
-                // Get all prescriptions
-                $prescription_table = $prescription->getAllprescriptions();
+                echo '<span style="color: red;">Patient SSN not set</span>';
             }
 
-            TableView::showSelectTable($prescription_table, 'pharmacy', 'dispense_drugs');
+            TableView::showSelectTable($presc_table, 'patient', 'patient_presc_items');
         ?>
 
     </body>

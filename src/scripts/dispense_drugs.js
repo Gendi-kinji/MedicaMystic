@@ -177,15 +177,4 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     xhr.send(JSON.stringify(dispensedDrugs)); // sending the data
   });
-
-
-  // Clear local storage on closing the window
-  window.onbeforeunload = function() {
-    // Clear data from local storage
-    localStorage.removeItem("tableData");
-  }
-
-
-
-
 });

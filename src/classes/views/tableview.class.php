@@ -109,7 +109,7 @@ class TableView{
                     echo "<td>" . $value . "</td>"; // display the records (values) in the HTML table
                 }
                 $identifier = $row[$id];
-                echo "<td><a class='btn-links btn-update' href='../../user_menu/".$user."_options/".$action."_drugs.php?id=$identifier'>Select</a></td>";
+                echo "<td><a class='btn-links btn-update' href='../../user_menu/".$user."_options/".$action.".php?id=$identifier'>Select</a></td>";
                 echo "</tr>";
             }
             echo "</table>";

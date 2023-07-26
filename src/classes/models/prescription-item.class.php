@@ -9,7 +9,9 @@ class PrescriptionItem extends DatabaseHandler{
     public function getPrescriptionItem($search_value){
         return $this->getData('tbl_prescription_items', 'presc_item_id', $search_value);
     }
-
+    public function getPrescriptionItemsByPrescId($search_value){
+        return $this->getData('tbl_prescription_items','prescription_id', $search_value);
+    }
     public function getAllPrescriptionItems(){
         return $this->getTable('tbl_prescription_items');
     }

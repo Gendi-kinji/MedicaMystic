@@ -1,3 +1,11 @@
+<?php
+require '../classes/connection.class.php';
+require '../classes/databasehandler.class.php';
+require '../classes/models/patient.class.php';
+require "../classes/models/prescription.class.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +25,16 @@
         }else{
             $user_name = 'user';
         }
+        if(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+
+            //Grabbing the patientSSN
+            $patient = new Patient();
+            $patient_data = $patient->getPatientByUserId($user_id);
+            $patient_ssn = $patient_data[0]['patient_ssn'];
+
+            $_SESSION['patient_ssn'] = $patient_ssn;
+        }
 
         # print_r($_SESSION);
     ?>
@@ -29,8 +47,8 @@
     <hr>
     <div class="user-options">
         <a class="patient" href="patient_options/patient_profile.php">Patient details</a>
-        <a class="patient" href="">Invoices</a>
-        <a class="patient" href="">View Prescriptions</a>
+        <a class="patient" href="patient_options/patient_invoices.php">Invoices</a>
+        <a class="patient" href="patient_options/patient_prescriptions.php">View Prescriptions</a>
         <a class="patient" href="">Doctor Appointments</a>
         <a class="make" href="">Make Payment</a>
     </div>

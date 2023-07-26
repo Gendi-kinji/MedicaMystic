@@ -29,7 +29,7 @@
 
         // Render the patient details:
         $patient_table = PageView::showPatientDetails();
-        TableView::showSelectTable($patient_table, 'doctor', 'prescribe');
+        TableView::showSelectTable($patient_table, 'doctor', 'prescribe_drugs');
         ?>
     </body>
 </html>

@@ -13,6 +13,9 @@ class InvoiceItem extends DatabaseHandler{
     public function getAllInvoiceItems(){
         return $this->getTable('tbl_invoice_items');
     }
+    public function getInvoiceItemsByInvoiceId($search_value){
+        return $this->getData('tbl_invoice_items','invoice_id', $search_value);
+    }
     public function getIDs(){
         return $this->getColumn('invoice_item_id', 'tbl_invoice_items');
     }

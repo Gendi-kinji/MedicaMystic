@@ -80,6 +80,15 @@ class DatabaseHandler extends Connection{
         return $column_data;
     }
 
+    protected function getColumnValue($column, $table, $identifier, $search_value){
+        $conn = $this->connect();
+        $sql = "SELECT $column FROM $table WHERE $identifier=$search_value";
+        $result = $conn->query($sql);
+        $column_data = $result->fetch_all(MYSQLI_ASSOC);
+
+        return $column_data;
+    }
+
     protected function checkColumn($column, $table, $data) {
         $conn = $this->connect();
         $stmt = $conn->prepare("SELECT 1 FROM `$table` WHERE `$column` = ? LIMIT 1");
