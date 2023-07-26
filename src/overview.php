@@ -70,8 +70,5 @@
         </p>
       </article>
     </div>
-    <?php
-    include '/common_sections/footer.php';
-    ?>
   </body>
 </html>
