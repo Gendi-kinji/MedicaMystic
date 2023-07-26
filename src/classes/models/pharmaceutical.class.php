@@ -11,7 +11,9 @@ class Pharmaceutical extends DatabaseHandler{
     public function getPharmaceutical($search_value){
         return $this->getData('tbl_pharmaceutical', 'company_id', $search_value);
     }
-
+    public function getPharmaceuticalByUserId($search_value){
+        return $this->getData('tbl_pharmaceutical', 'user_id', $search_value);
+    }
     public function getAllPharmaceuticals(){
         return $this->getTable('tbl_pharmaceutical');
     }

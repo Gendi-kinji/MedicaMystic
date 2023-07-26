@@ -12,6 +12,9 @@ class Doctor extends DatabaseHandler{
     public function getDoctor($search_value){
         return $this->getData('tbl_doctors', 'doctor_ssn', $search_value);
     }
+    public function getDoctorByUserId($search_value){
+        return $this->getData('tbl_doctors', 'user_id', $search_value);
+    }
 
     public function getAllDoctors(){
         return $this->getTable('tbl_doctors');

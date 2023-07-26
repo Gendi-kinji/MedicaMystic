@@ -8,6 +8,9 @@ class User extends DatabaseHandler{
         return $this->setData('tbl_users',$userData);
     }
     public function getUser($search_value){
+        return $this->getData('tbl_users','user_id',$search_value);
+    }
+    public function getUserByName($search_value){
         return $this->getData('tbl_users','user_name',$search_value);
     }
     public function getAllUsers(){

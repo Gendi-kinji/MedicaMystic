@@ -25,7 +25,7 @@
     </header>
     <hr>
     <div class="user-options">
-        <a class="company" href="">Company Details</a>
+        <a class="company" href="pharmaceutical_options/pharmaceutical_profile.php">Company Details</a>
         <a class="company" href="../tables/editable/manage_drugs.php">Manage Drug Inventory</a>
         <a class="company" href="">Manage Contract</a>
         <a class="company" href="">Manage Sales</a> 

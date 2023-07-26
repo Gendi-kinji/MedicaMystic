@@ -17,6 +17,8 @@
         }else{
             $user_name = 'user';
         }
+
+        # print_r($_SESSION);
     ?>
     <header class="page-header">
          <!--Displaying the username on the page-->
@@ -26,7 +28,7 @@
     </header>
     <hr>
     <div class="user-options">
-        <a class="patient" href="">Patient details</a>
+        <a class="patient" href="patient_options/patient_profile.php">Patient details</a>
         <a class="patient" href="">Invoices</a>
         <a class="patient" href="">View Prescriptions</a>
         <a class="patient" href="">Doctor Appointments</a>
