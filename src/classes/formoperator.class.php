@@ -308,7 +308,8 @@ Class FormOperator{
                     'user_id'=> $_POST['user_id'],
                     'supervisor_firstname' => $_POST['supervisor_firstname'],
                     'supervisor_lastname' => $_POST['supervisor_lastname'],
-                    'supervisor_phone'=> $_POST['supervisor_phone']
+                    'supervisor_phone'=> $_POST['supervisor_phone'],
+                    'pharmacy_id' => $_POST['pharmacy_id']
                 ];
 
                 // Use the addSupervisor() function to add the data to the database

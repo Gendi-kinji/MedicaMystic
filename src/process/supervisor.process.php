@@ -5,7 +5,7 @@
     require "../classes/formoperator.class.php";
 
     // Process supervisor form
-    $form_processed = FormOperator::processsupervisorForm();
+    $form_processed = FormOperator::processSupervisorForm();
     
     // redirect to form page:
     if($form_processed){

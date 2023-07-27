@@ -28,6 +28,13 @@
         } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
             echo '<span id="success_msg">Record added successfully</span>';
         }
+
+        //pharmacy id:
+        if(isset($_SESSION['pharmacy_id'])){
+            $pharmacy_id = $_SESSION['pharmacy_id'];
+        }else{
+            $pharmacy_id = "";
+        }
     ?>
     <form action="../tables/editable/manage_supervisors.php" method="GET">
         <input type="submit" value="View Supervisors Table">
@@ -50,6 +57,7 @@
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
         </datalist><br>
+        <input type="hidden" id="pharmacy_id" name="pharmacy_id" value="<?php echo $pharmacy_id?>">
         <button type="submit" name="submit" value="submit">Submit</button><br>
     </form>
 </body>
