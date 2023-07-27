@@ -4,6 +4,7 @@ require '../classes/connection.class.php';
 require '../classes/databasehandler.class.php';
 require '../classes/models/invoice.class.php';
 require '../classes/models/invoice-item.class.php';
+require '../classes/models/drug.class.php';
 
 // Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -44,6 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
     $invoice_item->addInvoiceItem($itemsData);
+
+    // Update drug quantity in db
+    $drug = new Drug();
+    $drug_record = $drug->getDrugByID($drug_id);
+    $rem_quantity = $drug_record[0]['drug_quantity'] - $quantity;
+    $drug_data = [
+      'drug_quantity' => $rem_quantity
+    ];
+
+    $drug->updateDrug($drug_data, $drug_id);
+
   }
 
   // Relocate to dispense drugs page

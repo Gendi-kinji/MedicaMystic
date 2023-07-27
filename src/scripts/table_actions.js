@@ -35,8 +35,6 @@ export function saveTableData(selector) {
         newRow.innerHTML = newRowContent;
         document.querySelector(`${selector}`).appendChild(newRow);
       });
-    }else{
-      alert("No saved table data");
     }
   }
 
