@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2023 at 05:45 PM
+-- Generation Time: Jul 27, 2023 at 04:20 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -34,13 +34,6 @@ CREATE TABLE `tbl_admins` (
   `admin_pass` varchar(80) NOT NULL,
   `admin_reg_date` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_admins`
---
-
-INSERT INTO `tbl_admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_reg_date`) VALUES
-(3, 'admin1', 'admin1@dispensary.com', '$2y$10$09IJOe6o4axnaJu.kk7qve/hDUAPqvd42JNq0wUdMdtshgbmyyOXm', '2023-07-21 13:35:07.816046');
 
 -- --------------------------------------------------------
 
@@ -184,7 +177,7 @@ CREATE TABLE `tbl_prescription_items` (
 
 CREATE TABLE `tbl_supervisors` (
   `supervisor_id` int(15) UNSIGNED NOT NULL,
-  `user_id` int(15) UNSIGNED NOT NULL,
+  `user_id` int(15) UNSIGNED DEFAULT NULL,
   `pharmacy_id` int(15) UNSIGNED DEFAULT NULL,
   `supervisor_firstname` varchar(40) NOT NULL,
   `supervisor_lastname` varchar(40) NOT NULL,
@@ -363,31 +356,31 @@ ALTER TABLE `tbl_admins`
 -- AUTO_INCREMENT for table `tbl_doctors`
 --
 ALTER TABLE `tbl_doctors`
-  MODIFY `doctor_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `doctor_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_drugs`
 --
 ALTER TABLE `tbl_drugs`
-  MODIFY `drug_id` int(9) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `drug_id` int(9) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice`
 --
 ALTER TABLE `tbl_invoice`
-  MODIFY `invoice_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `invoice_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_invoice_items`
 --
 ALTER TABLE `tbl_invoice_items`
-  MODIFY `invoice_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `invoice_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  MODIFY `patient_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `patient_ssn` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_pharmaceutical`
@@ -399,31 +392,31 @@ ALTER TABLE `tbl_pharmaceutical`
 -- AUTO_INCREMENT for table `tbl_pharmacy`
 --
 ALTER TABLE `tbl_pharmacy`
-  MODIFY `pharmacy_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pharmacy_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_prescriptions`
 --
 ALTER TABLE `tbl_prescriptions`
-  MODIFY `prescription_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `prescription_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_prescription_items`
 --
 ALTER TABLE `tbl_prescription_items`
-  MODIFY `presc_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `presc_item_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_supervisors`
 --
 ALTER TABLE `tbl_supervisors`
-  MODIFY `supervisor_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `supervisor_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `user_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `user_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
