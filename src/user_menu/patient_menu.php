@@ -49,8 +49,8 @@ require "../classes/models/prescription.class.php";
         <a class="patient" href="patient_options/patient_profile.php">Patient details</a>
         <a class="patient" href="patient_options/patient_invoices.php">Invoices</a>
         <a class="patient" href="patient_options/patient_prescriptions.php">View Prescriptions</a>
-        <a class="patient" href="">Doctor Appointments</a>
-        <a class="make" href="">Make Payment</a>
+        <!--<a class="patient" href="">Doctor Appointments</a>-->
+        <!--<a class="make" href="">Make Payment</a>-->
     </div>
 </body>
 </html>

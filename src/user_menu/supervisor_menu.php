@@ -26,7 +26,7 @@
     <hr>
     <div class="user-options">
     <a class="supervisor" href="supervisor_options/supervisor_profile.php">Supervisor details</a>
-    <a class="supervisor" href="">Manage Contract</a>
+    <!--<a class="supervisor" href="">Manage Contract</a>-->
     </div>
 </body>
 </html>

@@ -36,7 +36,7 @@
         <a href="../tables/read_only/view_presc_details.php">View Prescriptions</a>
         <a href="../tables/select_record/select_prescription.php">Dispense Medicine</a>
         <a href="../tables/editable/manage_supervisors.php">Manage Supervisors</a>
-        <a href="">Purchase drugs</a>
+        <!--<a href="">Purchase drugs</a>-->
     </div>
     
 </body>

@@ -27,8 +27,8 @@
     <div class="user-options">
         <a class="company" href="pharmaceutical_options/pharmaceutical_profile.php">Company Details</a>
         <a class="company" href="../tables/editable/manage_drugs.php">Manage Drug Inventory</a>
-        <a class="company" href="">Manage Contract</a>
-        <a class="company" href="">Manage Sales</a> 
+        <!--<a class="company" href="">Manage Contract</a>-->
+        <!--<a class="company" href="">Manage Sales</a>-->
     </div>
 </body>
 </html>

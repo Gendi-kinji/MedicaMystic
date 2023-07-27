@@ -29,7 +29,7 @@
     <a class="doctor" href="doctor_options/doctor_profile.php">Doctor Details</a>
     <a class="doctor" href="../tables/select_record/select_patient.php">Prescribe Drugs</a>
     <a class="doctor" href="../tables/read_only/view_drug.php">View Available Drugs</a>
-    <a class="doctor" href="">View Appointments</a>
+    <!--<a class="doctor" href="">View Appointments</a>-->
     </div>    
 </body>
 </html>
