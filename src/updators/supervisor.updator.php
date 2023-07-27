@@ -5,6 +5,7 @@ if(isset($_POST["submit"])){
         'supervisor_firstname'=> $_POST['supervisor_firstname'],
         'supervisor_lastname' => $_POST['supervisor_lastname'],
         'supervisor_phone' => $_POST['supervisor_phone'],
+        'pharmacy_id' => $_POST['pharmacy_id']
      ];
 
      //Restart the session to reclaim the id:

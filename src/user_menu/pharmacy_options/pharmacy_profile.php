@@ -34,9 +34,6 @@ require '../../classes/models/user.class.php';
         $pharmacy = new Pharmacy();
         $pharmacy_record = $pharmacy->getPharmacyByUserId($user_id);
         PageView::displayRecord($pharmacy_record);
-
-        //Getting the pharmacy ID:
-        $_SESSION['pharmacy_id'] = $pharmacy_record[0]['pharmacy_id'];
     ?>
     <h3>User Account Details</h3>
     <?php

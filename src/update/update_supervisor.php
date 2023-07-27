@@ -9,6 +9,8 @@ if(isset($_GET["id"])){
     $supervisor = new Supervisor();
     $supervisor_row = $supervisor->getSupervisor($id);
 
+    $pharmacy_id = null;
+
     // Extract values: 
     $supervisor_firstname = $supervisor_row[0]['supervisor_firstname'];
     $supervisor_lastname = $supervisor_row[0]['supervisor_lastname'];
@@ -17,6 +19,7 @@ if(isset($_GET["id"])){
     // Starting a session to hold the id:
     session_start();
     $_SESSION['id'] = $_GET["id"];
+    $pharmacy_id = $_SESSION['pharmacy_id'];
 
     } ?>
 
@@ -77,6 +80,7 @@ if(isset($_GET["id"])){
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
         </datalist><br>
+        <input type="hidden" id="pharmacy_id" name="pharmacy_id" value="<?php echo $pharmacy_id?>">
         <button type="submit" name="submit" value="Update">Update</button><br />
     </form>
   </body>

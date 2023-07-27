@@ -1,3 +1,11 @@
+<?php
+require '../classes/connection.class.php';
+require '../classes/databasehandler.class.php';
+require '../classes/models/pharmacy.class.php';
+require '../classes/models/user.class.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +30,13 @@
             }else{
                 echo '<span>User ID not set.</span>';
             }
+
+            //Getting the pharmacy ID:
+            $pharmacy = new Pharmacy();
+            $pharmacy_record = $pharmacy->getPharmacyByUserId($user_id);
+            $_SESSION['pharmacy_id'] = $pharmacy_record[0]['pharmacy_id'];
+
+            print_r($_SESSION);
     ?>
     <header class="page-header">
          <!--Displaying the username on the page-->
