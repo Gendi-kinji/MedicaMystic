@@ -36,7 +36,7 @@ require '../classes/models/user.class.php';
             $pharmacy_record = $pharmacy->getPharmacyByUserId($user_id);
             $_SESSION['pharmacy_id'] = $pharmacy_record[0]['pharmacy_id'];
 
-            print_r($_SESSION);
+            //print_r($_SESSION);
     ?>
     <header class="page-header">
          <!--Displaying the username on the page-->
