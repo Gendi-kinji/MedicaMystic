@@ -21,7 +21,7 @@ if(isset($_POST["submit"])){
      $pharmaceutical->updatePharmaceutical($pharmaceutical_data, $id);
 
      //Go back to  page after updating successfully:
-     header("location: ../view_tables/view_pharmaceutical.php?error=none");
+     header("location: ../tables/editable/manage_pharmaceutical.php?error=none");
 
 
 }

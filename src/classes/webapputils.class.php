@@ -14,7 +14,7 @@ class WebAppUtils{
             if ($file != "." && $file != "..") {
                 $path = $dir . $file;
                 $displayName = substr($file, strlen($prefix), strrpos($file, '.') - strlen($prefix));
-                echo "<li class='files-item'><a class='files-link' href='$path'>$displayName</a></li>";
+                echo "<li class='files-item'><a class='files-link' href='$path' target='_blank'>$displayName</a></li>";
             }
         }
         echo "</ul>";

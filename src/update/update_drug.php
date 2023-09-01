@@ -10,17 +10,19 @@ if(isset($_GET["id"])){
     $drug_row = $drug->getDrugByID($id);
 
     // Extract values: 
-    $trade_name = $drug_row[0]['trade_name'];
+    $trade_name = $drug_row[0]['trade_name']; 
     $drug_formula = $drug_row[0]['drug_formula'];
-    $administration_method = $drug_row[0]['administration_method'];
-    $drug_price = $drug_row[0]['drug_price'];
-    $expiry_date = $drug_row[0]['expiry_date'];
+    $administration_method = $drug_row[0]['administration_method']; 
+    $dosage_mg = $drug_row[0]['dosage_mg']; 
+    $drug_quantity = $drug_row[0]['drug_quantity'];
+    $drug_price = $drug_row[0]['drug_price']; 
+    $expiry_date = $drug_row[0]['expiry_date']; 
 
     // Starting a session to hold the id:
-    session_start();
-    $_SESSION['id'] = $_GET["id"];
+    session_start(); 
+    $_SESSION['id'] = $_GET["id"]; } 
 
-    } ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +33,10 @@ if(isset($_GET["id"])){
     <link rel="stylesheet" href="../styles/form_styles/add_drugs.css" />
   </head>
   <body>
-    <form action="../view_tables/view_drugs.php" method="GET">
+  <form action="../tables/editable/manage_drugs.php" method="GET">
       <input type="submit" value="View Drugs Table" />
     </form>
-    <form class="drug-form" action="../updators/drug.updator.php" method="POST">
+    <form class="drug-form" action="../../updators/drug.updator.php" method="POST">
       <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
       <header id="drugs-form-header">
@@ -70,6 +72,24 @@ if(isset($_GET["id"])){
         value="<?php echo $administration_method;?>"
         required
       />
+      <label for="dosage_mg">Dosage (mg)</label>
+      <input
+        type="number"
+        min="0"
+        max="9999"
+        id="dosage_mg"
+        name="dosage_mg"
+        value="<?php echo $dosage_mg; ?>"
+      />
+      <label for="drug_quantity">Drug Quantity</label>
+      <input
+        type="number"
+        min="0"
+        max="9999"
+        id="drug_quantity"
+        name="drug_quantity"
+        value="<?php echo $drug_quantity; ?>"
+      />
       <label for="drug_price">Drug price</label>
       <input
         type="number"
@@ -82,7 +102,12 @@ if(isset($_GET["id"])){
         required
       />
       <label for="expiry_date">Expiry date</label>
-      <input type="date" id="expiry_date" name="expiry_date" value="<?php echo $expiry_date;?>"/><br />
+      <input
+        type="date"
+        id="expiry_date"
+        name="expiry_date"
+        value="<?php echo $expiry_date;?>"
+      /><br />
       <button type="submit" name="submit" value="update">Update</button><br />
     </form>
   </body>

@@ -1,3 +1,7 @@
+@import url('form-styles/universals/topbar.css');
+@import url('form_styles/universals/footer.css');
+@import url('form_styles/universals/patient_details.css');
+
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background: aliceblue;

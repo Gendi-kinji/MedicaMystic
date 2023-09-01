@@ -1,3 +1,6 @@
+@import url('form_styles/universals/topbar.css');
+@import url('form_styles/universals/footer.css');
+
 body{
     text-align: center;
     background:aliceblue;
@@ -11,10 +14,35 @@ body{
     margin: 0% 0% 0% 50%;
     text-align: right;
 }
-a{
-    padding:14px;
-    width:10%;
-    background-color: black;
-    color:white
-    
+.user-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    justify-items: center;
+    align-items: center;
+}
+.user-options a{
+    font-size: 20px;
+    padding: 10px;
+    width: 80%;
+    background-color: rgb(53, 105, 237);
+    color:white;
+    text-decoration: none;
+    height: 60px;
+    line-height:50px;
+}
+.user-options a:hover{
+    background: rgb(69, 69, 69);
+}
+@media(max-width:850px){
+    .user-options{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media(max-width:600px){
+    .user-options{
+        display: flex;
+        flex-direction: column;
+    }
 }

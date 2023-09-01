@@ -1,3 +1,6 @@
+@import url('form_styles/universals/topbar.css');
+@import url('form_styles/universals/footer.css');
+
 body{
     text-align: center;
     background:aliceblue;

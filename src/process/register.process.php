@@ -20,8 +20,24 @@
         //Run error handler and user registration:
         $register->registerUser();
 
-        //Go back to home page after registering successfully:
-        header("location: ../home.php?error=none");
+        // switch-case block that sets the redirect page depending on the user type:
+            switch ($user_type) {
+                case "pharmacist":
+                    $redirect_page = "../register_details/pharmacy_details.php";
+                    break;
+                case "patient":
+                    $redirect_page = "../register_details/patient_details.php";
+                    break;
+                case "doctor":
+                    $redirect_page = "../register_details/doctor_details.php";
+                    break;
+                case "supervisor":
+                    $redirect_page = "../register_details/supervisor_details.php";
+                    break;
+                case "pharmaceutical_company":
+                    $redirect_page = "../register_details/pharmaceutical_details.php";
+                }
+                header("Location: ".$redirect_page."?error=none");
 
     }
     

@@ -33,19 +33,19 @@ if(isset($_GET["id"])){
     <title>Pharmaceutical Form</title>
   </head>
   <body>
-    <form action="../view_tables/view_pharmaceutical.php" method="GET">
+  <form action="../tables/editable/manage_pharmaceutical.php" method="GET">
       <input type="submit" value="View Pharmaceutical Table" />
     </form>
     <form
       class="pharmaceutical-form"
-      action="../updators/pharmaceutical.updator.php"
+      action="../../updators/pharmaceutical.updator.php"
       method="POST"
     >
       <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
       <header id="pharmaceutical-form-header">
         <h3 id="pharmaceutical-form-title">Pharmaceutical Form</h3>
-        <h4>Enter your details below</h4>
+        <h4>Enter details below</h4>
       </header>
       <label for="company_name">Company Name</label>
       <input

@@ -6,15 +6,30 @@
     require "../../classes/views/tableview.class.php";
     require "../../classes/views/dataview.class.php";
 
+    // Details for drug details container:$
+    $prescription_id = "";
     $drug_id = "";
     $trade_name = "";
     $drug_formula = "";
     $administration_method = "";
+    $quantity = 0;
+    $dosage_mg = "";
     $drug_price = "";
     $expiry_date = "";
 
     session_start();
-    $keys = ['drug_id', 'trade_name', 'drug_formula', 'administration_method', 'drug_price', 'expiry_date'];
+    $keys = [
+        'drug_id', 
+        'trade_name', 
+        'drug_formula', 
+        'administration_method',
+        'dosage_mg',
+        'quantity', 
+        'drug_price', 
+        'expiry_date',
+        'prescription_id'
+    ];
+
     $all_keys_exist = true;
     foreach ($keys as $key) {
         if (!array_key_exists($key, $_SESSION)) {
@@ -28,9 +43,20 @@
         $trade_name = $_SESSION['trade_name'];
         $drug_formula = $_SESSION['drug_formula'];
         $administration_method = $_SESSION['administration_method'];
+        $dosage_mg = $_SESSION['dosage_mg'];
+        $quantity = $_SESSION['quantity'];
         $drug_price = $_SESSION['drug_price'];
         $expiry_date = $_SESSION['expiry_date'];
+        $prescription_id = $_SESSION['prescription_id'];
+
+    
     }
+
+    if(!empty($_GET['id'])){
+        $prescription_id = $_GET['id'];
+    }
+    
+       # print_r($_SESSION);
 
     
 ?>
@@ -45,16 +71,19 @@
 </head>
 <body>
     <!--Dispense drugs page script-->
-    <script src="../../scripts/dispense_drugs.js"></script>
+    <script type="module" src="../../scripts/dispense_drugs.js"></script>
  
     <!--page topbar-->
-    <div class="topbar">
-        <h1>MedicaMystic Dispensary</h1>
-    </div>
+    <?php
+      include '../../common_sections/topbar.php';
+    ?><br>
     <!--container for the main content of the page-->
     <div class="maincontainer">
         <div class="main-header">
             <h2>Dispense Drugs</h2>
+            <a href="../../tables/read_only/view_invoice_details.php">View dispensed drugs</a><br>
+            <a href="../../tables/read_only/view_presc_details.php">View prescription details</a><br>
+            <a href="../../tables/select_record/select_prescription.php">Select prescription</a><br><br>
         </div>
         <div class="main-content">
             <!--search components-->
@@ -70,6 +99,7 @@
                             <label for="trade_name">Search Name</label>
                             <input type="radio" name="search_type" value="trade_name">
                         </div>
+                        <label for="quantity">Quantity</label>
                     </div>
                     <!--Dropdowns populated by database-->
                     <div class="search-dropdowns">
@@ -77,14 +107,25 @@
                         <?php
                             $drug = new Drug();
                             $drug_IDs = $drug->getIDs();
-                            DataView::fillDropdown($drug_IDs);
+                            if(count($drug_IDs)==0){
+                                echo "No records in DB<br><br>";
+                            } else{
+                                DataView::fillDropdown($drug_IDs);
+                            }
                         ?>
                         <!--trade_names-->
                         <?php
                             $drug = new Drug();
                             $trade_names = $drug->getTradeNames();
-                            DataView::fillDropdown($trade_names);
+                            if(count($trade_names)==0){
+                                echo "No records in DB<br><br>";
+                            }else{
+                                DataView::fillDropdown($trade_names);
+                            }
                         ?>
+                        <input type="number" min="1" max="100" name="selected_quantity" required>
+                        <input type="hidden" id="prescription_id" name="prescription_id" value="<?php echo $prescription_id?>">
+                        <input type="hidden" id="page_type" name="page_type" value="dispense">
                     </div>
                     <div class="search-button">
                         <button type="submit" name="search" value="search_drug" class="btn-actions btn-search">Search</button>     
@@ -94,10 +135,13 @@
                 <div class="drug-details-container">
                     <!--Details are revealed here after clicking 'search'-->
                     <div class="drug-details">
+                        <span>Prescription ID: <?php echo $prescription_id; ?></span>
                         <span>Drug ID:  <?php echo $drug_id?></span>
                         <span>Trade Name:  <?php echo $trade_name; ?></span>
                         <span>Formula: <?php echo $drug_formula; ?></span>
                         <span>Administration:  <?php echo $administration_method; ?></span>
+                        <span>Dosage: <?php echo $dosage_mg; ?></span>
+                        <span>Quantity: <?php echo $quantity; ?></span>
                         <span>Drug Price:  <?php echo $drug_price; ?></span>
                         <span>Expiry date:  <?php echo $expiry_date; ?></span>
                     </div>
@@ -113,10 +157,13 @@
                     <table class="drugs-table">
                         <thead>
                             <tr>
+                                <th>Prescr ID</th>
                                 <th>Drug ID</th>
                                 <th>Trade Name</th>
                                 <th>Formula</th>
                                 <th>Administration</th>
+                                <th>Dosage (mg) </th>
+                                <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Expiry Date</th>
                             </tr>

@@ -25,7 +25,7 @@ if(isset($_POST["submit"])){
      $doctor->updateDoctor($doctor_data, $id);
 
      //Go back to  page after updating successfully:
-     header("location: ../view_tables/view_doctors.php?error=none");
+     header("location: ../tables/editable/manage_doctors.php?error=none");
 
 
 }

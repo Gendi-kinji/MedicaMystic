@@ -8,10 +8,32 @@
     <title>Pharmaceutical Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_pharmaceutical.php" method="GET">
-        <input type="submit" value="View Pharmaceutical Table">
-    </form>
-    <form class="pharmaceutical-form" action="../process/pharmaceutical.process.php" method="POST">
+    <?php
+        $user_id = "";
+        // Start a session
+        session_start();
+        if(isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+            echo '<span> User id: '.$user_id.'</span>';
+        } else{
+            echo "<span style='color: red;'>User id not set.</span>";
+        }
+
+        // Display error messages if there are any
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            echo '<ul id="error_msg">';
+            foreach ($_SESSION['errors'] as $error) {
+                echo '<li>' . htmlspecialchars($error) . '</li>';
+            }
+            echo '</ul>';
+
+            // Clear the errors from the session
+            unset($_SESSION['errors']);
+        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
+            echo '<span id="success_msg">Record added successfully</span>';
+        }
+    ?>
+    <form class="pharmaceutical-form" action="../process/process_reg_details/pharmaceutical-details.process.php" method="POST">
     <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="pharmaceutical-form-header">
@@ -29,6 +51,7 @@
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
         </datalist><br>
+        <input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id?>">
         <button type="submit" name="submit" value="submit">Submit</button><br>
     </form>
 </body>

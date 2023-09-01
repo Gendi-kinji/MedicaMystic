@@ -7,7 +7,9 @@ class SignIn extends DatabaseHandler{
         $stmt->bind_param("ss", $user_name, $user_name);
         if(!$stmt->execute()){
             $stmt = null;
-            header('Location: ../../sign_in.php?error=stmtfailed');
+            session_start();
+            $_SESSION['error'] = 'Statement failed';
+            header('Location: ../../sign_in.php');
             exit();
         }
 
@@ -16,7 +18,9 @@ class SignIn extends DatabaseHandler{
         //Check the result:
         if($result->num_rows==0){
             $stmt = null;
-            header("location: ../../sign_in.php?error=usernotfound");
+            session_start();
+            $_SESSION['error'] = 'User not found';
+            header("location: ../../sign_in.php");
             exit();
         }
 
@@ -25,7 +29,9 @@ class SignIn extends DatabaseHandler{
 
         if($checkPwd == false){
             $stmt = null;
-            header("location: ../../sign_in.php?error=incorrectpassword");
+            session_start();
+            $_SESSION['error'] = 'Incorrect password';
+            header("location: ../../sign_in.php");
             exit();
         }
         elseif($checkPwd == true){
@@ -35,8 +41,10 @@ class SignIn extends DatabaseHandler{
             $stmt->bind_param("sss", $user_name, $user_name, $pwdHashed[0]["user_pass"]);
 
             if(!$stmt->execute()){
-                $stmt = null; // delete the statement
-                header("Location: ../../sign_in.php?error=stmtfailed"); // send back to page
+                $stmt = null;
+                session_start(); // delete the statement
+                $_SESSION['error'] = 'Statement failed';
+                header("Location: ../../sign_in.php"); // send back to page
                 exit(); // leave the script
             }
 		}
@@ -47,7 +55,9 @@ class SignIn extends DatabaseHandler{
         //Check the result:
         if($result->num_rows==0){
             $stmt = null;
-            header("location: ../../sign_in.php?error=usernotfound");
+            session_start();
+            $_SESSION['error'] = 'User not found';
+            header("location: ../../sign_in.php");
             exit();
         }
 
@@ -55,8 +65,6 @@ class SignIn extends DatabaseHandler{
 		$_SESSION["user_id"] = $user[0]["user_id"];
 		$_SESSION["user_name"] = $user[0]["user_name"];
         $_SESSION["user_type"] = $user[0]["user_type"];
-
-
     }
 }
 ?>

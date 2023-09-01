@@ -5,6 +5,8 @@ if(isset($_POST["submit"])){
         'trade_name'=> $_POST['trade_name'],
         'drug_formula' => $_POST['drug_formula'],
         'administration_method'=> $_POST['administration_method'],
+        'dosage_mg'=>$_POST['dosage_mg'],
+        'drug_quantity'=>$_POST['drug_quantity'],
         'drug_price' => $_POST['drug_price'],
         'expiry_date' => $_POST['expiry_date']
      ];
@@ -23,7 +25,7 @@ if(isset($_POST["submit"])){
      $drug->updateDrug($drug_data, $id);
 
      //Go back to  page after updating successfully:
-     header("location: ../view_tables/view_drugs.php?error=none");
+     header("location: ../tables/editable/manage_drugs.php?error=none");
 
 
 }

@@ -20,8 +20,8 @@ if(isset($_POST["submit"])){
      $pharmacy = new Pharmacy();
      $pharmacy->updatePharmacy($pharmacy_data, $id);
 
-     //Go back to page after updating successfully:
-     header("location: ../view_tables/view_pharmacy.php?error=none");
+     //Go back to  page after updating successfully:
+     header("location: ../tables/editable/manage_pharmacy.php?error=none");
 
 
 }

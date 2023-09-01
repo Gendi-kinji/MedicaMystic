@@ -11,9 +11,16 @@ class Patient extends DatabaseHandler{
     public function getPatient($search_value){
         return $this->getData('tbl_patients', 'patient_ssn', $search_value);
     }
+    public function getPatientByUserId($search_value){
+        return $this->getData('tbl_patients', 'user_id', $search_value);
+    }
 
     public function getAllPatients(){
         return $this->getTable('tbl_patients');
+    }
+
+    public function getSSNs(){
+        return $this->getColumn('patient_ssn', 'tbl_patients');
     }
 
     public function updatePatient($patient_data, $unique_value){

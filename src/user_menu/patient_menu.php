@@ -1,3 +1,11 @@
+<?php
+require '../classes/connection.class.php';
+require '../classes/databasehandler.class.php';
+require '../classes/models/patient.class.php';
+require "../classes/models/prescription.class.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,18 +13,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
-    <style>
-    .patient{
-        display: flex;
-        flex-direction: row;
-    }
-    </style>
 </head>
 <body style="text-align:center;">
+<?php
+      include '../common_sections/topbar.php';
+    ?><br>
     <?php
-        // Resume the session started by the verifyUserDetails() function and reclaim the user_name:
         session_start();
-        $user_name = $_SESSION['user_name'];
+        if(isset($_SESSION['user_name'])){
+            $user_name = $_SESSION['user_name'];
+        }else{
+            $user_name = 'user';
+        }
+        if(isset($_SESSION['user_id'])){
+            $user_id = $_SESSION['user_id'];
+
+            //Grabbing the patientSSN
+            $patient = new Patient();
+            $patient_data = $patient->getPatientByUserId($user_id);
+            $patient_ssn = $patient_data[0]['patient_ssn'];
+
+            $_SESSION['patient_ssn'] = $patient_ssn;
+        }
+
+        # print_r($_SESSION);
     ?>
     <header class="page-header">
          <!--Displaying the username on the page-->
@@ -25,11 +45,12 @@
        
     </header>
     <hr>
-    <a class="patient" href="">Patient details</a>
-    <a class="patient" href="">Invoices</a>
-    <a class="patient" href="">View Prescriptions</a>
-    <a class="patient" href="">Doctor Appointments</a>
-    <br>
-    <a class="make" href="">Make Payment</a>
+    <div class="user-options">
+        <a class="patient" href="patient_options/patient_profile.php">Patient details</a>
+        <a class="patient" href="patient_options/patient_invoices.php">Invoices</a>
+        <a class="patient" href="patient_options/patient_prescriptions.php">View Prescriptions</a>
+        <!--<a class="patient" href="">Doctor Appointments</a>-->
+        <!--<a class="make" href="">Make Payment</a>-->
+    </div>
 </body>
 </html>

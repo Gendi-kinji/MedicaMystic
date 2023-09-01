@@ -2,14 +2,19 @@
     require "../classes/connection.class.php";
     require "../classes/databasehandler.class.php";
     require "../classes/models/supervisor.class.php";
+    require "../classes/formoperator.class.php";
 
-    $supervisorData = [
-        'supervisor_firstname' => $_POST['supervisor_firstname'],
-        'supervisor_lastname' => $_POST['supervisor_lastname']
-    ];
-
-    $supervisor = new Supervisor();
-    $supervisor->addSupervisor($supervisorData);
+    // Process supervisor form
+    $form_processed = FormOperator::processSupervisorForm();
+    
+    // redirect to form page:
+    if($form_processed){
+        session_start();
+        $_SESSION['success'] = true;
+        header('Location: ../add/add_supervisor.php?error=none');
+    } else{
+        header('Location: ../add/add_supervisor.php?error=addfailed');
+    }
 
     // redirect to form page:
     header('Location: ../add/add_supervisor.php?error=none');

@@ -12,6 +12,9 @@ require "../classes/webapputils.class.php"
 </head>
 <body style="text-align:center;">
     <?php
+      include '../common_sections/topbar.php';
+    ?>
+    <?php
         // Resume the session started by the processing page and reclaim the admin_name:
         session_start();
         if(isset($_SESSION['admin_name'])){
@@ -36,10 +39,13 @@ require "../classes/webapputils.class.php"
                 <?php WebAppUtils::generateFilesList("add", "add_");?>
             </div>
             <div class="tables-nav">
-                <h3>Tables</h3>
-                <?php WebAppUtils::generateFilesList("view_tables", "view_")?>
+                <h3>Manage DB Tables</h3>
+                <?php WebAppUtils::generateFilesList("/tables/editable", "manage_")?>
             </div>
         </div>
-    </div>
+    </div><br>
+    <?php
+      include '../common_sections/footer.php';
+    ?>
 </body>
 </html>

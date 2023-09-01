@@ -1,4 +1,5 @@
 <?php
+
 class AdminLoginContr extends AdminLogin{
     private $admin_name;
     private $admin_pass;
@@ -10,6 +11,8 @@ class AdminLoginContr extends AdminLogin{
 	
 	public function SignInAdmin(){
 		if($this->emptyInput() == false){
+            session_start();
+            $_SESSION['error'] = "empty input";
 			header("location: ../../admin_login.php?error=emptyinput");
 			exit();
 		}

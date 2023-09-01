@@ -34,19 +34,22 @@ if(isset($_GET["id"])){
     <title>Doctors Form</title>
   </head>
   <body>
-    <form action="../view_tables/view_doctors.php" method="GET">
+    <?php
+      include '../common_sections/topbar.php';
+    ?><br>
+    <form action="../tables/editable/manage_doctors.php" method="GET">
       <input type="submit" value="View Doctors Table" />
     </form>
     <form
       class="doctor-form"
-      action="../updators/doctor.updator.php"
+      action="../../updators/doctor.updator.php"
       method="POST"
     >
       <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
       <header id="doctor-form-header">
         <h3 id="doctor-form-title">Doctors Form</h3>
-        <h4>Enter your details below</h4>
+        <h4>Enter details below</h4>
       </header>
       <label for="doctor_firstname">First Name</label>
       <input
@@ -116,6 +119,6 @@ if(isset($_GET["id"])){
         <option value="+256">Uganda</option></datalist
       ><br />
       <button type="submit" name="submit" value="Update">Update</button><br />
-    </form>
+    </form><br>
   </body>
 </html>

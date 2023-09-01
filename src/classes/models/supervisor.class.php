@@ -11,7 +11,9 @@ class Supervisor extends DatabaseHandler{
     public function getSupervisor($search_value){
         return $this->getData('tbl_supervisors', 'supervisor_id', $search_value);
     }
-
+    public function getSupervisorByUserId($search_value){
+        return $this->getData('tbl_pharmacy', 'user_id', $search_value);
+    }
     public function getAllSupervisors(){
         return $this->getTable('tbl_supervisors');
     }

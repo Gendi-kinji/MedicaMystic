@@ -1,0 +1,175 @@
+@import url('universals/topbar.css');
+@import url('universals/footer.css');
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eaeaea;
+}
+th, td{
+    border: 1px solid black;
+}
+table{
+    border-collapse: collapse;
+    margin: 0% auto;
+    width: 100%;
+    background-color: white;
+}
+
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: rgb(234, 246, 255);
+    margin: 15px 15px 0px;
+    box-shadow: 0px 0px 0px 0px rgb(0, 0, 0, 0.5);
+}
+.main-header{
+    text-align: center;
+}
+.main-content{
+    display: flex;
+    flex-direction: row;
+}
+.main-left{
+    width: 45%;
+    margin: 0 0 2% 2%;
+}
+.main-right{
+    margin: 0 2% 2% 5%;
+    width: 50%;
+}
+.main-left h4{
+    text-align: center;
+}
+.drug-search{
+    display: flex;
+    flex-direction: row;
+}
+.search-labels{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    font-size: 15px;
+}
+.search-dropdowns{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    justify-content: space-between;
+}
+.search-labels label, .search-dropdowns input {
+    display: inline-block;
+    vertical-align: middle;
+    justify-content: center;
+}
+.search-button{
+    width: 25%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.prescription-details-container{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+.prescription-details{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 5px;
+}
+.add-button{
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.table-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.btn-actions{
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: rgb(173, 173, 173);
+    font-family: inherit;
+    padding: 3px 5px;
+}
+.btn-search{
+    border: 1px ridge rgba(17, 62, 165, 0.797);
+    background-color: rgba(17, 75, 212, 0.797);
+}
+.btn-search:hover{
+    background-color: rgba(12, 53, 150, 0.797);
+
+}
+.btn-add{
+    border: 1px ridge rgb(0, 157, 0);
+    background-color: rgb(0, 199, 0)
+}
+.btn-add:hover{
+    background-color: rgb(0, 114, 0)
+
+}
+.table-buttons button{
+    border: 1px solid purple;
+    background-color: rgb(193, 2, 193);
+}
+.table-buttons button:hover{
+    background-color: rgb(117, 0, 128)
+}
+
+/*media queries*/
+@media(max-width: 1220px){
+    .main-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .prescriptions-table-container table{
+        margin: 0 0 0 0px;
+    }
+}
+
+@media(max-width: 1000px){
+    .prescriptions-table-container table{
+        margin: 0 0 0 0px;
+    }
+}
+
+@media(max-width: 825px){
+    .prescriptions-table-container table{
+        margin: 0 0 0 0px;
+    }
+}
+@media(max-width: 780px){
+    .prescriptions-table-container table{
+        margin: 0px 0 0 0px;
+        font-size: 12px;
+    }
+    .drug-details-container, .search-labels{
+        font-size: 14px;
+    }
+}
+@media(max-width: 600px){
+    .drug-details-container, .prescriptions-table-container, .btn-actions, select{
+        font-size: 10px;
+    }
+    .search-labels{
+        font-size: 12px;
+        
+    }
+    .search-dropdowns{
+        margin: 0 0 0 23px;
+    }
+}
+@media(max-width: 580px){
+    .prescriptions-table-container table, .drug-details-container{
+        font-size: 8px;
+    }
+}

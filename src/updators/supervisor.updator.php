@@ -4,6 +4,8 @@ if(isset($_POST["submit"])){
      $supervisor_data = [
         'supervisor_firstname'=> $_POST['supervisor_firstname'],
         'supervisor_lastname' => $_POST['supervisor_lastname'],
+        'supervisor_phone' => $_POST['supervisor_phone'],
+        'pharmacy_id' => $_POST['pharmacy_id']
      ];
 
      //Restart the session to reclaim the id:
@@ -19,8 +21,8 @@ if(isset($_POST["submit"])){
      $supervisor = new Supervisor();
      $supervisor->updateSupervisor($supervisor_data, $id);
 
-     //Go back to  page after updating successfully:
-     header("location: ../view_tables/view_supervisors.php?error=none");
+    //Go back to  page after updating successfully:
+    header("location: ../tables/editable/manage_supervisors.php?error=none");
 
 
 }

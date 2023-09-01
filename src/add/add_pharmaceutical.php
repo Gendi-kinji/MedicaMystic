@@ -8,7 +8,25 @@
     <title>Pharmaceutical Form</title>
 </head>
 <body>
-    <form action="../view_tables/view_pharmaceutical.php" method="GET">
+    <?php
+        // Start a session
+        session_start();
+
+        // Display error messages if there are any
+        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
+            echo '<ul id="error_msg">';
+            foreach ($_SESSION['errors'] as $error) {
+                echo '<li>' . htmlspecialchars($error) . '</li>';
+            }
+            echo '</ul>';
+
+            // Clear the errors from the session
+            unset($_SESSION['errors']);
+        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
+            echo '<span id="success_msg">Record added successfully</span>';
+        }
+    ?>
+    <form action="../tables/editable/manage_pharmaceutical.php" method="GET">
         <input type="submit" value="View Pharmaceutical Table">
     </form>
     <form class="pharmaceutical-form" action="../process/pharmaceutical.process.php" method="POST">
@@ -16,7 +34,7 @@
     being run-->
         <header id="pharmaceutical-form-header">
             <h3 id="pharmaceutical-form-title">Pharmaceutical Form</h3>
-            <h4>Enter your details below</h4>
+            <h4>Enter details below</h4>
         </header>
         <label for="company_name">Company Name</label>
         <input type="text" id="company_name" name="company_name" placeholder="Pharmaceutical name..." required>

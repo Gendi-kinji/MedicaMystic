@@ -1,3 +1,11 @@
+<?php
+require '../classes/connection.class.php';
+require '../classes/databasehandler.class.php';
+require '../classes/models/pharmacy.class.php';
+require '../classes/models/user.class.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +13,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmacy Page</title>
     <link rel="stylesheet" href="../styles/user_menu.css">
-    <style>
-        .pharmacy{
-            display:flex;
-            flex-direction: row;
-        }
-        .medicine{
-            display:flex;
-            flex-direction:row;
-        }
-    </style>
 </head>
 <body style="text-align:center;">
     <?php
-        // Resume the session started by the verifyUserDetails() function and reclaim the user_name:
-        session_start();
-        $user_name = $_SESSION['user_name'];
+      include '../common_sections/topbar.php';
+    ?><br>
+    <?php
+            session_start();
+            if(isset($_SESSION['user_name'])){
+                $user_name = $_SESSION['user_name'];
+            }else{
+                $user_name = 'user';
+            }
+            if(isset($_SESSION['user_id'])){
+                $user_id = $_SESSION['user_id'];
+            }else{
+                echo '<span>User ID not set.</span>';
+            }
+
+            //Getting the pharmacy ID:
+            $pharmacy = new Pharmacy();
+            $pharmacy_record = $pharmacy->getPharmacyByUserId($user_id);
+            $_SESSION['pharmacy_id'] = $pharmacy_record[0]['pharmacy_id'];
+
+            print_r($_SESSION);
     ?>
     <header class="page-header">
          <!--Displaying the username on the page-->
@@ -29,11 +45,14 @@
        
     </header>
     <hr>
-    <a class="pharmacy" href="">Pharmacy Details</a>
-    <a class="pharmacy" href="">Manage Inventory</a>
-    <a class="pharmacy" href="">View Prescriptions</a>
-    <a class="pharmacy" href="">Dispense Medicine</a>
-    <a class="medicine" href="">Manage Supervisors</a>
-    <a class="medicine" href="">Purchase drugs</a>
+    <div class="user-options">
+        <a href="pharmacy_options/pharmacy_profile.php">Pharmacy Details</a>
+        <a href="../tables/editable/manage_drugs.php">Manage Drug Inventory</a>
+        <a href="../tables/read_only/view_presc_details.php">View Prescriptions</a>
+        <a href="../tables/select_record/select_prescription.php">Dispense Medicine</a>
+        <a href="../tables/editable/manage_supervisors.php">Manage Supervisors</a>
+        <!--<a href="">Purchase drugs</a>-->
+    </div>
+    
 </body>
 </html>

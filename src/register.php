@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="./styles/register.css">
     <title>Registration page</title>
 </head>
 
@@ -10,10 +10,10 @@
     <div class="register-form-container">
         <header class="form-header">
             <h2>MedicaMystic Dispensary</h2>
-            <img id="digital-pharmacy" alt="image of digital pharmacy" src="form_icons/online-pharmacy.png">
+            <img id="digital-pharmacy" alt="image of digital pharmacy" src="./form_icons/online-pharmacy.png">
             <hr>
         </header>
-        <form class="register-form" action="/process/register.process.php" method="POST">
+        <form class="register-form" action="./process/register.process.php" method="POST">
             <h3>REGISTER</h3>
             <h4>Enter your details below</h4>
             <label for="user_name">Username</label>

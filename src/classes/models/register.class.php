@@ -6,7 +6,10 @@ class Register extends DatabaseHandler{
         
         // Inserting the details and the hashed_pass:
         $userData['user_pass'] = $hashed_pass;
-        $this->setData('tbl_users', $userData);
+        $user_id = $this->setData('tbl_users', $userData, true);
+
+        session_start();
+        $_SESSION['user_id'] = $user_id;
     }
 
     protected function checkUser($user_name, $user_email){

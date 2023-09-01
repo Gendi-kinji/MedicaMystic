@@ -9,13 +9,17 @@ if(isset($_GET["id"])){
     $supervisor = new Supervisor();
     $supervisor_row = $supervisor->getSupervisor($id);
 
+    $pharmacy_id = null;
+
     // Extract values: 
     $supervisor_firstname = $supervisor_row[0]['supervisor_firstname'];
     $supervisor_lastname = $supervisor_row[0]['supervisor_lastname'];
+    $supervisor_phone = $supervisor_row[0]['supervisor_phone'];
 
     // Starting a session to hold the id:
     session_start();
     $_SESSION['id'] = $_GET["id"];
+    $pharmacy_id = $_SESSION['pharmacy_id'];
 
     } ?>
 
@@ -30,19 +34,19 @@ if(isset($_GET["id"])){
     <style></style>
   </head>
   <body>
-    <form action="../view_tables/view_supervisors.php" method="GET">
+  <form action="../tables/editable/manage_supervisors.php" method="GET">
       <input type="submit" value="View Supervisors Table" />
     </form>
     <form
       class="supervisor-form"
-      action="../updators/supervisor.updator.php"
+      action="../../updators/supervisor.updator.php"
       method="POST"
     >
       <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
       <header id="supervisor-form-header">
         <h3 id="supervisor-form-title">Supervisor Form</h3>
-        <h4>Enter your details below</h4>
+        <h4>Enter details below</h4>
       </header>
       <label for="supervisor_firstname">First Name</label>
       <input
@@ -62,15 +66,21 @@ if(isset($_GET["id"])){
         required
         value = "<?php echo $supervisor_lastname;?>"
       />
-      <!--<label for="supervisor_address">Address</label>
-        <input type="text" id="supervisor_address" name="supervisor_address" placeholder="Address..." required>
         <label for="supervisor_phone">Phone</label>
-        <input type="text" id="supervisor_phone" name="supervisor_phone" list="country-codes" required>
+        <input 
+          type="text" 
+          id="supervisor_phone" 
+          name="supervisor_phone" 
+          list="country-codes" 
+          value="<?php echo $supervisor_phone?>" 
+          required
+        />
         <datalist id="country-codes">
             <option value="+254">Kenya</option>
             <option value="+255">Tanzania</option>
             <option value="+256">Uganda</option>
-        </datalist><br>-->
+        </datalist><br>
+        <input type="hidden" id="pharmacy_id" name="pharmacy_id" value="<?php echo $pharmacy_id?>">
         <button type="submit" name="submit" value="Update">Update</button><br />
     </form>
   </body>
