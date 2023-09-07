@@ -12,7 +12,7 @@
         require "../classes/connection.class.php";
         require "../classes/databasehandler.class.php";
         require "../classes/models/register.class.php";
-        require "../classes/controllers/register-contr.class.php";
+        require "../classes/controllers/RegisterContr.class.php";
 
         //Instantiate register controller:
         $register = new RegisterContr($user_name, $user_email, $user_type, $user_pass, $user_pass_confirm);
