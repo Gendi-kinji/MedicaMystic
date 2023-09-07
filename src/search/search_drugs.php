@@ -1,7 +1,5 @@
 <?php
-require '../classes/connection.class.php';
-require '../classes/databasehandler.class.php';
-require '../classes/models/drug.class.php';
+require_once "../inc/autoloader.inc.php";
 
 if (isset($_POST['search'])) {
     // Get the selected value from the dropdown list

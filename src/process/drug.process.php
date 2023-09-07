@@ -1,9 +1,7 @@
 <?php
 if(isset($_POST)){
-    require "../classes/connection.class.php";
-    require "../classes/databasehandler.class.php";
-    require "../classes/models/drug.class.php";
-    require "../classes/formoperator.class.php";
+    // Include important files:
+    require_once "../inc/autoloader.inc.php";
 
     $form_processed = FormOperator::processDrugForm();
     if($form_processed){

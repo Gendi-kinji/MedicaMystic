@@ -1,10 +1,6 @@
 <?php
-
-require '../classes/connection.class.php';
-require '../classes/databasehandler.class.php';
-require '../classes/models/invoice.class.php';
-require '../classes/models/invoice-item.class.php';
-require '../classes/models/drug.class.php';
+// Include important files:
+require_once "../inc/autoloader.inc.php";
 
 // Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -1,8 +1,6 @@
 <?php
-    require "../../classes/connection.class.php";
-    require "../../classes/databasehandler.class.php";
-    require "../../classes/models/patient.class.php";
-    require "../../classes/formoperator.class.php";
+    // Include important files:
+    require_once "../../inc/autoloader.inc.php";
 
     // Process patient form
     $form_processed = FormOperator::processpatientForm();
