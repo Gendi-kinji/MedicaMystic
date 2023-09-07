@@ -7,10 +7,13 @@
         $admin_pass = $_POST['admin_pass'];
         
         // Include important files:
+        require_once "../inc/autoloader.inc.php";
+        /*
         require "../classes/connection.class.php";
         require "../classes/databasehandler.class.php";
         require "../classes/models/admin-login.class.php";
         require "../classes/controllers/admin-login-contr.class.php";
+        */
 
         //Instantiate register controller:
         $sign_in = new AdminLoginContr($admin_name, $admin_pass);

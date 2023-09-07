@@ -8,10 +8,14 @@
         $admin_pass_confirm = $_POST['admin_pass_confirm'];
 
         // Include important files:
+        require_once "../inc/autoloader.inc.php";
+        
+        /*
         require "../classes/connection.class.php";
         require "../classes/databasehandler.class.php";
         require "../classes/models/admin-register.class.php";
         require "../classes/controllers/admin-register-contr.class.php";
+        */
 
         //Instantiate admin controller:
         $admin = new AdminRegisterContr($admin_name, $admin_email, $admin_pass, $admin_pass_confirm);
