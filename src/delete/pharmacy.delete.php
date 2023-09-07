@@ -1,7 +1,5 @@
 <?php
-require "../classes/connection.class.php";
-require "../classes/databasehandler.class.php";
-require "../classes/models/pharmacy.class.php";
+require_once "../inc/autoloader.inc.php";
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];

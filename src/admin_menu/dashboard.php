@@ -1,5 +1,6 @@
 <?php
-require "../classes/webapputils.class.php"
+// Include important files:
+    require_once "../inc/autoloader.inc.php";
 ?>
 
 <!DOCTYPE html>

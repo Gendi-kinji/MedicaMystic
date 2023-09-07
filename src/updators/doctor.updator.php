@@ -16,9 +16,7 @@ if(isset($_POST["submit"])){
      $id = $_SESSION['id'];
 
      // Include important files:
-     require "../classes/connection.class.php";
-     require "../classes/databasehandler.class.php";
-     require "../classes/models/doctor.class.php";
+     require_once "../inc/autoloader.inc.php";
 
      //Instantiate the doctor class:
      $doctor = new Doctor();
