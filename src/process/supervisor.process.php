@@ -1,8 +1,6 @@
 <?php
-    require "../classes/connection.class.php";
-    require "../classes/databasehandler.class.php";
-    require "../classes/models/supervisor.class.php";
-    require "../classes/formoperator.class.php";
+    // Include important files:
+    require_once "../inc/autoloader.inc.php";
 
     // Process supervisor form
     $form_processed = FormOperator::processSupervisorForm();

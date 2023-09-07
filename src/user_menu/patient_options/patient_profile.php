@@ -1,9 +1,5 @@
 <?php
-require '../../classes/connection.class.php';
-require '../../classes/databasehandler.class.php';
-require '../../classes/models/patient.class.php';
-require '../../classes/views/pageview.class.php';
-require '../../classes/models/user.class.php';
+require_once "../../inc/autoloader.inc.php";
 ?>
 
 

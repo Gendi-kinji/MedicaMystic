@@ -1,8 +1,6 @@
 <?php
 if(isset($_GET["id"])){
-    require "../classes/connection.class.php";
-    require "../classes/databasehandler.class.php";
-    require "../classes/models/doctor.class.php";
+    require_once "../inc/autoloader.inc.php";
 
     $id = $_GET["id"];
 

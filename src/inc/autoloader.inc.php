@@ -16,6 +16,10 @@ spl_autoload_register(function ($class_name) {
 
         if (file_exists($file_path)) {
             require_once $file_path;
+            // Log the loaded class and file path (for debugging)):
+            echo "Loaded class: $class_name from $file_path<br>";
+        } else{
+            echo "File not found: $file_path<br>";
         }
     }
 
@@ -31,7 +35,11 @@ spl_autoload_register(function ($class_name) {
 
         if (file_exists($file_path)) {
             require_once $file_path;
+            // Log the loaded class and file path (for debugging)):
+            echo "Loaded class: $class_name from $file_path<br>";
             break; // Stop after loading the first matching file
+        } else{
+            echo "File not found: $file_path<br>";
         }
     }
 });

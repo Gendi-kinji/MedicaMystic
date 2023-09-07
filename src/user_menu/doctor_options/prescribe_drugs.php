@@ -1,11 +1,5 @@
 <?php
- require "../../classes/connection.class.php";
- require "../../classes/databasehandler.class.php";
- require "../../classes/models/patient.class.php";
- require "../../classes/models/drug.class.php";
- require "../../classes/views/pageview.class.php";
- require "../../classes/views/tableview.class.php";
- require "../../classes/views/dataview.class.php";
+require_once "../../inc/autoloader.inc.php";
 
  // Getting the current date:
  $date_today = date("Y-m-d");
