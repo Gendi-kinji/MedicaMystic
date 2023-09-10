@@ -9,10 +9,14 @@
         $user_pass_confirm = $_POST['user_pass_confirm'];
 
         // Include important files:
+<<<<<<< HEAD
         require "../classes/connection.class.php";
         require "../classes/databasehandler.class.php";
         require "../classes/models/register.class.php";
         require "../classes/controllers/register-contr.class.php";
+=======
+        require_once "../inc/autoloader.inc.php";
+>>>>>>> b815580a5c76338f316a6f78c8aa984cfba7411e
 
         //Instantiate register controller:
         $register = new RegisterContr($user_name, $user_email, $user_type, $user_pass, $user_pass_confirm);
