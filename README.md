@@ -30,6 +30,7 @@ The system should:
 ### Class Diagram
 ![Class Diagram](img/class_diagram.jpg)
 ---
+Note: Project Wireframe can be found in - [Wireframe](https://github.com/Gendi-kinji/Web2023/blob/main/project_documentation/wireframe.pdf)
 ## Project Collaborators:
 [151168 - Isaboke, Fidel Agade](https://github.com/Fidelisaboke) <br>
 [150909 - Kithinji, George Fundi](https://github.com/Gendi-kinji)
