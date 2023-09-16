@@ -1,4 +1,5 @@
 <?php
+include 'inc/autoloader.inc.php';
 class Drug extends DatabaseHandler{
 
     public function __construct(){
