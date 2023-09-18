@@ -43,6 +43,13 @@
             </div>
         </form>
     </body>
+    <script>
+        // Script to make the error or success message disappear after 3 seconds
+        setTimeout(function(){
+            document.getElementById("error_msg").style.display = "none";
+            document.getElementById("success_msg").style.display = "none";
+        }, 3000);
+    </script>
 </html>
 
 

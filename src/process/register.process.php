@@ -9,10 +9,8 @@
         $user_pass_confirm = $_POST['user_pass_confirm'];
 
         // Include important files
-      
         require_once "../inc/autoloader.inc.php";
-
-
+        
         //Instantiate register controller:
         $register = new RegisterContr($user_name, $user_email, $user_type, $user_pass, $user_pass_confirm);
 
