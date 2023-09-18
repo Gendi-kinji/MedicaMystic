@@ -44,6 +44,8 @@
                     <input type="text" id="trade_name" name="trade_name" placeholder="Trade name..." required>
                     <label for="drug_formula">Drug Formula</label>
                     <input type="text" id="drug_formula" name="drug_formula" placeholder="Formula..." required>
+                    <label for="drug_category">Drug Category</label>
+                    <input type="text" id="drug_category" name="drug_category" placeholder="Category..." required>
                     <label for="administration_method">Administration Method</label>
                     <input type="text" id="administration_method" name="administration_method" placeholder="Method..." required>
                     <label for="dosage_mg">Dosage (mg)</label>
