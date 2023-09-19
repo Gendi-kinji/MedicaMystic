@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2023 at 04:20 PM
+-- Generation Time: Sep 19, 2023 at 07:16 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -62,13 +62,27 @@ CREATE TABLE `tbl_doctors` (
 
 CREATE TABLE `tbl_drugs` (
   `drug_id` int(9) UNSIGNED NOT NULL,
+  `drug_img_id` int(15) UNSIGNED NOT NULL,
   `trade_name` varchar(30) NOT NULL,
   `drug_formula` varchar(30) NOT NULL,
+  `drug_category` varchar(30) NOT NULL,
   `administration_method` varchar(30) NOT NULL,
   `dosage_mg` int(10) UNSIGNED NOT NULL,
   `drug_quantity` int(15) UNSIGNED NOT NULL,
   `drug_price` float(10,2) UNSIGNED NOT NULL,
   `expiry_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_drug_images`
+--
+
+CREATE TABLE `tbl_drug_images` (
+  `drug_img_id` int(15) UNSIGNED NOT NULL,
+  `image` text NOT NULL,
+  `upload_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -272,7 +286,15 @@ ALTER TABLE `tbl_doctors`
 -- Indexes for table `tbl_drugs`
 --
 ALTER TABLE `tbl_drugs`
-  ADD PRIMARY KEY (`drug_id`);
+  ADD PRIMARY KEY (`drug_id`),
+  ADD KEY `drug_img_id` (`drug_img_id`);
+
+--
+-- Indexes for table `tbl_drug_images`
+--
+ALTER TABLE `tbl_drug_images`
+  ADD PRIMARY KEY (`drug_img_id`),
+  ADD UNIQUE KEY `image` (`image`) USING HASH;
 
 --
 -- Indexes for table `tbl_invoice`
@@ -365,6 +387,12 @@ ALTER TABLE `tbl_drugs`
   MODIFY `drug_id` int(9) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbl_drug_images`
+--
+ALTER TABLE `tbl_drug_images`
+  MODIFY `drug_img_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_invoice`
 --
 ALTER TABLE `tbl_invoice`
@@ -427,6 +455,12 @@ ALTER TABLE `tbl_users`
 --
 ALTER TABLE `tbl_doctors`
   ADD CONSTRAINT `tbl_doctors_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_drugs`
+--
+ALTER TABLE `tbl_drugs`
+  ADD CONSTRAINT `tbl_drugs_ibfk_1` FOREIGN KEY (`drug_img_id`) REFERENCES `tbl_drug_images` (`drug_img_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_invoice`

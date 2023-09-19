@@ -83,6 +83,7 @@ Class FormOperator{
                 $drugData = [
                     'trade_name' => $_POST['trade_name'],
                     'drug_formula' => $_POST['drug_formula'],
+                    'drug_category' => $_POST['drug_category'],
                     'administration_method' => $_POST['administration_method'],
                     'dosage_mg'=> $_POST['dosage_mg'],
                     'drug_quantity'=> $_POST['drug_quantity'],

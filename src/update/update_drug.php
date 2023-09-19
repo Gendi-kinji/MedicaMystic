@@ -10,6 +10,7 @@ if(isset($_GET["id"])){
     // Extract values: 
     $trade_name = $drug_row[0]['trade_name']; 
     $drug_formula = $drug_row[0]['drug_formula'];
+    $drug_category = $drug_row[0]['drug_category'];
     $administration_method = $drug_row[0]['administration_method']; 
     $dosage_mg = $drug_row[0]['dosage_mg']; 
     $drug_quantity = $drug_row[0]['drug_quantity'];
@@ -59,6 +60,15 @@ if(isset($_GET["id"])){
         name="drug_formula"
         placeholder="Formula..."
         value="<?php echo $drug_formula;?>"
+        required
+      />
+      <label for ="drug_category">Drug Category</label>
+      <input
+        type="text"
+        id="drug_category"
+        name="drug_category"
+        placeholder="Category..."
+        value="<?php echo $drug_category;?>"
         required
       />
       <label for="administration_method">Administration Method</label>
