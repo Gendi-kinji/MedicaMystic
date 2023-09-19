@@ -71,8 +71,8 @@ label[for="drug_image"]:hover{
     background: rgb(43, 81, 197);
 }
 .drug-image-section > img{
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 230px;
+    max-height: 230px;
 }
 input{
     width: 100%;

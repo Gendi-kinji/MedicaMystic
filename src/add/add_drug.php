@@ -35,7 +35,7 @@
             </header>
             <div class ="form-wrapper">
                 <div class="drug-image-section">
-                    <img id="drug_image_preview" src="" alt="Drug Image"><br><br>
+                    <img id="drug_image_preview" src="../web_img/flaticon/picture.png" alt="Drug Image"><br><br>
                     <label for="drug_image">Upload drug image</label>
                     <input type="file" id="drug_image" name="drug_image" accept="image/*" onchange="previewImage()" required>
                 </div>
