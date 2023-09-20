@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
 
-=======
->>>>>>> 10653af9b1c0d4159baa1ed8810c8c6a58a60c0d
 class Drug extends DatabaseHandler{
 
     public function __construct(){
