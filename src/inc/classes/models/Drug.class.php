@@ -1,13 +1,12 @@
 <?php
-include 'inc/autoloader.inc.php';
 class Drug extends DatabaseHandler{
 
     public function __construct(){
         
     }
 
-    public function addDrug($drugData){
-        $this->setData('tbl_drugs', $drugData);
+    public function addDrug($drugData, $return_insert_id = true){
+        return $this->setData('tbl_drugs', $drugData, $return_insert_id);
     }
 
     public function getDrugByID($search_value){
@@ -33,6 +32,9 @@ class Drug extends DatabaseHandler{
     public function deleteDrug($unique_value){
         $this->deleteData('tbl_drugs','drug_id', $unique_value);
 
+    }
+    public function addDrugImage($image_data){
+        $this->setData('tbl_drug_images', $image_data);
     }
 
 }
