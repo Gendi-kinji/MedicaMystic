@@ -1,7 +1,9 @@
 <?php
-Class FormOperator{
+class FormOperator
+{
 
-    public static function processDoctorForm(){
+    public static function processDoctorForm()
+    {
         session_start();
         // Initialize an empty array to hold error messages
         $errors = [];
@@ -9,7 +11,15 @@ Class FormOperator{
         // Check if the form has been submitted
         if (isset($_POST['submit'])) {
             // Check if any of the fields are blank
-            if (empty($_POST['doctor_firstname']) || empty($_POST['doctor_surname']) || empty($_POST['doctor_dob']) || empty($_POST['doctor_address']) || empty($_POST['doctor_email']) || empty($_POST['years_of_exp']) || empty($_POST['doctor_phone'])) {
+            if (
+                empty($_POST['doctor_firstname']) ||
+                empty($_POST['doctor_surname']) ||
+                empty($_POST['doctor_dob']) ||
+                empty($_POST['doctor_address']) ||
+                empty($_POST['doctor_email']) ||
+                empty($_POST['years_of_exp']) ||
+                empty($_POST['doctor_phone'])
+            ) {
                 $errors[] = "All fields are required.";
             }
 
@@ -27,7 +37,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the doctorData array
                 $doctorData = [
-                    'user_id'=> $_POST['user_id'],
+                    'user_id' => $_POST['user_id'],
                     'doctor_firstname' => $_POST['doctor_firstname'],
                     'doctor_surname' => $_POST['doctor_surname'],
                     'doctor_dob' => $_POST['doctor_dob'],
@@ -42,23 +52,33 @@ Class FormOperator{
                 $doctor->addDoctor($doctorData);
 
                 return true;
-            } else{
+            } else {
                 $_SESSION['errors'] = $errors;
                 return false;
             }
-        } else{
+        } else {
             return false;
         }
     }
 
-    public static function processDrugForm(){
+    public function processDrugForm()
+    {
         // Initialize an empty array to hold error messages
         $errors = [];
 
         // Check if the form has been submitted
         if (isset($_POST['submit'])) {
             // Check if any of the fields are blank
-            if (empty($_POST['trade_name']) || empty($_POST['drug_formula']) || empty($_POST['administration_method']) || empty($_POST['dosage_mg']) || empty($_POST['drug_quantity']) || empty($_POST['drug_price']) || empty($_POST['expiry_date'])) {
+            if (
+                empty($_POST['trade_name']) ||
+                empty($_POST['drug_formula']) ||
+                empty($_POST['administration_method']) ||
+                empty($_POST['dosage_mg']) ||
+                empty($_POST['drug_quantity']) ||
+                empty($_POST['drug_price']) ||
+                empty($_POST['expiry_date']) ||
+                empty($_FILES['drug_image'])
+            ) {
                 $errors[] = "All fields are required.";
             }
 
@@ -76,6 +96,9 @@ Class FormOperator{
             if ($_POST['drug_price'] < 0) {
                 $errors[] = "Price must be a positive number.";
             }
+            if ($this->validateImage() === null) {
+                $errors[] = "Failed to validate image";
+            }
 
             // Check if there are any errors
             if (empty($errors)) {
@@ -85,34 +108,51 @@ Class FormOperator{
                     'drug_formula' => $_POST['drug_formula'],
                     'drug_category' => $_POST['drug_category'],
                     'administration_method' => $_POST['administration_method'],
-                    'dosage_mg'=> $_POST['dosage_mg'],
-                    'drug_quantity'=> $_POST['drug_quantity'],
+                    'dosage_mg' => $_POST['dosage_mg'],
+                    'drug_quantity' => $_POST['drug_quantity'],
                     'drug_price' => $_POST['drug_price'],
                     'expiry_date' => $_POST['expiry_date'],
                 ];
 
                 // Use the addDrug() function to add the data to the database
                 $drug = new Drug();
-                $drug->addDrug($drugData);
+                $drug_id = $drug->addDrug($drugData);
+
+                // Setting the image data
+                $imageData = [
+                    'drug_id' => $drug_id,
+                    'image' => $this->validateImage(),
+                ];
+
+                // Add the image of the drug to the database
+                $drug->addDrugImage($imageData);
 
                 return true;
-            } else{
+            } else {
                 $_SESSION['errors'] = $errors;
                 return false;
             }
-        } else{
+        } else {
             return false;
         }
     }
 
-    public static function processPatientForm(){
-          // Initialize an empty array to hold error messages
+    public static function processPatientForm()
+    {
+        // Initialize an empty array to hold error messages
         $errors = [];
 
         // Check if the form has been submitted
         if (isset($_POST['submit'])) {
             // Check if any of the fields are blank
-            if (empty($_POST['patient_firstname']) || empty($_POST['patient_surname']) || empty($_POST['patient_dob']) || empty($_POST['patient_address']) || empty($_POST['patient_email']) || empty($_POST['patient_phone'])) {
+            if (
+                empty($_POST['patient_firstname']) ||
+                empty($_POST['patient_surname']) ||
+                empty($_POST['patient_dob']) ||
+                empty($_POST['patient_address']) ||
+                empty($_POST['patient_email']) ||
+                empty($_POST['patient_phone'])
+            ) {
                 $errors[] = "All fields are required.";
             }
 
@@ -130,7 +170,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the patientData array
                 $patientData = [
-                    'user_id'=> $_POST['user_id'],
+                    'user_id' => $_POST['user_id'],
                     'patient_firstname' => $_POST['patient_firstname'],
                     'patient_surname' => $_POST['patient_surname'],
                     'patient_dob' => $_POST['patient_dob'],
@@ -146,16 +186,17 @@ Class FormOperator{
                 $patient->addPatient($patientData);
 
                 return true;
-            } else{
+            } else {
                 $_SESSION['errors'] = $errors;
-                    return false;
+                return false;
             }
-        } else{
+        } else {
             return false;
         }
     }
 
-    public static function processPharmaceuticalForm(){
+    public static function processPharmaceuticalForm()
+    {
         // Start a session
         session_start();
 
@@ -165,7 +206,11 @@ Class FormOperator{
         // Check if the form has been submitted
         if (isset($_POST['submit'])) {
             // Check if any of the fields are blank
-            if (empty($_POST['company_name']) || empty($_POST['company_address']) || empty($_POST['company_phone'])) {
+            if (
+                empty($_POST['company_name']) ||
+                empty($_POST['company_address']) ||
+                empty($_POST['company_phone'])
+            ) {
                 $errors[] = "All fields are required.";
             }
 
@@ -178,7 +223,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the pharmaceuticalData array
                 $pharmaceuticalData = [
-                    'user_id'=> $_POST['user_id'],
+                    'user_id' => $_POST['user_id'],
                     'company_name' => $_POST['company_name'],
                     'company_address' => $_POST['company_address'],
                     'company_phone' => $_POST['company_phone']
@@ -198,8 +243,9 @@ Class FormOperator{
             return false;
         }
     }
-    
-    public static function processPharmacyForm(){
+
+    public static function processPharmacyForm()
+    {
         // Start a session
         session_start();
 
@@ -209,7 +255,11 @@ Class FormOperator{
         // Check if the form has been submitted
         if (isset($_POST['submit'])) {
             // Check if any of the fields are blank
-            if (empty($_POST['pharmacy_name']) || empty($_POST['pharmacy_address']) || empty($_POST['pharmacy_phone'])) {
+            if (
+                empty($_POST['pharmacy_name']) ||
+                empty($_POST['pharmacy_address']) ||
+                empty($_POST['pharmacy_phone'])
+            ) {
                 $errors[] = "All fields are required.";
             }
 
@@ -222,7 +272,7 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the pharmacyData array
                 $pharmacyData = [
-                    'user_id'=> $_POST['user_id'],
+                    'user_id' => $_POST['user_id'],
                     'pharmacy_name' => $_POST['pharmacy_name'],
                     'pharmacy_address' => $_POST['pharmacy_address'],
                     'pharmacy_phone' => $_POST['pharmacy_phone']
@@ -243,7 +293,8 @@ Class FormOperator{
         }
     }
 
-    public static function processPrescriptionForm(){
+    public static function processPrescriptionForm()
+    {
         // Start a session
         session_start();
 
@@ -282,8 +333,10 @@ Class FormOperator{
             }
         } else {
             return false;
-        }}
-    public static function processSupervisorForm(){
+        }
+    }
+    public static function processSupervisorForm()
+    {
         // Start a session
         session_start();
 
@@ -293,7 +346,11 @@ Class FormOperator{
         // Check if the form has been submitted
         if (isset($_POST['submit'])) {
             // Check if any of the fields are blank
-            if (empty($_POST['supervisor_firstname']) || empty($_POST['supervisor_lastname']) || empty($_POST['supervisor_phone'])) {
+            if (
+                empty($_POST['supervisor_firstname']) ||
+                empty($_POST['supervisor_lastname']) ||
+                empty($_POST['supervisor_phone'])
+            ) {
                 $errors[] = "All fields are required.";
             }
 
@@ -306,10 +363,10 @@ Class FormOperator{
             if (empty($errors)) {
                 // No errors, add the data to the supervisorData array
                 $supervisorData = [
-                    'user_id'=> $_POST['user_id'],
+                    'user_id' => $_POST['user_id'],
                     'supervisor_firstname' => $_POST['supervisor_firstname'],
                     'supervisor_lastname' => $_POST['supervisor_lastname'],
-                    'supervisor_phone'=> $_POST['supervisor_phone'],
+                    'supervisor_phone' => $_POST['supervisor_phone'],
                     'pharmacy_id' => $_POST['pharmacy_id']
                 ];
 
@@ -327,6 +384,41 @@ Class FormOperator{
             return false;
         }
     }
-}
 
-?>
+    // Auxillary functions - used in other processing functions
+
+    // Validate the image uploaded - returns image path, or null if image upload failed:
+    private function validateImage()
+    {
+        $uploadFile = null;
+        if (isset($_FILES["drug_image"]) && $_FILES["drug_image"]["error"] == 0) {
+            $image = $_FILES["drug_image"]; // Get the uploaded image
+            // Validate the uploaded image
+            $allowedExtensions = ["jpg", "jpeg", "png", "gif"]; // Allowed file extensions
+            $maxFileSize = 5 * 1024 * 1024; // 5MB max file size
+
+            $uploadDir = __DIR__ . "/../../uploads/"; // Image upload directory - uploads are saved here
+
+            // Check if upload directory exists, if not create it
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            $uploadFile = $uploadDir . basename($image["name"]); // Get the file name
+            $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION)); // Get the file extension
+
+            if (!in_array($imageFileType, $allowedExtensions)) {
+                echo "Only JPG, JPEG, PNG, and GIF files are allowed.\n"; // Check file extension
+            } elseif ($image["size"] > $maxFileSize) {
+                echo "The uploaded image is too large. Maximum file size is 5MB\n."; // Check file size
+            } elseif (!move_uploaded_file($image["tmp_name"], $uploadFile)) {
+                // no appropriate file handling for this at the moment...
+            }
+        } else {
+            // redirect to previous page
+            echo "No image uploaded\n";
+        }
+        return $uploadFile;
+    }
+
+}

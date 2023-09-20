@@ -2,8 +2,10 @@
 if(isset($_POST)){
     // Include important files:
     require_once "../inc/autoloader.inc.php";
-
-    $form_processed = FormOperator::processDrugForm();
+    
+    $formoperator = new FormOperator();
+    $form_processed = $formoperator->processDrugForm();
+    
     if($form_processed){
         session_start();
         $_SESSION['success'] = true;
