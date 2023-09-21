@@ -7,10 +7,15 @@ foreach($drug_info as $drug=>$value){
     if(is_array($value)){
         foreach($value as $info=>$detail){
             echo "<p>".$info."=".$detail."\n"."</p>";
+            if($info=="drug_id"){
+                $drug_image=$drug_detail->getDrugImage($info);
+                foreach($drug_image as $image=>$file){
+                    echo "<p>".$file."</p>";
+            }
         }}
  
 }
 if($drug_detail==null){
     echo "No drug specified";
-}
+}}
 ?>
