@@ -24,6 +24,9 @@
             unset($_SESSION['errors']);
         } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
             echo '<span id="success_msg">Record added successfully</span>';
+
+            // Clear the 'success' from the session
+            unset($_SESSION['success']);
         }
     ?>
     <div class="maincontainer">
@@ -37,6 +40,11 @@
                 <div class="drug-image-section">
                     <img id="drug_image_preview" src="../web_img/flaticon/picture.png" alt="Drug Image"><br><br>
                     <label for="drug_image">Upload drug image</label>
+                    <!-- 
+                        Input for drug image:
+                        - Image preview not working on pressing 'back' button on browser
+                        - Requires fixing if possible
+                    -->
                     <input type="file" id="drug_image" name="drug_image" accept="image/*" onchange="previewImage()" required>
                 </div>
                 <div class="form-content">

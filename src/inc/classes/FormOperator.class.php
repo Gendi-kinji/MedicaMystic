@@ -63,6 +63,8 @@ class FormOperator
 
     public function processDrugForm()
     {
+        session_start();
+
         // Initialize an empty array to hold error messages
         $errors = [];
 
@@ -96,8 +98,23 @@ class FormOperator
             if ($_POST['drug_price'] < 0) {
                 $errors[] = "Price must be a positive number.";
             }
-            if ($this->validateImage() === null) {
-                $errors[] = "Failed to validate image";
+
+            // Check if the expiry date is in the future
+            if ($_POST['expiry_date'] < date("Y-m-d")) {
+                $errors[] = "Expiry date must be in the future.";
+            }
+
+            $imageValidationResult = $this->validateImage(); // Call the validateImage() function
+            $imageValidationErrors = $imageValidationResult['errors']; // Get the validation errors
+            $uploadPath = $imageValidationResult['image']; // Get the file path
+
+            if(empty($uploadPath)){
+                $errors[] = "File path not defined.";
+            }
+
+            if (!empty($imageValidationErrors)) {
+                // There are image validation errors
+                $errors = array_merge($errors, $imageValidationErrors); // Merge image errors with other errors
             }
 
             // Check if there are any errors
@@ -121,7 +138,7 @@ class FormOperator
                 // Setting the image data
                 $imageData = [
                     'drug_id' => $drug_id,
-                    'image' => $this->validateImage(),
+                    'image' => $uploadPath,
                 ];
 
                 // Add the image of the drug to the database
@@ -178,8 +195,6 @@ class FormOperator
                     'patient_email' => $_POST['patient_email'],
                     'patient_phone' => $_POST['patient_phone']
                 ];
-
-                print_r($patientData);
 
                 // Use the addPatient() function to add the data to the database
                 $patient = new Patient();
@@ -390,6 +405,7 @@ class FormOperator
     // Validate the image uploaded - returns image path, or null if image upload failed:
     private function validateImage()
     {
+        $errors = []; // array to hold errors
         $uploadFile = null;
         if (isset($_FILES["drug_image"]) && $_FILES["drug_image"]["error"] == 0) {
             $image = $_FILES["drug_image"]; // Get the uploaded image
@@ -408,17 +424,20 @@ class FormOperator
             $imageFileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION)); // Get the file extension
 
             if (!in_array($imageFileType, $allowedExtensions)) {
-                echo "Only JPG, JPEG, PNG, and GIF files are allowed.\n"; // Check file extension
+                $errors[] = "Only JPG, JPEG, PNG, and GIF files are allowed."; // Check file extension
             } elseif ($image["size"] > $maxFileSize) {
-                echo "The uploaded image is too large. Maximum file size is 5MB\n."; // Check file size
+                $errors[] = "The uploaded image is too large. Maximum file size is 5MB."; // Check file size
             } elseif (!move_uploaded_file($image["tmp_name"], $uploadFile)) {
                 // no appropriate file handling for this at the moment...
             }
         } else {
-            // redirect to previous page
-            echo "No image uploaded\n";
+            // redirect to previous paget
+            $errors[] = "No image uploaded\n";
         }
-        return $uploadFile;
+        return [
+            'image' => $uploadFile,
+            'errors' => $errors
+        ];
     }
 
 }
