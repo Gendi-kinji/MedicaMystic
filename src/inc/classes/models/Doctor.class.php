@@ -6,7 +6,7 @@ class Doctor extends DatabaseHandler{
     }
 
     public function addDoctor($doctorData){
-        $this->setData('tbl_doctors', $doctorData);
+        return $this->setData('tbl_doctors', $doctorData);
     }
 
     public function getDoctor($search_value){

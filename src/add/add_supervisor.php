@@ -1,3 +1,7 @@
+<?php
+// includes and requires go here
+require_once '../inc/status_functions.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,29 +16,7 @@
 </head>
 <body>
     <?php
-        // Start a session
-        session_start();
-
-        // Display error messages if there are any
-        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
-            echo '<ul id="error_msg">';
-            foreach ($_SESSION['errors'] as $error) {
-                echo '<li>' . htmlspecialchars($error) . '</li>';
-            }
-            echo '</ul>';
-
-            // Clear the errors from the session
-            unset($_SESSION['errors']);
-        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
-            echo '<span id="success_msg">Record added successfully</span>';
-        }
-
-        //pharmacy id:
-        if(isset($_SESSION['pharmacy_id'])){
-            $pharmacy_id = $_SESSION['pharmacy_id'];
-        }else{
-            $pharmacy_id = "";
-        }
+        print_form_status(); // print the  success/error status of the form
     ?>
     <form action="../tables/editable/manage_supervisors.php" method="GET">
         <input type="submit" value="View Supervisors Table">

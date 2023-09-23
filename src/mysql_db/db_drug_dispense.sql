@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2023 at 07:54 PM
+-- Generation Time: Sep 23, 2023 at 12:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -293,7 +293,7 @@ ALTER TABLE `tbl_drugs`
 --
 ALTER TABLE `tbl_drug_images`
   ADD PRIMARY KEY (`drug_img_id`),
-  ADD UNIQUE KEY `image` (`image`) USING HASH;
+  ADD UNIQUE KEY `image` (`image`) USING HASH,
 
 --
 -- Indexes for table `tbl_invoice`
@@ -371,7 +371,7 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_admins`
 --
 ALTER TABLE `tbl_admins`
-  MODIFY `admin_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `admin_id` int(15) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_doctors`
