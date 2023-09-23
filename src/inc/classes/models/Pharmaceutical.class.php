@@ -5,7 +5,7 @@ class Pharmaceutical extends DatabaseHandler{
     }
 
     public function addPharmaceutical($pharmaceuticalData){
-        $this->setData('tbl_pharmaceutical', $pharmaceuticalData);
+        return $this->setData('tbl_pharmaceutical', $pharmaceuticalData);
     }
 
     public function getPharmaceutical($search_value){

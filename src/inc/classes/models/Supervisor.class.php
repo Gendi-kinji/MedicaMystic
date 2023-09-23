@@ -5,7 +5,7 @@ class Supervisor extends DatabaseHandler{
     }
 
     public function addSupervisor($supervisorData){
-        $this->setData('tbl_supervisors', $supervisorData);
+        return $this->setData('tbl_supervisors', $supervisorData);
     }
 
     public function getSupervisor($search_value){

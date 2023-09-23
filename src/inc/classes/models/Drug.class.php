@@ -35,7 +35,7 @@ class Drug extends DatabaseHandler{
 
     }
     public function addDrugImage($image_data){
-        $this->setData('tbl_drug_images', $image_data);
+        return $this->setData('tbl_drug_images', $image_data);
     }
 
 }

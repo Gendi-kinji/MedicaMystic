@@ -4,7 +4,7 @@ class PrescriptionItem extends DatabaseHandler{
         
     }
     public function addPrescriptionItem($itemsData) {
-        $this->setData('tbl_prescription_items', $itemsData);
+        return $this->setData('tbl_prescription_items', $itemsData);
     }
     public function getPrescriptionItem($search_value){
         return $this->getData('tbl_prescription_items', 'presc_item_id', $search_value);

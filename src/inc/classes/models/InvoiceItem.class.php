@@ -4,7 +4,7 @@ class InvoiceItem extends DatabaseHandler{
         
     }
     public function addInvoiceItem($itemsData) {
-        $this->setData('tbl_invoice_items', $itemsData);
+        return $this->setData('tbl_invoice_items', $itemsData);
     }
     public function getInvoiceItem($search_value){
         return $this->getData('tbl_invoice_items', 'invoice_item_id', $search_value);
