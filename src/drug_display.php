@@ -2,10 +2,13 @@
 include 'inc/autoloader.inc.php';
 
 $drug_detail = new Drug();
-$drug_id = 1;
-
+$drug_id = $drug_detail->getIDS();
+print_r($drug_id);
+foreach($drug_id as $id=>$info){
+  if(is_array($info)){
+    foreach($info as $key=>$value){
 // Assuming $drug_detail->getDrugImage($drug_id) returns an array of image URLs
-$drug_image = $drug_detail->getDrugImage($drug_id);
+$drug_image = $drug_detail->getDrugImage($value);
 
 // Define the base URL for image access
 $imageBaseUrl = "http://localhost:3000/";
@@ -20,6 +23,6 @@ foreach ($drug_image as $image) {
               
               echo '<img src="' . $imageBaseUrl .'/uploads/'.basename($urlate) . '" alt="Drug Image">';}
             else{
-    echo "<p> " .  $file. "</p>";}
-    }}}
+    echo "<ul> " .  $file. "</ul>";}
+    }}}}}}
 ?>

@@ -14,11 +14,11 @@ $pageTitle="Drug Dashboard";
 echo $pageTitle; ?></title>
     <nav>
         <ul>
-            <li><a href="">Painkillers</a></li>
-            <li><a href="">Antibiotics</a></li>
-            <li><a href="">Vaccines</a></li>
-            <li><a href="">Antidepressants</a></li>
-            <li><a href="">Antifungals</a></li>
+            <li><a href="drug_details.php?category=painkillers">Painkillers</a></li>
+            <li><a href="drug_details.php?category=antibiotics">Antibiotics</a></li>
+            <li><a href="drug_details.php?category=vaccines">Vaccines</a></li>
+            <li><a href="drug_details.php?category=antidepressant">Antidepressants</a></li>
+            <li><a href="drug_details.php?category=antifungals">Antifungals</a></li>
 
         </ul>
     </nav>

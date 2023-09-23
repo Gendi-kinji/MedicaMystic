@@ -10,7 +10,7 @@ foreach($drug_info as $drug=>$value){
             if($info=="drug_id"){
                 $drug_image=$drug_detail->getDrugImage($info);
                 foreach($drug_image as $image=>$file){
-                    echo "<p>".$file."</p>";
+                    echo "<ul>".$file."</ul>";
             }
         }}
  
