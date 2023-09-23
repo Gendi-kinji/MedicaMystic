@@ -293,7 +293,7 @@ ALTER TABLE `tbl_drugs`
 --
 ALTER TABLE `tbl_drug_images`
   ADD PRIMARY KEY (`drug_img_id`),
-  ADD UNIQUE KEY `image` (`image`) USING HASH,
+  ADD UNIQUE KEY `image` (`image`) USING HASH;
 
 --
 -- Indexes for table `tbl_invoice`
