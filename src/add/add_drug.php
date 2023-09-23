@@ -1,3 +1,8 @@
+<?php
+// includes and requires go here
+require_once '../inc/status_functions.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,25 +14,7 @@
 </head>
 <body>
     <?php
-        // Start a session
-        session_start();
-
-        // Display error messages if there are any
-        if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])) {
-            echo '<ul id="error_msg">';
-            foreach ($_SESSION['errors'] as $error) {
-                echo '<li>' . htmlspecialchars($error) . '</li>';
-            }
-            echo '</ul>';
-
-            // Clear the errors from the session
-            unset($_SESSION['errors']);
-        } elseif(isset($_SESSION['success']) && !empty($_SESSION['success']) && $_SESSION['success']){
-            echo '<span id="success_msg">Record added successfully</span>';
-
-            // Clear the 'success' from the session
-            unset($_SESSION['success']);
-        }
+        print_form_status(); // print the  success/error status of the form
     ?>
     <div class="maincontainer">
         <form class="drug-form" action="../process/drug.process.php" method="POST" enctype="multipart/form-data">

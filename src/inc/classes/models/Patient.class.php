@@ -5,7 +5,7 @@ class Patient extends DatabaseHandler{
     }
 
     public function addPatient($patientData) {
-        $this->setData('tbl_patients', $patientData);
+       return $this->setData('tbl_patients', $patientData);
     }
 
     public function getPatient($search_value){
