@@ -1,6 +1,8 @@
 <?php
 include 'inc/autoloader.inc.php';
+if(isset($_GET['category'])){
 $drug_detail=new Drug();
+
 $drug_info=$drug_detail->getAllDrugs();
 foreach($drug_info as $drug=>$value){
     
@@ -17,5 +19,5 @@ foreach($drug_info as $drug=>$value){
 }
 if($drug_detail==null){
     echo "No drug specified";
-}}
+}}}
 ?>

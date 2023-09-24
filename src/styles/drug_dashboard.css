@@ -21,7 +21,7 @@ a{
     justify-content: center;
    
 }
-div.detail{
+/*div.detail{
     display:flex;
     flex-direction:column;
     justify-self: center;
@@ -31,4 +31,4 @@ div.detail{
     box-sizing: content-box;
     border:1px solid black;
     border-collapse:  collapse;
-}
+}*/
