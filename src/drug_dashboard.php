@@ -46,12 +46,20 @@ include 'common_sections/topbar.php';
            
             $drug = new Drug();
             $data = $drug->getDrugByCategory($category);
-            print_r($data);
+           
+            foreach($data as $key=>$value) {
+                if(is_array($value)) {
+                    foreach($value as $key2=>$value2) {
+                       if($key2=="drug_id"){
+                         generateImage($value2);
+                         echo "<a href=drug_details.php?id=".$value2.">"."View details"."</a>";
+                       }
 
-            if ($data!=null) {
+                    }}}
+            //if ($data!=null) {
                 echo "<ul>";
-                foreach ($data as $item=>$value) {
-                    if(is_array($value)) {
+               // foreach ($data as $item=>$value) {
+                  /*  if(is_array($value)) {
                         foreach($value as $drug=>$type){
                     echo "<li>" . $drug .$type. "</li>";
                 }
@@ -59,9 +67,9 @@ include 'common_sections/topbar.php';
             } else {
                 echo "No drugs found in this category.";
             }}
-        }}
+        }}//*/}
         ?>
-        <a href="drug_details.php">View Details</a>
+        
     </div>
 </body>
 </html>

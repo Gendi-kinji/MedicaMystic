@@ -1,15 +1,15 @@
 <?php
 include 'inc/autoloader.inc.php';
 
-$drug_detail = new Drug();
-function generateImage(){
+
+function generateImage($value){
 $drug_detail = new Drug();
 
-$drug_id = $drug_detail->getIDS();
-print_r($drug_id);
-foreach($drug_id as $id=>$info){
-  if(is_array($info)){
-    foreach($info as $key=>$value){
+//$drug_id = $drug_detail->getIDS();
+//print_r($drug_id);
+//foreach($drug_id as $id=>$info){
+  //if(is_array($info)){
+   // foreach($info as $key=>$value){
 // Assuming $drug_detail->getDrugImage($drug_id) returns an array of image URLs
 $drug_image = $drug_detail->getDrugImage($value);
 
@@ -25,8 +25,8 @@ foreach ($drug_image as $image) {
               $urlate=$file;
               
               echo '<img src="' . $imageBaseUrl .'/uploads/'.basename($urlate) . '" alt="Drug Image">';}
-            else{
-    echo "<ul> " .  $file. "</ul>";}
-    }}}}}}}
+       
+    }}}}
+    
 ?>
 

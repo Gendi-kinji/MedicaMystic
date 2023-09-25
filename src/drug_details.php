@@ -1,23 +1,25 @@
 <?php
 include 'inc/autoloader.inc.php';
-if(isset($_GET['category'])){
+require_once 'drug_display.php';
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    generateImage($id);
 $drug_detail=new Drug();
 
-$drug_info=$drug_detail->getAllDrugs();
+$drug_info=$drug_detail->getDrugByID($id);
 foreach($drug_info as $drug=>$value){
     
     if(is_array($value)){
         foreach($value as $info=>$detail){
-            echo "<p>".$info."=".$detail."\n"."</p>";
-            if($info=="drug_id"){
-                $drug_image=$drug_detail->getDrugImage($info);
-                foreach($drug_image as $image=>$file){
-                    echo "<ul>".$file."</ul>";
-            }
+            echo "<div>";
+            echo "<ul>";
+            echo "<li>".$info."=".$detail."\n"."</li>";
+            echo "</ul>";
+            echo "</div>";
+          
         }}
  
 }
-if($drug_detail==null){
-    echo "No drug specified";
-}}}
+
+}
 ?>
