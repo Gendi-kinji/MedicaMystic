@@ -4,6 +4,7 @@ include 'inc/autoloader.inc.php';
 $drug_detail = new Drug();
 function generateImage(){
 $drug_detail = new Drug();
+
 $drug_id = $drug_detail->getIDS();
 print_r($drug_id);
 foreach($drug_id as $id=>$info){
