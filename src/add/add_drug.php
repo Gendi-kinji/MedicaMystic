@@ -58,6 +58,7 @@ require_once '../inc/status_functions.inc.php';
     </div>
 </body>
 <script>
+    // Preview the image uploaded
     function previewImage(){
         const inputFile = document.getElementById('drug_image');
         const preview = document.getElementById('drug_image_preview');
