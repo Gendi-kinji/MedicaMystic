@@ -1,75 +1,83 @@
-<?php 
-include 'inc/autoloader.inc.php';
+<?php
 require_once 'drug_display.php';
-include 'common_sections/topbar.php';
-
 ?>
-<head>
-    <link rel="stylesheet" href="./styles/drug_dashboard.css"/>
-
-    <title><?php 
-    $pageTitle = "Drug Dashboard"; // Default title
-    if(isset($_GET["category"])){
-        $category = $_GET["category"];
-        if($category=="painkillers"){
-            $pageTitle="Painkillers";
-        }
-        if($category=="antibiotics"){
-            $pageTitle= "Antibiotics";
-        }
-        if($category=="vaccines"){
-            $pageTitle="Vaccines";
-        }
-        if($category== "antidepressant"){
-            $pageTitle= "Antidepressants";
-        }
-        if($category== "antifungals"){
-            $pageTitle= "Antifungals";
-        }
+<?php
+$pageTitle = "Drug Dashboard"; // Default title
+if (isset($_GET["category"])) {
+    $category = $_GET["category"];
+    if ($category == "painkillers") {
+        $pageTitle = "Painkillers";
     }
-    echo $pageTitle;
-    ?></title>
-    <nav>
-        <ul>
-            <li><a href="drug_dashboard.php?category=painkillers">Painkillers</a></li>
-            <li><a href="drug_dashboard.php?category=antibiotics">Antibiotics</a></li>
-            <li><a href="drug_dashboard.php?category=vaccines">Vaccines</a></li>
-            <li><a href="drug_dashboard.php?category=antidepressant">Antidepressants</a></li>
-            <li><a href="drug_dashboard.php?category=antifungals">Antifungals</a></li>
-        </ul>
-    </nav>
-</head>
-<body>
-    <div class="detail">
-        <?php
-       if (isset($_GET["category"])) {
-           
-            $drug = new Drug();
-            $data = $drug->getDrugByCategory($category);
-           
-            foreach($data as $key=>$value) {
-                if(is_array($value)) {
-                    foreach($value as $key2=>$value2) {
-                       if($key2=="drug_id"){
-                         generateImage($value2);
-                         echo "<a href=drug_details.php?id=".$value2.">"."View details"."</a>";
-                       }
+    if ($category == "antibiotics") {
+        $pageTitle = "Antibiotics";
+    }
+    if ($category == "vaccines") {
+        $pageTitle = "Vaccines";
+    }
+    if ($category == "antidepressant") {
+        $pageTitle = "Antidepressants";
+    }
+    if ($category == "antifungals") {
+        $pageTitle = "Antifungals";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
 
-                    }}}
-            //if ($data!=null) {
-                echo "<ul>";
-               // foreach ($data as $item=>$value) {
-                  /*  if(is_array($value)) {
-                        foreach($value as $drug=>$type){
-                    echo "<li>" . $drug .$type. "</li>";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/drug_dashboard.css" />
+    <title>
+        <?php echo $pageTitle ?>
+    </title>
+</head>
+
+<body>
+    <?php
+    include 'common_sections/topbar.php';
+    ?>
+    <div class="maincontainer">
+        <div class="wrapper">
+            <nav class="nav-bar">
+                <h4>Select a category</h4>
+                <hr>
+                <ul>
+                    <li><a href="drug_dashboard.php?category=painkillers">Painkillers</a></li>
+                    <li><a href="drug_dashboard.php?category=antibiotics">Antibiotics</a></li>
+                    <li><a href="drug_dashboard.php?category=vaccines">Vaccines</a></li>
+                    <li><a href="drug_dashboard.php?category=antidepressant">Antidepressants</a></li>
+                    <li><a href="drug_dashboard.php?category=antifungals">Antifungals</a></li>
+                </ul>
+            </nav>
+            <div class="main-content">
+                <?php
+                if (isset($_GET["category"])) {
+                    $category = $_GET["category"];
+                    $drug = new Drug();
+                    $data = $drug->getDrugsByCategory($category);
+
+                    foreach ($data as $row) {
+                        echo "<div class='drug-hero'>";
+                        echo "<div class='drug-details'>";
+                        foreach ($row as $key => $value) {
+                            if ($key === "drug_id") {
+                                echo generateImage($value);
+                                echo "<a href=drug_details.php?id=" . $value . ">" . "View details" . "</a>";
+                            }
+                        }
+                        echo "</div>";
+                        echo "</div>";
+                    }
                 }
-                echo "</ul>";
-            } else {
-                echo "No drugs found in this category.";
-            }}
-        }}//*/}
-        ?>
-        
+
+                ?>
+
+            </div>
+        </div>
     </div>
+    <?php include 'common_sections/footer.php'; ?>
 </body>
+
 </html>

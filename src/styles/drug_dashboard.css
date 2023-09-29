@@ -1,34 +1,97 @@
-nav > ul{
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-end;
-   
+@import url("form_styles/universals/topbar.css");
+@import url("form_styles/universals/footer.css");
+* {
+  margin: 0;
+  padding: 0;
 }
-nav >ul > *{
-    padding: 5px;
-    list-style-type: none;
+body {
+  background-color: aliceblue;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
-    
-
-a{
-    border:1px solid black;
-    white-space: 3px;
-    
-    color:black;
-    border-collapse: collapse;
-    border-radius: 3px;
+/*Wrapper for the whole page*/
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+/*Nav bar and main content*/
+.nav-bar,
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+/*Navigation bar goes left*/
+.nav-bar {
+  width: 20%;
+  background: rgb(214, 10, 221);
+}
+/*Main content goes right*/
+.main-content {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.nav-bar > h4 {
+  margin: 10% 0%;
+  font-weight: 300;
+}
+.nav-bar a {
+  padding: 5% 5%;
+  text-align: center;
+  text-decoration: none;
+  height: inherit;
+  line-height: 10px;
+}
+.nav-bar hr {
+  width: 100%;
+  border: 1px solid rgb(255, 255, 255);
+  margin-bottom: 5%;
+}
+.nav-bar a:hover {
+  background: rgb(177, 9, 183);
+}
+.nav-bar a.active-page {
+  background: rgb(43, 2, 44);
+  color: rgb(255, 255, 255);
+}
+.nav-bar a.active-page:hover {
+  background: rgb(117, 3, 121);
+}
+.nav-bar > ul {
+  justify-content: flex-end;
+}
+.nav-bar > ul > * {
+  padding: 5px;
+  list-style-type: none;
+}
+.nav-bar > ul > li > a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.drug-hero {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  height: 80%;
+  margin: 0% 10%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+.drug-details{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-   
+    align-items: center;
+    height: 100%;
 }
-/*div.detail{
-    display:flex;
-    flex-direction:column;
-    justify-self: center;
-    justify-content: center;
-    width:30%;
-    height:40%;
-    box-sizing: content-box;
-    border:1px solid black;
-    border-collapse:  collapse;
-}*/
+.drug-details > img{
+    width: 50%;
+    height: 50%;
+}
+.drug-details > a, .drug-details > span{
+    margin: 5% 0%;
+}
+.drug-details > a{
+    text-decoration: none;
+    color: rgb(12, 12, 219);
+}

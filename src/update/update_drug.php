@@ -87,14 +87,13 @@ if(isset($_GET["id"])){
               required
             />
             <label for="drug_category">Drug Category</label>
-            <input
-              type="text"
-              id="drug_category"
-              name="drug_category"
-              placeholder="Category..."
-              value="<?php echo $drug_category;?>"
-              required
-            />
+            <select id="drug_category" name="drug_category" value="<?php echo $drug_category?>">
+              <option value="painkillers">Painkillers</option>
+              <option value="antibiotics">Antibiotics</option>
+              <option value="vaccines">Vaccines</option>
+              <option value="antidepressants">Antidepressants</option>
+              <option value="antifungals">Antifungals</option>
+            </select>
             <label for="administration_method">Administration Method</label>
             <input
               type="text"

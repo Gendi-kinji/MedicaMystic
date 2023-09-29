@@ -74,7 +74,7 @@ label[for="drug_image"]:hover{
     max-width: 230px;
     max-height: 230px;
 }
-input{
+input, select{
     width: 100%;
     padding: 10px;
     background:rgb(240, 240, 240);

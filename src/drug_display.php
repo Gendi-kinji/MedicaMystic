@@ -1,32 +1,27 @@
 <?php
 include 'inc/autoloader.inc.php';
 
+// Function that generates an image tag for an image
+function generateImage($value)
+{
+  // Create a new instance of the Drug class
+  $drug = new Drug();
+  $image_row = $drug->getDrugImage($value);
 
-function generateImage($value){
-$drug_detail = new Drug();
+  if (empty($image_row)) {
+    // Return a default tag if image doesn't exist
+    return '<img class="drug_images" src="http://localhost:3000/uploads/default.png" alt="Drug Image">';
+  } else {
+    // Define the base URL for image access
+    $imageBaseUrl = "http://localhost:3000/";
 
-//$drug_id = $drug_detail->getIDS();
-//print_r($drug_id);
-//foreach($drug_id as $id=>$info){
-  //if(is_array($info)){
-   // foreach($info as $key=>$value){
-// Assuming $drug_detail->getDrugImage($drug_id) returns an array of image URLs
-$drug_image = $drug_detail->getDrugImage($value);
+    // Extract the first image URL from the array
+    $imageURL = $image_row[0]['image'];
 
-// Define the base URL for image access
-$imageBaseUrl = "http://localhost:3000/";
-$urlate=[];
+    // Return the image URL in form of an image tag
+    $output = '<img class="drug_images" src="' . $imageBaseUrl . '/uploads/' . basename($imageURL) . '" alt="Drug Image">';
+    return $output;
+  }
+}
 
-// Loop through the image URLs and display them
-foreach ($drug_image as $image) {
-    if(is_array($image)) {
-        foreach($image as $url=>$file){
-            if($url=="image"){
-              $urlate=$file;
-              
-              echo '<img src="' . $imageBaseUrl .'/uploads/'.basename($urlate) . '" alt="Drug Image">';}
-       
-    }}}}
-    
 ?>
-

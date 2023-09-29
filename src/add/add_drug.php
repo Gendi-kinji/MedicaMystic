@@ -40,7 +40,13 @@ require_once '../inc/status_functions.inc.php';
                     <label for="drug_formula">Drug Formula</label>
                     <input type="text" id="drug_formula" name="drug_formula" placeholder="Formula..." required>
                     <label for="drug_category">Drug Category</label>
-                    <input type="text" id="drug_category" name="drug_category" placeholder="Category..." required>
+                    <select id="drug_category" name="drug_category">
+                        <option value="painkillers">Painkillers</option>
+                        <option value="antibiotics">Antibiotics</option>
+                        <option value="vaccines">Vaccines</option>
+                        <option value="antidepressants">Antidepressants</option>
+                        <option value="antifungals">Antifungals</option>
+                    </select>
                     <label for="administration_method">Administration Method</label>
                     <input type="text" id="administration_method" name="administration_method" placeholder="Method..." required>
                     <label for="dosage_mg">Dosage (mg)</label>

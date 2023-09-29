@@ -40,7 +40,7 @@ class Drug extends DatabaseHandler{
     public function getDrugImage($search_value){
         return $this->getData('tbl_drug_images', 'drug_id', $search_value);
     }
-    public function getDrugByCategory($search_value){
+    public function getDrugsByCategory($search_value){
         return $this->getData('tbl_drugs', 'drug_category', $search_value);
     }
 
