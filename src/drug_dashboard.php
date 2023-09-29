@@ -79,5 +79,6 @@ if (isset($_GET["category"])) {
     </div>
     <?php include 'common_sections/footer.php'; ?>
 </body>
+<script src="scripts/drug_dashboard.js"></script>
 
 </html>

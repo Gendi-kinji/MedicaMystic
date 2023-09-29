@@ -52,7 +52,7 @@ body {
   background: rgb(177, 9, 183);
 }
 .nav-bar a.active-page {
-  background: rgb(43, 2, 44);
+  background: rgb(71, 3, 72);
   color: rgb(255, 255, 255);
 }
 .nav-bar a.active-page:hover {
