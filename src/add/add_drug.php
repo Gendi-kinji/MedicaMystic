@@ -19,6 +19,7 @@ require_once '../inc/status_functions.inc.php';
     <div class="maincontainer">
         <form class="drug-form" action="../process/drug.process.php" method="POST" enctype="multipart/form-data">
             <a href="../tables/editable/manage_drugs.php">View Drugs Table</a>
+            <a href="../drug_dashboard.php">Back to Dashboard</a>
             <header id="drugs-form-header">
                 <h3 id="drugs-form-title">Drugs Form</h3>
                 <h4>Enter drug details</h4>
@@ -41,11 +42,11 @@ require_once '../inc/status_functions.inc.php';
                     <input type="text" id="drug_formula" name="drug_formula" placeholder="Formula..." required>
                     <label for="drug_category">Drug Category</label>
                     <select id="drug_category" name="drug_category">
-                        <option value="painkillers">Painkillers</option>
-                        <option value="antibiotics">Antibiotics</option>
-                        <option value="vaccines">Vaccines</option>
-                        <option value="antidepressants">Antidepressants</option>
-                        <option value="antifungals">Antifungals</option>
+                        <option value="painkiller">Painkiller</option>
+                        <option value="antibiotic">Antibiotic</option>
+                        <option value="vaccine">Vaccine</option>
+                        <option value="antidepressant">Antidepressant</option>
+                        <option value="antifungal">Antifungal</option>
                     </select>
                     <label for="administration_method">Administration Method</label>
                     <input type="text" id="administration_method" name="administration_method" placeholder="Method..." required>

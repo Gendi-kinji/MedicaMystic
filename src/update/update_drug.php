@@ -39,6 +39,7 @@ if(isset($_GET["id"])){
         method="POST"
       >
         <a href="../tables/editable/manage_drugs.php">View Drugs Table</a>
+        <a href="../drug_dashboard.php">Back to Dashboard</a>
         <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="drugs-form-header">
