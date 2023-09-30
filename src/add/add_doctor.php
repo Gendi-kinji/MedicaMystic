@@ -9,6 +9,7 @@
 </head>
 <body>
     <?php
+        require_once '../inc/status_functions.inc.php';
         print_form_status(); // print the  success/error status of the form
     ?>
     <form action="../tables/editable/manage_doctors.php" method="GET">
