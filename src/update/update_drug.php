@@ -6,6 +6,7 @@ if(isset($_GET["id"])){
 
     $drug = new Drug();
     $drug_row = $drug->getDrugByID($id); 
+    $drug_image = $drug->getDrugImage($id);
 
     // Extract values: 
     $trade_name = $drug_row[0]['trade_name'];
@@ -16,11 +17,22 @@ if(isset($_GET["id"])){
     $drug_quantity = $drug_row[0]['drug_quantity'];
     $drug_price = $drug_row[0]['drug_price']; 
     $expiry_date = $drug_row[0]['expiry_date']; 
+    $image = $drug_image[0]['image'];
+
+    // Define the base URL for image access
+    $imageBaseUrl = "http://localhost:3000/";
+
+    // Build the image URL
+    $imageURL = "";
+    $imageURL = $imageBaseUrl . '/uploads/' . basename($image);
 
     //Starting a session to hold the id: 
     session_start(); 
     $_SESSION['id'] = $_GET["id"]; 
-  } 
+  } else{
+    echo "Error: Drug ID not set.";
+    exit();
+  }
  ?>
 
 <!DOCTYPE html>
@@ -50,7 +62,7 @@ if(isset($_GET["id"])){
           <div class="drug-image-section">
             <img
               id="drug_image_preview"
-              src="../web_img/flaticon/picture.png"
+              src=<?php echo $imageURL; ?>
               alt="Drug Image"
             /><br /><br />
             <label for="drug_image">Upload drug image</label>
@@ -65,6 +77,7 @@ if(isset($_GET["id"])){
               name="drug_image"
               accept="image/*"
               onchange="previewImage()"
+              value = <?php echo $imageURL; ?>
               required
             />
           </div>
@@ -147,4 +160,5 @@ if(isset($_GET["id"])){
       </form>
     </div>
   </body>
+  <script src="../scripts/drug_image_preview.js"></script>
 </html>

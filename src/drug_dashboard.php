@@ -1,5 +1,5 @@
 <?php
-require_once 'drug_display.php';
+require_once 'inc/drug_display.inc.php';
 ?>
 <?php
 $pageTitle = "Drug Dashboard"; // Default title

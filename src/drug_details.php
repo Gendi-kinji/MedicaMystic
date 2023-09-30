@@ -1,6 +1,6 @@
 <?php
 include 'inc/autoloader.inc.php';
-require_once 'drug_display.php';
+require_once 'inc/drug_display.inc.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

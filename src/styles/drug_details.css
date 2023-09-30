@@ -79,3 +79,38 @@ a.btn-update {
 a.btn-update:hover {
   background-color: rgba(6, 202, 39, 0.8);
 }
+
+/*Responsive styles*/
+@media screen and (max-width: 768px) {
+  .maincontainer {
+    width: 100%;
+    height: 100%;
+    margin: 5% 0px;
+  }
+  .wrapper {
+    width: 90%;
+    height: 70%;
+  }
+  .drug-info {
+    flex-direction: column;
+  }
+  .drug-image {
+    width: 80%;
+    height: 50%;
+  }
+  .drug-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .drug-details {
+    width: 80%;
+    height: 50%;
+    font-size: 80%;
+    margin-bottom: 5px;
+  }
+  .drug-details > th,
+  td {
+    padding: 10px 5px;
+  }
+}
