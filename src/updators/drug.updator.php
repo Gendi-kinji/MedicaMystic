@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
 
    //Instantiate the drug class:
    $drug = new Drug();
-   $drug->updateDrug($drug_data, $id);
+   $drug->updateDrug($drugData, $id);
 
    //Go back to  page after updating successfully:
    header("location: ../tables/editable/manage_drugs.php?error=none");
