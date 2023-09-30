@@ -23,10 +23,13 @@ body{
     margin: 0% auto;
 }
 .insert-forms-nav{
-    width: 50%;
+    width: 35%;
 }
 .tables-nav{
-    width: 50%;
+    width: 35%;
+}
+.dashboard-nav{
+    width: 30%;
 }
 h3{
     text-decoration: underline;

@@ -1,3 +1,6 @@
+<?php
+include './inc/status_functions.inc.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,22 +31,13 @@
                     <a href="./admin_register.php">New admin?</a>
                     <br>
                     <?php
-                        // showing error messages
-                        session_start();
-                        if (isset($_SESSION['error'])) {
-                            echo '<p id="error_msg">Error: ' . $_SESSION['error'] . '</p>';
-                            unset($_SESSION['error']);
-                        } else if(isset($_SESSION['success'])){
-                            if($_SESSION['success']===true){
-                                echo '<p id="success_msg">Registration successful</p>';
-                            }
-                            unset($_SESSION['success']);
-                        }
+                        print_login_status()
                     ?>
                 </div>    
             </div>
         </form>
     </body>
+    <script src="./scripts/status_functions.js"></script>
 </html>
 
 

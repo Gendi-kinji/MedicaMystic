@@ -43,6 +43,9 @@
                 <h3>Manage DB Tables</h3>
                 <?php WebAppUtils::generateFilesList("/tables/editable", "manage_")?>
             </div>
+            <div class="dashboard-nav">
+                <h3>Dashboards</h3>
+                <a class='files-link' href='../drug_dashboard.php' target='_blank'>Drug Dashboard</a>
         </div>
     </div><br>
     <?php

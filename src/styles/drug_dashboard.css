@@ -45,9 +45,15 @@ a{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.add-drug{
-    width: 100;
-    text-align: center;
+.add-drug {
+  background-color: rgb(214, 10, 221);
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.add-drug:hover {
+  background-color: rgb(177, 9, 183);
 }
 .nav-bar > h4 {
   margin: 10% 0%;
@@ -123,7 +129,7 @@ a{
 @media screen and (max-width: 500px) {
   .nav-bar {
     font-size: 0.8rem;
-    height: 50vh;
+    height: 100vh;
   }
   .main-content {
     width: 80%;
@@ -152,5 +158,8 @@ a{
 }
   .drug-details > a{
     padding: 2px 5px;
+}
+.add-drug{
+    padding: 5px 10px;
 }
 }

@@ -54,6 +54,7 @@ if (isset($_GET["category"])) {
             <div class="main-content">
                 <div class="add-drug-container">
                     <h4>Can't find the drug you're looking for?</h4>
+                    <br>
                     <a href="add/add_drug.php" class="add-drug">Add a drug</a>
                 </div>
                 <div class="drug-list">
