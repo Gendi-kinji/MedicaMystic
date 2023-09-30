@@ -44,11 +44,11 @@ if (isset($_GET["category"])) {
                 <h4>Select a category</h4>
                 <hr>
                 <ul>
-                    <li><a href="drug_dashboard.php?category=painkillers">Painkillers</a></li>
-                    <li><a href="drug_dashboard.php?category=antibiotics">Antibiotics</a></li>
-                    <li><a href="drug_dashboard.php?category=vaccines">Vaccines</a></li>
+                    <li><a href="drug_dashboard.php?category=painkiller">Painkillers</a></li>
+                    <li><a href="drug_dashboard.php?category=antibiotic">Antibiotics</a></li>
+                    <li><a href="drug_dashboard.php?category=vaccine">Vaccines</a></li>
                     <li><a href="drug_dashboard.php?category=antidepressant">Antidepressants</a></li>
-                    <li><a href="drug_dashboard.php?category=antifungals">Antifungals</a></li>
+                    <li><a href="drug_dashboard.php?category=antifungal">Antifungals</a></li>
                 </ul>
             </nav>
             <div class="main-content">
