@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: aliceblue;
@@ -34,16 +35,23 @@ a{
   width: 80%;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 .add-drug-container{
     width: 100%;
     text-align: center;
     margin: 5% 0%;
 }
+.drug-list-container{
+    width: 100%;
+    margin: 5% 0%;
+    
+}
 .drug-list {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
 }
 .add-drug {
   background-color: rgb(214, 10, 221);

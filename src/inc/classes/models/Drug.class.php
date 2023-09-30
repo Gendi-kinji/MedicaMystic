@@ -28,14 +28,17 @@ class Drug extends DatabaseHandler{
     }
 
     public function updateDrug($drug_data, $unique_value){
-        $this->updateData('tbl_drugs', 'drug_id', $drug_data, $unique_value);
+        return $this->updateData('tbl_drugs', 'drug_id', $drug_data, $unique_value);
     }
     public function deleteDrug($unique_value){
-        $this->deleteData('tbl_drugs','drug_id', $unique_value);
+        return $this->deleteData('tbl_drugs','drug_id', $unique_value);
 
     }
     public function addDrugImage($image_data){
         return $this->setData('tbl_drug_images', $image_data);
+    }
+    public function updateDrugImage($image_data, $unique_value){
+        return $this->updateData('tbl_drug_images', 'drug_id', $image_data, $unique_value);
     }
     public function getDrugImage($search_value){
         return $this->getData('tbl_drug_images', 'drug_id', $search_value);

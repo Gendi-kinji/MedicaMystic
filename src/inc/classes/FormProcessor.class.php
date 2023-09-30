@@ -7,14 +7,22 @@ abstract class FormProcessor implements FormProcessorInterface
     // Abstract methods:
     public abstract function checkAllFields($formData); // Check all fields for errors
     public abstract function insertData($data); // Insert data into the database
-    public function processForm($formData)
+    public abstract function updateData($data, $id); // Update data in the database
+    public function processForm($formData, $id = 0, $action = 'add')
     {
         session_start();
 
         $this->checkAllFields($formData);
 
         if (empty($this->errors)) {
-            $success = $this->insertData($formData);
+            switch($action){
+                case 'add':
+                    $success = $this->insertData($formData);
+                    break;
+                case 'update':
+                    $success = $this->updateData($formData, $id);
+                    break;
+            }
 
             if ($success) {
                 return true;

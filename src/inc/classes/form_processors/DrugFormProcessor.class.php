@@ -9,13 +9,15 @@ class DrugFormProcessor extends FormProcessor
         $this->validatePositiveNumber($formData['drug_quantity']);
         $this->validatePositiveNumber($formData['dosage_mg']);
 
-        // Call the validateImage method from the parent class
-        $this->imageData = $this->validateImage();
-        $imageValidationErrors = $this->imageData['errors'];
+        if (!empty($_FILES['drug_image'])) {
+            // Call the validateImage method from the parent class
+            $this->imageData = $this->validateImage();
+            $imageValidationErrors = $this->imageData['errors'];
 
-        if (!empty($imageValidationErrors)) {
-            // Merge image validation errors with other errors
-            $this->errors = array_merge($this->errors, $imageValidationErrors);
+            if (!empty($imageValidationErrors)) {
+                // Merge image validation errors with other errors
+                $this->errors = array_merge($this->errors, $imageValidationErrors);
+            }
         }
     }
 
@@ -31,12 +33,30 @@ class DrugFormProcessor extends FormProcessor
             'image' => $this->imageData['image_path'],
         ];
 
-        print_r($imageData);
-
         // Add the image of the drug to the database
-        
+
         $drug->addDrugImage($imageData);
 
+        return true;
+    }
+    public function updateData($data, $id)
+    {
+        // Update the data in the database
+        $drug = new Drug();
+        $drug->updateDrug($data, $id);
+
+        // Check if files global variable is empty
+        if(!empty($this->imageData)){
+            // Setting the image data
+        $imageData = [
+            'drug_id' => $id,
+            'image' => $this->imageData['image_path'],
+        ];
+
+        // Add the image of the drug to the database
+        $drug->updateDrugImage($imageData, $id);
+        }
+        
         return true;
     }
 }

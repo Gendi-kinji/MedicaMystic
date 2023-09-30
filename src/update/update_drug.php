@@ -77,8 +77,13 @@ if(isset($_GET["id"])){
               name="drug_image"
               accept="image/*"
               onchange="previewImage()"
-              value = <?php echo $imageURL; ?>
-              required
+            />
+            <!-- Hidden input for the current image -->
+            <input
+             type="hidden"
+             id="current_drug_image" 
+             name="current_drug_image" 
+             value="<?php echo $imageURL; ?>"
             />
           </div>
           <div class="form-content">
@@ -102,11 +107,11 @@ if(isset($_GET["id"])){
             />
             <label for="drug_category">Drug Category</label>
             <select id="drug_category" name="drug_category" value="<?php echo $drug_category?>">
-              <option value="painkillers">Painkillers</option>
-              <option value="antibiotics">Antibiotics</option>
-              <option value="vaccines">Vaccines</option>
-              <option value="antidepressants">Antidepressants</option>
-              <option value="antifungals">Antifungals</option>
+              <option value="painkiller">Painkiller</option>
+              <option value="antibiotic">Antibiotic</option>
+              <option value="vaccine">Vaccine</option>
+              <option value="antidepressant">Antidepressant</option>
+              <option value="antifungal">Antifungal</option>
             </select>
             <label for="administration_method">Administration Method</label>
             <input

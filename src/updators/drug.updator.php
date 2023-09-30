@@ -19,13 +19,18 @@ if (isset($_POST["submit"])) {
    // Include important files:
    require_once "../inc/autoloader.inc.php";
 
-   //Instantiate the drug class:
-   $drug = new Drug();
-   $drug->updateDrug($drug_data, $id);
+   // Process the form:
+   $drugFormProcessor = new DrugFormProcessor();
+   $form_processed = $drugFormProcessor->processForm($drugData, $id, 'update');
 
-   //Go back to  page after updating successfully:
-   header("location: ../tables/editable/manage_drugs.php?error=none");
-
-
+   if ($form_processed) {
+      // redirect to form page:
+      header('Location: ../tables/editable/manage_drugs.php?error=none');
+      exit();
+   } else {
+      // redirect to form page:
+      header('Location: ../tables/editable/manage_drugs.php?error=addfailed');
+      exit();
+   }
 }
 ?>

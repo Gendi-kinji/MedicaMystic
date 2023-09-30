@@ -57,31 +57,33 @@ if (isset($_GET["category"])) {
                     <br>
                     <a href="add/add_drug.php" class="add-drug">Add a drug</a>
                 </div>
-                <div class="drug-list">
-                    <?php
-                    if (isset($_GET["category"])) {
-                        $category = $_GET["category"];
-                        $drug = new Drug();
-                        $data = $drug->getDrugsByCategory($category);
+                <div class="drug-list-container">
+                    <div class="drug-list">
+                        <?php
+                        if (isset($_GET["category"])) {
+                            $category = $_GET["category"];
+                            $drug = new Drug();
+                            $data = $drug->getDrugsByCategory($category);
 
-                        foreach ($data as $row) {
-                            echo "<div class='drug-hero'>";
-                            echo "<div class='drug-details'>";
-                            foreach ($row as $key => $value) {
-                                $drug_id = $row["drug_id"];
-                                $trade_name = $row["trade_name"];
+                            foreach ($data as $row) {
+                                echo "<div class='drug-hero'>";
+                                echo "<div class='drug-details'>";
+                                foreach ($row as $key => $value) {
+                                    $drug_id = $row["drug_id"];
+                                    $trade_name = $row["trade_name"];
 
-                                // Display the image, trade name, and url to the drug details page
-                                echo generateImage($drug_id);
-                                echo "<span class='trade-name'>" . $trade_name . "</span>";
-                                echo "<a href=drug_details.php?id=" . $drug_id . ">" . "View details" . "</a>";
-                                break;
+                                    // Display the image, trade name, and url to the drug details page
+                                    echo generateImage($drug_id);
+                                    echo "<span class='trade-name'>" . $trade_name . "</span>";
+                                    echo "<a href=drug_details.php?id=" . $drug_id . ">" . "View details" . "</a>";
+                                    break;
+                                }
+                                echo "</div>";
+                                echo "</div>";
                             }
-                            echo "</div>";
-                            echo "</div>";
                         }
-                    }
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

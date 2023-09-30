@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit']) && !empty($_FILES['drug_image'])) {
     // Include important files:
     require_once "../inc/autoloader.inc.php";
 
@@ -29,7 +29,8 @@ if (isset($_POST['submit'])) {
     }
 
 } else {
-    echo 'Error: No data submitted.';
+    // redirect to form page:
+    header('Location: ../add/add_drug.php?error=unknown');
 }
 
 ?>
