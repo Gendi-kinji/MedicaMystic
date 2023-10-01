@@ -1,5 +1,23 @@
 <?php
-include 'inc/autoloader.inc.php';
+// Function that generates an image path
+function generateImagePath($value)
+{
+  // Create a new instance of the Drug class
+  $drug = new Drug();
+  $image_row = $drug->getDrugImage($value);
+
+  if (empty($image_row)) {
+    // Return a default tag if image doesn't exist
+    return $_SERVER['DOCUMENT_ROOT'] . '/uploads/default.png';
+  } else {
+    // Extract the first image URL from the array
+    $imageURL = $image_row[0]['image'];
+
+    // Return the image path
+    $output = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . basename($imageURL);
+    return $output;
+  }
+}
 
 // Function that generates an image tag for an image
 function generateImage($value)

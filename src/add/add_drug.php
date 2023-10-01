@@ -70,5 +70,6 @@ require_once '../inc/status_functions.inc.php';
     </div>
 </body>
 <script src="../scripts/drug_image_preview.js"></script>
+<script src="../scripts/status_functions.js"></script>
 
 </html>

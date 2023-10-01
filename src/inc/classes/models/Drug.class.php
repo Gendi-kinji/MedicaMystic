@@ -46,6 +46,8 @@ class Drug extends DatabaseHandler{
     public function getDrugsByCategory($search_value){
         return $this->getData('tbl_drugs', 'drug_category', $search_value);
     }
-
+    public function deleteDrugImage($unique_value){
+        return $this->deleteData('tbl_drug_images','drug_id', $unique_value);
+    }
 }
 ?>

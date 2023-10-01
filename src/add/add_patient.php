@@ -4,6 +4,7 @@ require_once '../inc/status_functions.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +12,16 @@ require_once '../inc/status_functions.inc.php';
     <link rel="stylesheet" href="../styles/form_styles/add_patients.css">
     <title>Patients Form</title>
 </head>
+
 <body>
     <?php
-        print_form_status(); // print the  success/error status of the form
+    print_form_status(); // print the  success/error status of the form
     ?>
     <form action="../tables/editable/manage_patients.php" method="GET">
         <input type="submit" value="View Patients Table">
     </form>
     <form class="patient-form" action="../process/patient.process.php" method="POST">
-    <!-- In the action attribute, the value passed is the php script which outputs the name of the script
+        <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="patient-form-header">
             <h3 id="patient-form-title">Patient Form</h3>
@@ -45,4 +47,7 @@ require_once '../inc/status_functions.inc.php';
         <button type="submit" name="submit" value="submit">Submit</button><br>
     </form>
 </body>
+<script src="../scripts/drug_image_preview.js"></script>
+<script src="../scripts/status_functions.js"></script>
+
 </html>

@@ -1,6 +1,6 @@
 <?php
 include 'inc/autoloader.inc.php';
-require_once 'inc/drug_display.inc.php';
+require_once 'inc/img_url_generator.inc.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -95,8 +95,9 @@ if (isset($_GET['id'])) {
                     </tr>
                     <tr>
                         <th>Actions</th>
-                        <td>
+                        <td class="action-buttons">
                             <a class="btn-update" href="update/update_drug.php?id=<?php echo $id; ?>">Update</a>
+                            <a class="btn-delete" href="delete/drug.delete.php?id=<?php echo $id; ?>">Delete</a>
                         </td>
                     </tr>
                 </table>

@@ -31,3 +31,22 @@ a.btn-links {
   a.btn-new{
     background-color: darkblue;
   }
+  a.btn-dashboard{
+    background-color: darkgreen;
+    margin-bottom: 10px;
+  }
+
+  /*Hover Effects*/
+  a.btn-update:hover{
+    background-color: rgba(6, 202, 39, 0.801);
+  }
+  a.btn-delete:hover{
+    background-color: rgba(211, 50, 5, 0.801);
+  }
+  a.btn-new:hover{
+    background-color: rgba(5, 5, 211, 0.801);
+  }
+  a.btn-dashboard:hover{
+    background-color: rgba(5, 211, 5, 0.801);
+  }
+

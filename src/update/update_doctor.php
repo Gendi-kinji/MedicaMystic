@@ -119,4 +119,6 @@ if(isset($_GET["id"])){
       <button type="submit" name="submit" value="Update">Update</button><br />
     </form><br>
   </body>
+  <script src="../scripts/drug_image_preview.js"></script>
+  <script src="../scripts/status_functions.js"></script>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,17 @@
     <link rel="stylesheet" href="../styles/form_styles/add_pharmacy.css">
     <title>Pharmacy Form</title>
 </head>
+
 <body>
     <?php
-        require_once '../inc/status_functions.inc.php';
-        print_form_status(); // print the  success/error status of the form
+    require_once '../inc/status_functions.inc.php';
+    print_form_status(); // print the  success/error status of the form
     ?>
     <form action="../tables/editable/manage_pharmacy.php" method="GET">
         <input type="submit" value="View Pharmacy Table">
     </form>
     <form class="pharmacy-form" action="../process/pharmacy.process.php" method="POST">
-    <!-- In the action attribute, the value passed is the php script which outputs the name of the script
+        <!-- In the action attribute, the value passed is the php script which outputs the name of the script
     being run-->
         <header id="pharmacy-form-header">
             <h3 id="pharmacy-form-title">Pharmacy Form</h3>
@@ -36,4 +38,7 @@
         <button type="submit" name="submit" value="submit">Submit</button><br>
     </form>
 </body>
+<script src="../scripts/drug_image_preview.js"></script>
+<script src="../scripts/status_functions.js"></script>
+
 </html>

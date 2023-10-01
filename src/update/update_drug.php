@@ -166,4 +166,5 @@ if(isset($_GET["id"])){
     </div>
   </body>
   <script src="../scripts/drug_image_preview.js"></script>
+  <script src="../scripts/status_functions.js"></script>
 </html>
