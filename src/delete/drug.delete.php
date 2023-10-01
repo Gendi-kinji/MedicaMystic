@@ -16,8 +16,9 @@ $drug_image_path = generateImagePath($id);
 
 print_r($drug_image_path);
 
+$unlinked = false
 if (file_exists($drug_image_path)) {
-    unlink($drug_image_path);
+    $unlinked = unlink($drug_image_path);
 }
 
 // Delete the image from the database
