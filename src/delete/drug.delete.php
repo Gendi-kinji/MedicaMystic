@@ -16,7 +16,7 @@ $drug_image_path = generateImagePath($id);
 
 print_r($drug_image_path);
 
-$unlinked = false
+$unlinked = false;
 if (file_exists($drug_image_path)) {
     $unlinked = unlink($drug_image_path);
 }
