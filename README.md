@@ -1,4 +1,4 @@
-# Project: Drug Dispensing tool
+# Project: Drug Dispensing tool - MedicaMystic
 ## Purpose of the project
 This project focuses on developing a web-based drug dispensing tool that allows the management of drugs, as well as the dispensing of drugs to patients.
 
